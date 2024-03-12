@@ -7,20 +7,28 @@
 
 // Then add additional custom code here
 
-.nav {
-    background: $primary;
-    width: 100vw;
+// .nav {
+//     background: $primary;
+//     width: 100vw;
+// }
+
+// .list-group-item {
+//     background-color: $primary;
+//     color: white;
+//     border: none;
+//     :hover {
+//         color: #000000;
+//     }
+// }
+
+// .site-nav {
+//     color: #fff;
+// }
+
+.col-divider-left {
+    border-left: 1px solid #000000;
 }
 
-.list-group-item {
-    background-color: $primary;
-    color: white;
-    border: none;
-    :hover {
-        color: #000000;
-    }
-}
-
-.site-nav {
-    color: #fff;
+.col-divider-right {
+    border-right: 1px solid #000000;
 }

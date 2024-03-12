@@ -11965,20 +11965,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.nav {
-  background: #0d6efd;
-  width: 100vw;
+.col-divider-left {
+  border-left: 1px solid #000000;
 }
 
-.list-group-item {
-  background-color: #0d6efd;
-  color: white;
-  border: none;
-}
-.list-group-item :hover {
-  color: #000000;
-}
-
-.site-nav {
-  color: #fff;
+.col-divider-right {
+  border-right: 1px solid #000000;
 }
