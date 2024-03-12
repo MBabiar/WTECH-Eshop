@@ -1,67 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../css/main.css" />
-  </head>
-  <body id="login_site">
-    <div class="form-container">
-      <h1>Registrácia</h1>
-      <ul>
-        <li class="divider"></li>
-      </ul>
-      <form>
-        <div class="mb-3 row">
-          <label for="inputEmail" class="col-3 col-form-label">Email</label>
-          <div class="col-8">
-            <input
-              type="email"
-              class="form-control"
-              name="inputEmail"
-              id="inputEmail"
-              placeholder="John@example.com"
-            />
-          </div>
+        <link rel="stylesheet" href="../css/main.css" />
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>Register</title>
+    </head>
+
+    <body>
+        <div class="form-container">
+            <h1>Registrácia</h1>
+            <hr />
+            <form>
+                <div class="mb-3 row">
+                    <label for="inputEmail" class="col-4 col-form-label">Email</label>
+                    <div class="col-8">
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="inputEmail"
+                            id="inputEmail"
+                            placeholder="John@example.com" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-4 col-form-label">Heslo</label>
+                    <div class="col-8">
+                        <input
+                            type="password"
+                            class="form-control"
+                            name="inputPassword"
+                            id="inputPassword"
+                            placeholder="Heslo" />
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="inputPassword2" class="col-4 col-form-label">Opakovať Heslo</label>
+                    <div class="col-8">
+                        <input
+                            type="password"
+                            class="form-control"
+                            name="inputPassword2"
+                            id="inputPassword2"
+                            placeholder="Heslo" />
+                    </div>
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary">Zaregistovať sa</button>
         </div>
-        <div class="mb-3 row">
-          <label for="inputPassword" class="col-3 col-form-label">Heslo</label>
-          <div class="col-8">
-            <input
-              type="password"
-              class="form-control"
-              name="inputPassword"
-              id="inputPassword"
-              placeholder="Heslo"
-            />
-          </div>
-        </div>
-      </form>
-      <button type="button" class="btn btn-primary">Login</button>
-      <br />
-      <div class="register-link-container">
-        <a class="register-link" href="#" class="badge bg-primary"
-          >Nová Registrácia</a
-        >
-      </div>
-    </div>
-    <label for="customRange1" class="form-label">Example range</label>
-    <input
-      type="range"
-      class="form-range"
-      id="customRange1"
-      min="0"
-      max="100"
-    />
-    <span id="rangeValue">0</span>
-    <script>
-      const range = document.getElementById("customRange1");
-      const rangeValue = document.getElementById("rangeValue");
-      range.addEventListener("input", () => {
-        rangeValue.textContent = range.value;
-      });
-    </script>
-  </body>
+    </body>
 </html>
