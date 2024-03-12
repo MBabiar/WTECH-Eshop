@@ -1,0 +1,38 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Then add additional custom code here
+
+.site-main-bar {
+    display: flex;
+    background-color: #212025;
+    width: 100%;
+    height: 85px;
+    align-items: center;
+    margin: 0;
+}
+
+.site-logo-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-left: 5vw;
+}
+
+.site-search-bar {
+    display: flex;
+    column-gap: 5px;
+}
+
+.profile-cart-wrapper {
+    display: flex;
+    width: 2em;
+    height: 2em;
+    justify-content: flex-end;
+    margin-right: 5vw;
+    column-gap: 2em;
+}
