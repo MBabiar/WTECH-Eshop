@@ -11965,29 +11965,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.site-logo-wrapper {
-  display: flex;
-  width: 200px;
-  height: 150px;
-  margin-left: 5vw;
+@media (min-width: 710px) {
+  .nav-extra {
+    margin-right: 10vw;
+  }
 }
-
-.site-search-bar {
-  display: flex;
-  -moz-column-gap: 5px;
-       column-gap: 5px;
-}
-
-.profile-cart-wrapper {
-  display: flex;
-  width: 2em;
-  height: 2em;
-  justify-content: flex-end;
-  margin-right: 5vw;
-  -moz-column-gap: 2em;
-       column-gap: 2em;
-}
-
 @media (max-width: 710px) {
   #logo {
     order: 1;
