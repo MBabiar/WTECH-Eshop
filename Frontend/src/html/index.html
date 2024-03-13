@@ -5,38 +5,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <link rel="stylesheet" href="../css/main.css" />
+        <link rel="stylesheet" href="../css/main_bar.css" />
+        <link rel="stylesheet" href="../css/index.css" />
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
         <title>Document</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+        <div class="row site-main-bar">
+            <div class="col site-logo-wrapper">
+                <img src="../img/MainBar_Logo.png" class="img-fluid" alt="" />
+            </div>
+            <form class="col-4 site-search-bar">
+                <input class="form-control" type="text" placeholder="Search" />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            <div class="col profile-cart-wrapper">
+                <img src="../img/profile_placeholder.png" class="img-fluid" alt="" />
+                <img src="../img/shopping_cart.png" class="img-fluid" alt="" />
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-sm">
+            <div class="container">
                 <button
-                    class="navbar-toggler"
+                    class="navbar-toggler d-lg-none"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
                     aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0 list-group">
+                        <div class="vr"></div>
+                        <li class="list-group-item">
+                            <a class="nav-link site-nav" href="#">Tričká</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
+                        <div class="vr"></div>
+                        <li class="list-group-item">
+                            <a class="nav-link site-nav" href="#">Mikiny</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                        <div class="vr"></div>
+                        <li class="list-group-item">
+                            <a class="nav-link site-nav" href="#">Čapice</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
+                        <div class="vr"></div>
                     </ul>
                 </div>
             </div>
