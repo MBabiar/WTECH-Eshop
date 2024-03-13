@@ -8871,7 +8871,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius) !important;
 }
 
-.rounded-0 {
+.rounded-0, .list-group-item {
   border-radius: 0 !important;
 }
 
@@ -11965,10 +11965,34 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.col-divider-left {
-  border-left: 1px solid #000000;
+.nav {
+  background: #0d6efd;
 }
 
-.col-divider-right {
-  border-right: 1px solid #000000;
+.list-group-item {
+  background-color: #0d6efd;
+  border: none;
+  border-right: 2px black solid;
+}
+
+.list-group-item-start {
+  border-left: 2px black solid;
+}
+
+.nav-link-text {
+  color: white;
+}
+.nav-link-text :hover {
+  color: black;
+}
+
+@media (max-width: 575.9px) {
+  .list-group-item {
+    border-right: none;
+    border-bottom: 2px black solid;
+  }
+  .list-group-item-start {
+    border-left: none;
+    border-top: 2px black solid;
+  }
 }

@@ -13,32 +13,72 @@
 
     <body>
         <!-- Main Bar -->
-        <div class="container-fluid bg-dark">
-            <div class="row align-items-center">
-                <div class="col site-logo-wrapper">
+        <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
+            <div class="container-fluid">
+                <a class="navbar-brand">
                     <img src="../images/MainBar_Logo.png" class="img-fluid" alt="" />
-                </div>
-                <form class="col-4 site-search-bar">
-                    <input class="form-control" type="text" placeholder="Search" />
-                    <button class="btn btn-primary" type="submit">Search</button>
+                </a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <div class="col profile-cart-wrapper">
-                    <img src="../images/profile_placeholder.png" class="img-fluid" alt="" />
-                    <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
-                </div>
+                <nav class="navbar navbar-expand-sm" aria-label="Main-Bar">
+                    <div class="container">
+                        <button
+                            class="navbar-toggler d-lg-none bg-white"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapsibleProfileCart"
+                            aria-controls="collapsibleProfileCart"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div
+                            class="collapse navbar-collapse justify-content-center"
+                            id="collapsibleProfileCart">
+                            <ul class="navbar-nav mt-2 mt-lg-0 list-group">
+                                <div class="vr"></div>
+                                <li class="list-group-item bg-dark">
+                                    <img src="../images/profile_placeholder.png" class="img-fluid" alt="" />
+                                </li>
+                                <div class="vr"></div>
+                                <li class="list-group-item bg-dark">
+                                    <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
+                                </li>
+                                <div class="vr"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
-        </div>
+        </nav>
+
         <!-- Navigation -->
-        <nav class="nav justify-content-center bg-primary">
-            <div class="row justify-content-center align-items-center g-3">
-                <div class="col col-divider-left">
-                    <a class="nav-link text-white" href="#">Tričká</a>
-                </div>
-                <div class="col col-divider-left">
-                    <a class="nav-link text-white" href="#">Mikiny</a>
-                </div>
-                <div class="col col-divider-left col-divider-right">
-                    <a class="nav-link text-white" href="#">Čiapky</a>
+        <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main-Navigation">
+            <div class="container">
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-0 list-group">
+                        <li class="list-group-item list-group-item-start">
+                            <a class="nav-link nav-link-text" href="#">Tričká</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="nav-link nav-link-text" href="#">Mikiny</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a class="nav-link nav-link-text" href="#">Čapice</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

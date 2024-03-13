@@ -7,28 +7,35 @@
 
 // Then add additional custom code here
 
-// .nav {
-//     background: $primary;
-//     width: 100vw;
-// }
-
-// .list-group-item {
-//     background-color: $primary;
-//     color: white;
-//     border: none;
-//     :hover {
-//         color: #000000;
-//     }
-// }
-
-// .site-nav {
-//     color: #fff;
-// }
-
-.col-divider-left {
-    border-left: 1px solid #000000;
+.nav {
+    background: $primary;
 }
 
-.col-divider-right {
-    border-right: 1px solid #000000;
+.list-group-item {
+    background-color: $primary;
+    border: none;
+    border-right: 2px black solid;
+    @extend .rounded-0;
+}
+
+.list-group-item-start {
+    border-left: 2px black solid;
+}
+
+.nav-link-text {
+    color: white;
+    :hover {
+        color: black;
+    }
+}
+
+@media (max-width: 575.9px) {
+    .list-group-item {
+        border-right: none;
+        border-bottom: 2px black solid;
+    }
+    .list-group-item-start {
+        border-left: none;
+        border-top: 2px black solid;
+    }
 }

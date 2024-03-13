@@ -12,49 +12,13 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="row site-main-bar">
-            <div class="col site-logo-wrapper">
-                <img src="../img/MainBar_Logo.png" class="img-fluid" alt="" />
-            </div>
-            <form class="col-4 site-search-bar">
-                <input class="form-control" type="text" placeholder="Search" />
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-            <div class="col profile-cart-wrapper">
-                <img src="../img/profile_placeholder.png" class="img-fluid" alt="" />
-                <img src="../img/shopping_cart.png" class="img-fluid" alt="" />
-            </div>
-        </div>
-
-        <nav class="navbar navbar-expand-sm">
-            <div class="container">
-                <button
-                    class="navbar-toggler d-lg-none"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapsibleNavId"
-                    aria-controls="collapsibleNavId"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0 list-group">
-                        <div class="vr"></div>
-                        <li class="list-group-item">
-                            <a class="nav-link site-nav" href="#">Tričká</a>
-                        </li>
-                        <div class="vr"></div>
-                        <li class="list-group-item">
-                            <a class="nav-link site-nav" href="#">Mikiny</a>
-                        </li>
-                        <div class="vr"></div>
-                        <li class="list-group-item">
-                            <a class="nav-link site-nav" href="#">Čapice</a>
-                        </li>
-                        <div class="vr"></div>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Navbar</a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </nav>
     </body>
