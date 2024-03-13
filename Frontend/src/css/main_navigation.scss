@@ -31,11 +31,14 @@
 
 @media (max-width: 575.9px) {
     .list-group-item {
+        width: 35%;
+        align-self: flex-end;
         border-right: none;
-        border-bottom: 2px black solid;
+        border-bottom: 1px black solid;
+        text-align: end;
     }
     .list-group-item-start {
         border-left: none;
-        border-top: 2px black solid;
+        border-top: 1px black solid;
     }
 }

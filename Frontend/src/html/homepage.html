@@ -15,40 +15,17 @@
         <!-- Main Bar -->
         <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
             <div class="container-fluid">
-                <a class="navbar-brand">
+                <a id="logo" class="navbar-brand">
                     <img src="../images/MainBar_Logo.png" class="img-fluid" alt="" />
                 </a>
-                <form class="d-flex">
+                <form id="search" class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <nav class="navbar navbar-expand-sm" aria-label="Main-Bar">
+                <nav id="prof" class="navbar navbar-expand-sm" aria-label="Main-Bar">
                     <div class="container">
-                        <button
-                            class="navbar-toggler d-lg-none bg-white"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapsibleProfileCart"
-                            aria-controls="collapsibleProfileCart"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div
-                            class="collapse navbar-collapse justify-content-center"
-                            id="collapsibleProfileCart">
-                            <ul class="navbar-nav mt-2 mt-lg-0 list-group">
-                                <div class="vr"></div>
-                                <li class="list-group-item bg-dark">
-                                    <img src="../images/profile_placeholder.png" class="img-fluid" alt="" />
-                                </li>
-                                <div class="vr"></div>
-                                <li class="list-group-item bg-dark">
-                                    <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
-                                </li>
-                                <div class="vr"></div>
-                            </ul>
-                        </div>
+                        <img src="../images/profile_placeholder.png" class="img-fluid" alt="" />
+                        <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
                     </div>
                 </nav>
             </div>
@@ -56,7 +33,7 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main-Navigation">
-            <div class="container">
+            <div class="container justify-content-end">
                 <button
                     class="navbar-toggler d-lg-none"
                     type="button"

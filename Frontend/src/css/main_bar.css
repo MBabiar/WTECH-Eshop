@@ -11987,3 +11987,22 @@ textarea.form-control-lg {
   -moz-column-gap: 2em;
        column-gap: 2em;
 }
+
+@media (max-width: 710px) {
+  #logo {
+    order: 1;
+  }
+  #prof {
+    order: 2;
+  }
+  #search {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    justify-self: center;
+    justify-items: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+  }
+}
