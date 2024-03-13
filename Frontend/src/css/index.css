@@ -1,6 +1,15 @@
-.nav {
+.navbar{
     background: #3da1ff;
     width: 100vw;
+}
+
+.nav-item{
+    background-color: #3da1ff;
+    color: white;
+    border: none;
+    :hover {
+        color: #000000;
+    }
 }
 
 .list-group-item {
@@ -10,8 +19,4 @@
     :hover {
         color: #000000;
     }
-}
-
-.navbar-toggler{
-    justify-content: center;
 }
