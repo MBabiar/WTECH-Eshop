@@ -30,10 +30,17 @@
     column-gap: 3vw;
 }
 
+#logo {
+    margin-left: 10vw;
+}
+
 @include media-breakpoint-down(lg) {
     .nav-extra {
         margin-right: 5vw;
         column-gap: 3vw;
+    }
+    #logo {
+        margin-left: 0vw;
     }
 }
 

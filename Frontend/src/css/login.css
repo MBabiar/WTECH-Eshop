@@ -11971,13 +11971,19 @@ textarea.form-control-lg {
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 35vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20vh;
   padding: 5vh 5vh;
+  width: 400px;
 }
 
 .register-link-container {
   text-align: left;
+}
+
+@media screen and (max-width: 400px) {
+  .form-container {
+    width: 350px;
+  }
 }
