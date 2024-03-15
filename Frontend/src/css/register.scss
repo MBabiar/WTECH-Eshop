@@ -7,6 +7,12 @@
 
 // Then add additional custom code here
 
+.img-container {
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
 .form-container {
     background-color: #fff;
     border: 1px solid #e0e0e0;
@@ -15,7 +21,6 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20vh;
     padding: 5vh 5vh;
     width: 400px;
 }
@@ -28,7 +33,11 @@
     .form-container {
         width: 300px;
     }
-    .mb-3.row > .col-4,
+    .mb-3.row > .col-4 {
+        text-align: left;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
     .mb-3.row > .col-8 {
         flex: 0 0 100%;
         max-width: 100%;
