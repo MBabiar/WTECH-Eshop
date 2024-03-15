@@ -11982,8 +11982,13 @@ textarea.form-control-lg {
   text-align: left;
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 575.98px) {
   .form-container {
-    width: 350px;
+    width: 300px;
+  }
+  .mb-3.row > .col-3,
+  .mb-3.row > .col-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
