@@ -12006,8 +12006,19 @@ textarea.form-control-lg {
   color: gray;
 }
 
+.card {
+  border-color: #e9ecef;
+}
+
 .product-column {
   max-width: 50%;
+}
+
+.product-size-button {
+  border-radius: 1px;
+  border-color: #0d6efd;
+  width: 10%;
+  height: 10%;
 }
 
 @media (max-width: 1199.98px) {

@@ -48,8 +48,19 @@
     color: gray;
 }
 
+.card {
+    border-color: $gray-200;
+}
+
 .product-column {
     max-width: 50%;
+}
+
+.product-size-button {
+    border-radius: 1px;
+    border-color: $primary;
+    width: 10%;
+    height: 10%;
 }
 
 @include media-breakpoint-down(xl) {
