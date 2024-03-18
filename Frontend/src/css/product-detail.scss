@@ -1,0 +1,109 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Then add additional custom code here
+
+.list-group-item {
+    background-color: $primary;
+    border: none;
+    border-right: 2px black solid;
+    @extend .rounded-0;
+}
+
+.list-group-item-start {
+    border-left: 2px black solid;
+}
+
+.nav-link-text {
+    color: white;
+    :hover {
+        color: black;
+    }
+}
+
+.nav-extra {
+    margin-right: 10vw;
+    column-gap: 3vw;
+}
+
+#logo {
+    margin-left: 10vw;
+}
+
+#footer-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left-footer {
+    text-align: right;
+}
+
+.footer {
+    color: gray;
+}
+
+@include media-breakpoint-down(lg) {
+    .nav-extra {
+        margin-right: 5vw;
+        column-gap: 3vw;
+    }
+    #logo {
+        margin-left: 0vw;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    #logo {
+        order: 1;
+    }
+    #prof {
+        order: 2;
+    }
+    #search {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        justify-self: center;
+        justify-items: center;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+    }
+    .left-footer {
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .footer {
+        text-align: center;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    #logo {
+        width: 50%;
+    }
+    #prof {
+        img {
+            width: 80%;
+            height: auto;
+        }
+    }
+
+    .list-group-item {
+        width: 35%;
+        align-self: flex-end;
+        border-right: none;
+        border-bottom: 1px black solid;
+        text-align: end;
+    }
+    .list-group-item-start {
+        border-left: none;
+        border-top: 1px black solid;
+    }
+}
