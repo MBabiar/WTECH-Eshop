@@ -48,6 +48,16 @@
     color: gray;
 }
 
+.product-column {
+    max-width: 50%;
+}
+
+@include media-breakpoint-down(xl) {
+    .product-column {
+        max-width: 100%;
+    }
+}
+
 @include media-breakpoint-down(lg) {
     .nav-extra {
         margin-right: 5vw;
@@ -81,6 +91,10 @@
     }
     .footer {
         text-align: center;
+    }
+
+    #product-header-name {
+        font-size: calc(1rem + 1vw);
     }
 }
 
