@@ -11992,6 +11992,26 @@ textarea.form-control-lg {
   margin-left: 10vw;
 }
 
+#products-nav-1 {
+  background-color: rgb(193, 193, 193);
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  padding-left: 11vw;
+}
+
+label {
+  margin-left: 0.5vw;
+}
+
+input {
+  width: 8vw;
+}
+
+#price-min,
+#price-max {
+  width: 10vw;
+}
+
 #footer-img {
   display: block;
   margin-left: auto;
@@ -12014,6 +12034,9 @@ textarea.form-control-lg {
   }
   #logo {
     margin-left: 0vw;
+  }
+  #products-nav-1 {
+    padding-left: 1vw;
   }
 }
 @media (max-width: 767.98px) {
