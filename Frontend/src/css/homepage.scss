@@ -7,17 +7,27 @@
 
 // Then add additional custom code here
 
+// Main Bar
+.prof-cart-link {
+    @extend .row;
+    margin-right: 10vw;
+    column-gap: 3vw;
+}
+.main-logo {
+    @extend .navbar-brand;
+    margin-left: 10vw;
+}
+
+// Navigation Bar
 .list-group-item {
     background-color: $primary;
     border: none;
     border-right: 2px black solid;
     @extend .rounded-0;
 }
-
 .list-group-item-start {
     border-left: 2px black solid;
 }
-
 .nav-link-text {
     color: white;
     :hover {
@@ -25,44 +35,80 @@
     }
 }
 
-.nav-extra {
-    margin-right: 10vw;
-    column-gap: 3vw;
+// Footer
+.footer {
+    @extend .mt-5;
+    color: gray;
 }
-
-#logo {
-    margin-left: 10vw;
+.left-footer {
+    @extend .col-md-6, .mb-md-0;
+    text-align: right;
 }
-
-#footer-img {
+.footer-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
-.left-footer {
-    text-align: right;
+.card {
+    border-color: $gray-200;
 }
 
-.footer {
-    color: gray;
+// Product Detail
+
+.product-size-button {
+    border-radius: 1px;
+    border-color: $primary;
+    width: 10%;
+    height: 10%;
+    &:hover {
+        background-color: $primary;
+    }
+    &:active,
+    &:focus {
+        background-color: $primary;
+    }
+}
+.col-product-price {
+    @extend .col-4;
+    width: 180px;
+}
+.col-piece-add-to-cart {
+    @extend .col-8, .d-flex, .justify-content-center;
+}
+
+input[type='number'] {
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inc-dec-button {
+    @extend .btn, .btn-primary, .btn-sm, .rounded-0;
 }
 
 @include media-breakpoint-down(lg) {
-    .nav-extra {
+    .prof-cart-link {
         margin-right: 5vw;
         column-gap: 3vw;
     }
-    #logo {
+    .main-logo {
         margin-left: 0vw;
     }
 }
 
 @include media-breakpoint-down(md) {
-    #logo {
+    .main-logo {
         order: 1;
     }
-    #prof {
+    .prof-cart-link {
         order: 2;
     }
     #search {
@@ -82,13 +128,21 @@
     .footer {
         text-align: center;
     }
+
+    #product-header-name {
+        font-size: calc(1rem + 1vw);
+    }
+
+    .col-piece-add-to-cart {
+        width: 100%;
+    }
 }
 
 @include media-breakpoint-down(sm) {
-    #logo {
+    .main-logo {
         width: 50%;
     }
-    #prof {
+    .prof-cart-link {
         img {
             width: 80%;
             height: auto;
@@ -105,5 +159,9 @@
     .list-group-item-start {
         border-left: none;
         border-top: 1px black solid;
+    }
+
+    .product-size-button {
+        width: 50px;
     }
 }

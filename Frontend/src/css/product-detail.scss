@@ -7,55 +7,57 @@
 
 // Then add additional custom code here
 
+// Main Bar
+.prof-cart-link {
+    @extend .row;
+    margin-right: 10vw;
+    column-gap: 3vw;
+}
+.main-logo {
+    @extend .navbar-brand;
+    margin-left: 10vw;
+}
+
+// Navigation Bar
 .list-group-item {
     background-color: $primary;
     border: none;
     border-right: 2px black solid;
     @extend .rounded-0;
 }
-
 .list-group-item-start {
     border-left: 2px black solid;
 }
-
-.nav-link-text {
+.nav-link-product-type {
+    @extend .nav-link;
     color: white;
     :hover {
         color: black;
     }
 }
 
-.nav-extra {
-    margin-right: 10vw;
-    column-gap: 3vw;
+// Footer
+.footer {
+    @extend .mt-5;
+    color: gray;
 }
-
-#logo {
-    margin-left: 10vw;
+.left-footer {
+    @extend .col-md-6, .mb-md-0;
+    text-align: right;
 }
-
-#footer-img {
+.footer-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-
-.left-footer {
-    text-align: right;
-}
-
-.footer {
-    color: gray;
-}
-
 .card {
     border-color: $gray-200;
 }
 
+// Product Detail
 .product-column {
     max-width: 50%;
 }
-
 .product-size-button {
     border-radius: 1px;
     border-color: $primary;
@@ -69,7 +71,6 @@
         background-color: $primary;
     }
 }
-
 .col-product-price {
     @extend .col-4;
     width: 180px;
@@ -102,30 +103,24 @@ input[type='number'] {
     }
 }
 
-@include media-breakpoint-down(xl) {
-    .product-column {
-        max-width: 100%;
-    }
-}
-
 @include media-breakpoint-down(lg) {
-    .nav-extra {
+    .prof-cart-link {
         margin-right: 5vw;
         column-gap: 3vw;
     }
-    #logo {
+    .main-logo {
         margin-left: 0vw;
     }
 }
 
 @include media-breakpoint-down(md) {
-    #logo {
+    .main-logo {
         order: 1;
     }
-    #prof {
+    .prof-cart-link {
         order: 2;
     }
-    #search {
+    .search {
         order: 3;
         width: 100%;
         justify-content: center;
@@ -143,7 +138,7 @@ input[type='number'] {
         text-align: center;
     }
 
-    #product-header-name {
+    .product-header-name {
         font-size: calc(1rem + 1vw);
     }
 
@@ -153,10 +148,10 @@ input[type='number'] {
 }
 
 @include media-breakpoint-down(sm) {
-    #logo {
+    .main-logo {
         width: 50%;
     }
-    #prof {
+    .prof-cart-link {
         img {
             width: 80%;
             height: auto;
