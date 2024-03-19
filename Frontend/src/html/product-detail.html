@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="../css/product-detail.css" />
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="../css/product-detail.css" />
 
         <title>Document</title>
     </head>
@@ -31,7 +31,7 @@
             </div>
         </nav>
 
-        <!-- Navigation -->
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main-Navigation">
             <div class="container justify-content-end">
                 <button
@@ -66,38 +66,57 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col product-column">
                     <div class="card">
-                        <img class="card-img-top" src="../images/hoddie.jfif" alt="Title" />
+                        <img class="card-img-top" src="../images/tricko-bleach-1.png" alt="Title" />
                     </div>
                     <div class="row">
                         <div class="col-3">
                             <div class="card">
-                                <img src="../images/hoddie.jfif" alt="Title" />
+                                <img src="../images/tricko-bleach-1.png" alt="Title" />
                             </div>
                         </div>
                         <div class="col-3">
                             <div class="card">
-                                <img src="../images/hoddie.jfif" alt="Title" />
+                                <img src="../images/tricko-bleach-1.png" alt="Title" />
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col product-column bg-light">
-                    <div class="container">
+                    <div class="container-flex">
                         <p>
                             Bavlněná mikina, kterou ocení každý milovník anime Black Bulls. Atraktivní potisk
                             s motivem Black Bulls.
                         </p>
                         <p>Dlouhý rukáv, černé provedení, oboustranný potisk, dvojité prošití, 80% bavlna</p>
                     </div>
-                    <div class="container">Velkost</div>
-                    <div class="container">Kosik</div>
+                    <br />
+                    <div class="container-flex">
+                        <div class="row">
+                            <p class="col-3" style="width: fit-content">Vyberte Veľkosť:</p>
+                            <button type="button" class="col-2 mx-2 btn product-size-button">S</button>
+                            <button type="button" class="col-2 mx-2 btn product-size-button">M</button>
+                            <button type="button" class="col-2 mx-2 btn product-size-button">L</button>
+                            <button type="button" class="col-2 mx-2 btn product-size-button">XL</button>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <p>Skladom (>5ks)</p>
+                        <div class="row">
+                            <h1 class="col-product-price">10€</h1>
+                            <div class="col-piece-add-to-cart">
+                                <input type="number" class="col-3 mx-3" min="1" />
+                                <button type="button" class="col btn btn-primary">Pridať do košíka</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
-        <section class="footer">
+        <section class="footer mt-5">
             <footer class="bg-body-tertiary">
                 <div class="bg-dark">
                     <div class="container p-4">

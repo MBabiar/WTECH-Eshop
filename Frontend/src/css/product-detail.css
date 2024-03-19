@@ -856,7 +856,7 @@ progress {
   width: 25%;
 }
 
-.col-4 {
+.col-4, .col-product-price {
   flex: 0 0 auto;
   width: 33.33333333%;
 }
@@ -876,7 +876,7 @@ progress {
   width: 58.33333333%;
 }
 
-.col-8 {
+.col-8, .col-piece-add-to-cart {
   flex: 0 0 auto;
   width: 66.66666667%;
 }
@@ -7283,7 +7283,7 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex {
+.d-flex, .col-piece-add-to-cart {
   display: flex !important;
 }
 
@@ -7705,7 +7705,7 @@ textarea.form-control-lg {
   justify-content: flex-end !important;
 }
 
-.justify-content-center {
+.justify-content-center, .col-piece-add-to-cart {
   justify-content: center !important;
 }
 
@@ -12006,8 +12006,29 @@ textarea.form-control-lg {
   color: gray;
 }
 
+.card {
+  border-color: #e9ecef;
+}
+
 .product-column {
   max-width: 50%;
+}
+
+.product-size-button {
+  border-radius: 1px;
+  border-color: #0d6efd;
+  width: 10%;
+  height: 10%;
+}
+.product-size-button:hover {
+  background-color: #0d6efd;
+}
+.product-size-button:active, .product-size-button:focus {
+  background-color: #0d6efd;
+}
+
+.col-product-price {
+  width: 180px;
 }
 
 @media (max-width: 1199.98px) {
@@ -12052,6 +12073,10 @@ textarea.form-control-lg {
   #product-header-name {
     font-size: calc(1rem + 1vw);
   }
+  .col-piece-add-to-cart {
+    width: 100%;
+    height: 50px;
+  }
 }
 @media (max-width: 575.98px) {
   #logo {
@@ -12071,5 +12096,9 @@ textarea.form-control-lg {
   .list-group-item-start {
     border-left: none;
     border-top: 1px black solid;
+  }
+  .product-size-button {
+    width: 50px;
+    height: 50px;
   }
 }
