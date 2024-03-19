@@ -7283,7 +7283,7 @@ textarea.form-control-lg {
   display: table-cell !important;
 }
 
-.d-flex, .col-piece-add-to-cart, .col-product-price {
+.d-flex, .col-piece-add-to-cart {
   display: flex !important;
 }
 
@@ -7705,7 +7705,7 @@ textarea.form-control-lg {
   justify-content: flex-end !important;
 }
 
-.justify-content-center, .col-piece-add-to-cart, .col-product-price {
+.justify-content-center, .col-piece-add-to-cart {
   justify-content: center !important;
 }
 

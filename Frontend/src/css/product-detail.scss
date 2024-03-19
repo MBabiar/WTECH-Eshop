@@ -71,7 +71,7 @@
 }
 
 .col-product-price {
-    @extend .col-4, .d-flex, .justify-content-center;
+    @extend .col-4;
     width: 180px;
 }
 .col-piece-add-to-cart {
