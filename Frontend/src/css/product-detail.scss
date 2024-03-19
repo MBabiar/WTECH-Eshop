@@ -78,11 +78,18 @@
     @extend .col-8, .d-flex, .justify-content-center;
 }
 
-.inc-button {
-    @extend .btn, .btn-primary;
-}
-.dec-button {
-    @extend .btn, .btn-primary;
+input[type='number'] {
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .inc-dec-button {

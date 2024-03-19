@@ -107,11 +107,13 @@
                             <h1 class="col-product-price">10€</h1>
                             <div class="col-piece-add-to-cart">
                                 <input
-                                    type="text"
+                                    type="number"
                                     id="amount"
-                                    class="col-3 no-spinners text-center"
+                                    class="col-3 no-spinner text-center"
                                     value="1"
-                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                                    min="1"
+                                    data-min="1"
+                                    required />
                                 <div class="container col-1">
                                     <div class="row">
                                         <button type="button" class="inc-dec-button">↑</button>
