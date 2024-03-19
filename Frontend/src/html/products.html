@@ -61,18 +61,18 @@
             </div>
         </nav>
 
-        <nav id="products-nav">
-            <div class="row align-items-center" id="products-nav-1">
-                <div class="col-6 row">
+        <div class="container-fluid">
+            <div class="row align-items-center mt-1 products-nav">
+                <div class="col-5 row">
                     <div>
-                        <label>Cena</label>
+                        <label>Cena:</label>
                         <label for="Od">Od</label>
                         <input type="number" id="Od" name="Od" />
                         <label for="Do">Do</label>
                         <input type="number" id="Do" name="Do" />
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <div class="dropdown">
                         <button
                             class="btn btn-secondary dropdown-toggle"
@@ -88,16 +88,31 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-3">.col-md-3</div>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <p>Veľkosť:</p>
+                <div class="col-3">
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Farba
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Čierna</a></li>
+                            <li><a class="dropdown-item" href="#">Biela</a></li>
+                            <li><a class="dropdown-item" href="#">Červená</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-4">.col-md-6</div>
-                <div class="col-4">.col-md-3</div>
             </div>
-        </nav>
+            <div class="row products-nav mt-1 mb-1 justify-content-center">
+                <button type="button" name="" id="" class="button-order">Top</button>
+
+                <button type="button" name="" id="najlacnejsie" class="button-order">Najľacnejšie</button>
+
+                <button type="button" name="" id="najdrahsie" class="button-order">Najdahšie</button>
+            </div>
+        </div>
 
         <!-- Footer -->
         <section class="footer">

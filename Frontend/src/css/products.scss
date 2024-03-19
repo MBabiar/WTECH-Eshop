@@ -34,11 +34,12 @@
     margin-left: 10vw;
 }
 
-#products-nav-1 {
+.products-nav {
     background-color: rgb(193, 193, 193);
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
     padding-left: 11vw;
+    padding-right: 11vw;
 }
 
 label {
@@ -52,6 +53,18 @@ input {
 #price-min,
 #price-max {
     width: 10vw;
+}
+
+.button-order {
+    @extend .col-3, .btn, .btn-primary, .mx-4;
+    width: 25%;
+}
+#najlacnejsie {
+    justify-self: center;
+}
+
+#najdrahsie {
+    justify-self: end;
 }
 
 #footer-img {
@@ -105,6 +118,9 @@ input {
     .footer {
         text-align: center;
     }
+    .button-order {
+        width: 50%;
+    }
 }
 
 @include media-breakpoint-down(sm) {
@@ -128,5 +144,8 @@ input {
     .list-group-item-start {
         border-left: none;
         border-top: 1px black solid;
+    }
+    .button-order {
+        width: 75%;
     }
 }
