@@ -2448,7 +2448,7 @@ textarea.form-control-lg {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-.btn-check[disabled] + .btn, .btn-check:disabled + .btn {
+.btn-check[disabled] + .btn, .btn-check[disabled] + .inc-dec-button, .btn-check[disabled] + .dec-button, .btn-check[disabled] + .inc-button, .btn-check:disabled + .btn, .btn-check:disabled + .inc-dec-button, .btn-check:disabled + .dec-button, .btn-check:disabled + .inc-button {
   pointer-events: none;
   filter: none;
   opacity: 0.65;
@@ -2677,11 +2677,11 @@ textarea.form-control-lg {
 .input-group > .form-floating:focus-within {
   z-index: 5;
 }
-.input-group .btn {
+.input-group .btn, .input-group .inc-dec-button, .input-group .dec-button, .input-group .inc-button {
   position: relative;
   z-index: 2;
 }
-.input-group .btn:focus {
+.input-group .btn:focus, .input-group .inc-dec-button:focus, .input-group .dec-button:focus, .input-group .inc-button:focus {
   z-index: 5;
 }
 
@@ -2703,7 +2703,10 @@ textarea.form-control-lg {
 .input-group-lg > .form-control,
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
-.input-group-lg > .btn {
+.input-group-lg > .btn,
+.input-group-lg > .inc-dec-button,
+.input-group-lg > .dec-button,
+.input-group-lg > .inc-button {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: var(--bs-border-radius-lg);
@@ -2712,7 +2715,10 @@ textarea.form-control-lg {
 .input-group-sm > .form-control,
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
-.input-group-sm > .btn {
+.input-group-sm > .btn,
+.input-group-sm > .inc-dec-button,
+.input-group-sm > .dec-button,
+.input-group-sm > .inc-button {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: var(--bs-border-radius-sm);
@@ -2928,7 +2934,7 @@ textarea.form-control-lg {
   z-index: 4;
 }
 
-.btn {
+.btn, .inc-dec-button, .dec-button, .inc-button {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
@@ -2964,44 +2970,44 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn {
+  .btn, .inc-dec-button, .dec-button, .inc-button {
     transition: none;
   }
 }
-.btn:hover {
+.btn:hover, .inc-dec-button:hover, .dec-button:hover, .inc-button:hover {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
 }
-.btn-check + .btn:hover {
+.btn-check + .btn:hover, .btn-check + .inc-dec-button:hover, .btn-check + .dec-button:hover, .btn-check + .inc-button:hover {
   color: var(--bs-btn-color);
   background-color: var(--bs-btn-bg);
   border-color: var(--bs-btn-border-color);
 }
-.btn:focus-visible {
+.btn:focus-visible, .inc-dec-button:focus-visible, .dec-button:focus-visible, .inc-button:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
   outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn-check:focus-visible + .btn {
+.btn-check:focus-visible + .btn, .btn-check:focus-visible + .inc-dec-button, .btn-check:focus-visible + .dec-button, .btn-check:focus-visible + .inc-button {
   border-color: var(--bs-btn-hover-border-color);
   outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+.btn-check:checked + .btn, .btn-check:checked + .inc-dec-button, .btn-check:checked + .dec-button, .btn-check:checked + .inc-button, :not(.btn-check) + .btn:active, :not(.btn-check) + .inc-dec-button:active, :not(.btn-check) + .dec-button:active, :not(.btn-check) + .inc-button:active, .btn:first-child:active, .inc-dec-button:first-child:active, .dec-button:first-child:active, .inc-button:first-child:active, .btn.active, .active.inc-dec-button, .active.dec-button, .active.inc-button, .btn.show, .show.inc-dec-button, .show.dec-button, .show.inc-button {
   color: var(--bs-btn-active-color);
   background-color: var(--bs-btn-active-bg);
   border-color: var(--bs-btn-active-border-color);
 }
-.btn-check:checked + .btn:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .btn:first-child:active:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible {
+.btn-check:checked + .btn:focus-visible, .btn-check:checked + .inc-dec-button:focus-visible, .btn-check:checked + .dec-button:focus-visible, .btn-check:checked + .inc-button:focus-visible, :not(.btn-check) + .btn:active:focus-visible, :not(.btn-check) + .inc-dec-button:active:focus-visible, :not(.btn-check) + .dec-button:active:focus-visible, :not(.btn-check) + .inc-button:active:focus-visible, .btn:first-child:active:focus-visible, .inc-dec-button:first-child:active:focus-visible, .dec-button:first-child:active:focus-visible, .inc-button:first-child:active:focus-visible, .btn.active:focus-visible, .active.inc-dec-button:focus-visible, .active.dec-button:focus-visible, .active.inc-button:focus-visible, .btn.show:focus-visible, .show.inc-dec-button:focus-visible, .show.dec-button:focus-visible, .show.inc-button:focus-visible {
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn-check:checked:focus-visible + .btn {
+.btn-check:checked:focus-visible + .btn, .btn-check:checked:focus-visible + .inc-dec-button, .btn-check:checked:focus-visible + .dec-button, .btn-check:checked:focus-visible + .inc-button {
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+.btn:disabled, .inc-dec-button:disabled, .dec-button:disabled, .inc-button:disabled, .btn.disabled, .disabled.inc-dec-button, .disabled.dec-button, .disabled.inc-button, fieldset:disabled .btn, fieldset:disabled .inc-dec-button, fieldset:disabled .dec-button, fieldset:disabled .inc-button {
   color: var(--bs-btn-disabled-color);
   pointer-events: none;
   background-color: var(--bs-btn-disabled-bg);
@@ -3009,7 +3015,7 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary {
+.btn-primary, .inc-dec-button, .dec-button, .inc-button {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
   --bs-btn-border-color: #0d6efd;
@@ -3303,14 +3309,14 @@ textarea.form-control-lg {
   color: var(--bs-btn-hover-color);
 }
 
-.btn-lg, .btn-group-lg > .btn {
+.btn-lg, .btn-group-lg > .btn, .btn-group-lg > .inc-dec-button, .btn-group-lg > .dec-button, .btn-group-lg > .inc-button {
   --bs-btn-padding-y: 0.5rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1.25rem;
   --bs-btn-border-radius: var(--bs-border-radius-lg);
 }
 
-.btn-sm, .btn-group-sm > .btn {
+.btn-sm, .inc-dec-button, .btn-group-sm > .btn, .btn-group-sm > .inc-dec-button, .btn-group-sm > .dec-button, .btn-group-sm > .inc-button {
   --bs-btn-padding-y: 0.25rem;
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.875rem;
@@ -3677,23 +3683,59 @@ textarea.form-control-lg {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn,
-.btn-group-vertical > .btn {
+.btn-group > .btn, .btn-group > .inc-dec-button, .btn-group > .dec-button, .btn-group > .inc-button,
+.btn-group-vertical > .btn,
+.btn-group-vertical > .inc-dec-button,
+.btn-group-vertical > .dec-button,
+.btn-group-vertical > .inc-button {
   position: relative;
   flex: 1 1 auto;
 }
-.btn-group > .btn-check:checked + .btn,
+.btn-group > .btn-check:checked + .btn, .btn-group > .btn-check:checked + .inc-dec-button, .btn-group > .btn-check:checked + .dec-button, .btn-group > .btn-check:checked + .inc-button,
 .btn-group > .btn-check:focus + .btn,
+.btn-group > .btn-check:focus + .inc-dec-button,
+.btn-group > .btn-check:focus + .dec-button,
+.btn-group > .btn-check:focus + .inc-button,
 .btn-group > .btn:hover,
+.btn-group > .inc-dec-button:hover,
+.btn-group > .dec-button:hover,
+.btn-group > .inc-button:hover,
 .btn-group > .btn:focus,
+.btn-group > .inc-dec-button:focus,
+.btn-group > .dec-button:focus,
+.btn-group > .inc-button:focus,
 .btn-group > .btn:active,
+.btn-group > .inc-dec-button:active,
+.btn-group > .dec-button:active,
+.btn-group > .inc-button:active,
 .btn-group > .btn.active,
+.btn-group > .active.inc-dec-button,
+.btn-group > .active.dec-button,
+.btn-group > .active.inc-button,
 .btn-group-vertical > .btn-check:checked + .btn,
+.btn-group-vertical > .btn-check:checked + .inc-dec-button,
+.btn-group-vertical > .btn-check:checked + .dec-button,
+.btn-group-vertical > .btn-check:checked + .inc-button,
 .btn-group-vertical > .btn-check:focus + .btn,
+.btn-group-vertical > .btn-check:focus + .inc-dec-button,
+.btn-group-vertical > .btn-check:focus + .dec-button,
+.btn-group-vertical > .btn-check:focus + .inc-button,
 .btn-group-vertical > .btn:hover,
+.btn-group-vertical > .inc-dec-button:hover,
+.btn-group-vertical > .dec-button:hover,
+.btn-group-vertical > .inc-button:hover,
 .btn-group-vertical > .btn:focus,
+.btn-group-vertical > .inc-dec-button:focus,
+.btn-group-vertical > .dec-button:focus,
+.btn-group-vertical > .inc-button:focus,
 .btn-group-vertical > .btn:active,
-.btn-group-vertical > .btn.active {
+.btn-group-vertical > .inc-dec-button:active,
+.btn-group-vertical > .dec-button:active,
+.btn-group-vertical > .inc-button:active,
+.btn-group-vertical > .btn.active,
+.btn-group-vertical > .active.inc-dec-button,
+.btn-group-vertical > .active.dec-button,
+.btn-group-vertical > .active.inc-button {
   z-index: 1;
 }
 
@@ -3709,19 +3751,31 @@ textarea.form-control-lg {
 .btn-group {
   border-radius: var(--bs-border-radius);
 }
-.btn-group > :not(.btn-check:first-child) + .btn,
+.btn-group > :not(.btn-check:first-child) + .btn, .btn-group > :not(.btn-check:first-child) + .inc-dec-button, .btn-group > :not(.btn-check:first-child) + .dec-button, .btn-group > :not(.btn-check:first-child) + .inc-button,
 .btn-group > .btn-group:not(:first-child) {
   margin-left: calc(var(--bs-border-width) * -1);
 }
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .btn-group > .inc-dec-button:not(:last-child):not(.dropdown-toggle), .btn-group > .dec-button:not(:last-child):not(.dropdown-toggle), .btn-group > .inc-button:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn.dropdown-toggle-split:first-child,
-.btn-group > .btn-group:not(:last-child) > .btn {
+.btn-group > .dropdown-toggle-split.inc-dec-button:first-child,
+.btn-group > .dropdown-toggle-split.dec-button:first-child,
+.btn-group > .dropdown-toggle-split.inc-button:first-child,
+.btn-group > .btn-group:not(:last-child) > .btn,
+.btn-group > .btn-group:not(:last-child) > .inc-dec-button,
+.btn-group > .btn-group:not(:last-child) > .dec-button,
+.btn-group > .btn-group:not(:last-child) > .inc-button {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.btn-group > .btn:nth-child(n+3),
+.btn-group > .btn:nth-child(n+3), .btn-group > .inc-dec-button:nth-child(n+3), .btn-group > .dec-button:nth-child(n+3), .btn-group > .inc-button:nth-child(n+3),
 .btn-group > :not(.btn-check) + .btn,
-.btn-group > .btn-group:not(:first-child) > .btn {
+.btn-group > :not(.btn-check) + .inc-dec-button,
+.btn-group > :not(.btn-check) + .dec-button,
+.btn-group > :not(.btn-check) + .inc-button,
+.btn-group > .btn-group:not(:first-child) > .btn,
+.btn-group > .btn-group:not(:first-child) > .inc-dec-button,
+.btn-group > .btn-group:not(:first-child) > .dec-button,
+.btn-group > .btn-group:not(:first-child) > .inc-button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3737,12 +3791,12 @@ textarea.form-control-lg {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .inc-dec-button + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .btn-group-sm > .dec-button + .dropdown-toggle-split, .btn-group-sm > .inc-button + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .btn-group-lg > .inc-dec-button + .dropdown-toggle-split, .btn-group-lg > .dec-button + .dropdown-toggle-split, .btn-group-lg > .inc-button + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -3752,21 +3806,27 @@ textarea.form-control-lg {
   align-items: flex-start;
   justify-content: center;
 }
-.btn-group-vertical > .btn,
+.btn-group-vertical > .btn, .btn-group-vertical > .inc-dec-button, .btn-group-vertical > .dec-button, .btn-group-vertical > .inc-button,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child), .btn-group-vertical > .inc-dec-button:not(:first-child), .btn-group-vertical > .dec-button:not(:first-child), .btn-group-vertical > .inc-button:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: calc(var(--bs-border-width) * -1);
 }
-.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
-.btn-group-vertical > .btn-group:not(:last-child) > .btn {
+.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .inc-dec-button:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .dec-button:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .inc-button:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn-group:not(:last-child) > .btn,
+.btn-group-vertical > .btn-group:not(:last-child) > .inc-dec-button,
+.btn-group-vertical > .btn-group:not(:last-child) > .dec-button,
+.btn-group-vertical > .btn-group:not(:last-child) > .inc-button {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn ~ .btn,
-.btn-group-vertical > .btn-group:not(:first-child) > .btn {
+.btn-group-vertical > .btn ~ .btn, .btn-group-vertical > .inc-dec-button ~ .btn, .btn-group-vertical > .btn ~ .inc-dec-button, .btn-group-vertical > .inc-dec-button ~ .inc-dec-button, .btn-group-vertical > .dec-button ~ .btn, .btn-group-vertical > .dec-button ~ .inc-dec-button, .btn-group-vertical > .btn ~ .dec-button, .btn-group-vertical > .inc-dec-button ~ .dec-button, .btn-group-vertical > .dec-button ~ .dec-button, .btn-group-vertical > .inc-button ~ .btn, .btn-group-vertical > .inc-button ~ .inc-dec-button, .btn-group-vertical > .inc-button ~ .dec-button, .btn-group-vertical > .btn ~ .inc-button, .btn-group-vertical > .inc-dec-button ~ .inc-button, .btn-group-vertical > .dec-button ~ .inc-button, .btn-group-vertical > .inc-button ~ .inc-button,
+.btn-group-vertical > .btn-group:not(:first-child) > .btn,
+.btn-group-vertical > .btn-group:not(:first-child) > .inc-dec-button,
+.btn-group-vertical > .btn-group:not(:first-child) > .dec-button,
+.btn-group-vertical > .btn-group:not(:first-child) > .inc-button {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4806,7 +4866,7 @@ textarea.form-control-lg {
   display: none;
 }
 
-.btn .badge {
+.btn .badge, .inc-dec-button .badge, .dec-button .badge, .inc-button .badge {
   position: relative;
   top: -1px;
 }
@@ -6749,7 +6809,7 @@ textarea.form-control-lg {
   background-color: currentcolor;
   opacity: 0.5;
 }
-.placeholder.btn::before {
+.placeholder.btn::before, .placeholder.inc-dec-button::before, .placeholder.dec-button::before, .placeholder.inc-button::before {
   display: inline-block;
   content: "";
 }
@@ -8871,7 +8931,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-border-radius) !important;
 }
 
-.rounded-0, .list-group-item {
+.rounded-0, .inc-dec-button, .list-group-item {
   border-radius: 0 !important;
 }
 
@@ -12036,6 +12096,11 @@ textarea.form-control-lg {
     max-width: 100%;
   }
 }
+@media (max-width: 1199.98px) {
+  .product-column {
+    max-width: 100%;
+  }
+}
 @media (max-width: 991.98px) {
   .nav-extra {
     margin-right: 5vw;
@@ -12075,7 +12140,6 @@ textarea.form-control-lg {
   }
   .col-piece-add-to-cart {
     width: 100%;
-    height: 50px;
   }
 }
 @media (max-width: 575.98px) {
@@ -12099,6 +12163,5 @@ textarea.form-control-lg {
   }
   .product-size-button {
     width: 50px;
-    height: 50px;
   }
 }

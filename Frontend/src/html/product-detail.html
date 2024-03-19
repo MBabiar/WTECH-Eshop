@@ -106,8 +106,58 @@
                         <div class="row">
                             <h1 class="col-product-price">10€</h1>
                             <div class="col-piece-add-to-cart">
-                                <input type="number" class="col-3 mx-3" min="1" />
-                                <button type="button" class="col btn btn-primary">Pridať do košíka</button>
+                                <input
+                                    type="text"
+                                    id="amount"
+                                    class="col-3 no-spinners text-center"
+                                    value="1"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                                <div class="container col-1">
+                                    <div class="row">
+                                        <button type="button" class="inc-dec-button">↑</button>
+                                    </div>
+                                    <div class="row">
+                                        <button type="button" class="inc-dec-button">↓</button>
+                                    </div>
+                                </div>
+
+                                <script>
+                                    window.onload = function () {
+                                        let amountInput = document.getElementById('amount');
+                                        let incButton = document.getElementsByClassName('inc-dec-button')[0];
+                                        let decButton = document.getElementsByClassName('inc-dec-button')[1];
+
+                                        incButton.onclick = function () {
+                                            if (isNaN(parseInt(amountInput.value))) {
+                                                amountInput.value = 1;
+                                            } else {
+                                                amountInput.value = parseInt(amountInput.value) + 1;
+                                            }
+                                        };
+
+                                        decButton.onclick = function () {
+                                            if (parseInt(amountInput.value) > 1) {
+                                                amountInput.value = parseInt(amountInput.value) - 1;
+                                            }
+                                        };
+                                    };
+                                </script>
+
+                                <button type="button" class="col mx-3 btn btn-primary">
+                                    Pridať do košíka
+                                </button>
+
+                                <script>
+                                    var addToCartButton = document.getElementsByClassName('btn-primary')[0];
+                                    addToCartButton.onclick = function () {
+                                        let amount = parseInt(document.getElementById('amount').value);
+                                        if (amount <= 0) {
+                                            alert('Nesprávne množstvo');
+                                        } else if (amount > 0) {
+                                            alert('Pridané do košíka');
+                                        }
+                                    };
+                                </script>
                             </div>
                         </div>
                     </div>
