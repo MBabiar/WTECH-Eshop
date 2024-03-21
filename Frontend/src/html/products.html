@@ -10,7 +10,7 @@
 
         <title>Document</title>
     </head>
-    <body>
+    <body style="overflow-x: hidden">
         <!-- Main Bar -->
         <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
             <div class="container-fluid">
@@ -62,7 +62,6 @@
         </nav>
 
         <!-- Products -->
-
         <div class="container-fluid navbar navbar-expand-md justify-content-center mt-1 products-nav">
             <button
                 class="navbar-toggler collapsed"
@@ -76,16 +75,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse row" id="navbarSupportedContent">
-                <div class="col-md-5">
+                <div class="col-md-5 filter-col-input-buttons">
                     <div>
                         <label>Cena:</label>
                         <label for="Od">Od</label>
-                        <input type="number" id="Od" name="Od" />
+                        <input type="number" id="Od" name="Od" class="input-button-price" />
                         <label for="Do">Do</label>
-                        <input type="number" id="Do" name="Do" />
+                        <input type="number" id="Do" name="Do" class="input-button-price" />
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 filter-col-anime">
                     <div class="dropdown">
                         <button
                             class="btn btn-secondary dropdown-toggle"
@@ -101,7 +100,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 filter-col-color">
                     <div class="dropdown">
                         <button
                             class="btn btn-secondary dropdown-toggle"
@@ -121,12 +120,53 @@
         </div>
 
         <div class="container-fluid">
-            <div class="row products-nav mt-1 mb-1 justify-content-center">
+            <div class="row products-nav-2 mt-1 mb-1">
                 <button type="button" name="" id="" class="button-order">Top</button>
-
                 <button type="button" name="" id="najlacnejsie" class="button-order">Najľacnejšie</button>
-
                 <button type="button" name="" id="najdrahsie" class="button-order">Najdahšie</button>
+            </div>
+        </div>
+
+        <div class="row products container-fluid">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title </div>">Bleach tričko</h5>
+                        <p class="card-text">Cena: 20€</p>
+                        <a href="#" class="btn btn-primary">Kúpiť</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title </div>">Bleach tričko</h5>
+                        <p class="card-text">Cena: 20€</p>
+                        <a href="#" class="btn btn-primary">Kúpiť</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title </div>">Bleach tričko</h5>
+                        <p class="card-text">Cena: 20€</p>
+                        <a href="#" class="btn btn-primary">Kúpiť</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title </div>">Bleach tričko</h5>
+                        <p class="card-text">Cena: 20€</p>
+                        <a href="#" class="btn btn-primary">Kúpiť</a>
+                    </div>
+                </div>
             </div>
         </div>
 
