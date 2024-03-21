@@ -12076,7 +12076,7 @@ input {
   .main-logo {
     margin-left: 0vw;
   }
-  #products-nav-1 {
+  .products-nav {
     padding-left: 1vw;
   }
 }
@@ -12115,7 +12115,7 @@ input {
   .prof-cart-link {
     order: 2;
   }
-  .search {
+  .main-search {
     order: 3;
     width: 100%;
     justify-content: center;

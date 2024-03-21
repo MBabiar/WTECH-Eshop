@@ -62,9 +62,21 @@
         </nav>
 
         <!-- Products -->
-        <div class="container-fluid">
-            <div class="row align-items-center mt-1 products-nav">
-                <div class="col-5 row">
+
+        <div class="container-fluid navbar navbar-expand-md justify-content-center mt-1 products-nav">
+            <button
+                class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                Spresniť parametre
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse row" id="navbarSupportedContent">
+                <div class="col-md-5">
                     <div>
                         <label>Cena:</label>
                         <label for="Od">Od</label>
@@ -73,7 +85,7 @@
                         <input type="number" id="Do" name="Do" />
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4">
                     <div class="dropdown">
                         <button
                             class="btn btn-secondary dropdown-toggle"
@@ -89,7 +101,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-md-3">
                     <div class="dropdown">
                         <button
                             class="btn btn-secondary dropdown-toggle"
@@ -106,6 +118,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="container-fluid">
             <div class="row products-nav mt-1 mb-1 justify-content-center">
                 <button type="button" name="" id="" class="button-order">Top</button>
 
