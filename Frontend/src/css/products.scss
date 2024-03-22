@@ -62,7 +62,14 @@
 
 // Products
 .products-nav {
-    background-color: rgb(193, 193, 193);
+    background-color: #f8f8f8;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    padding-left: 11vw;
+    padding-right: 11vw;
+}
+
+.products-nav-2 {
     padding-top: 0.5vw;
     padding-bottom: 0.5vw;
     padding-left: 11vw;
@@ -73,26 +80,27 @@ label {
     margin-left: 0.5vw;
 }
 
-input {
-    width: 8vw;
-}
-
-#price-min,
-#price-max {
-    width: 10vw;
+.input-button-price {
+    width: 75px;
 }
 
 .button-order {
-    @extend .col-3, .btn, .btn-primary, .mx-4;
-    width: 25%;
+    color: black;
+    background-color: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    width: fit-content;
+    text-align: left;
+    padding: 10px 14px;
+    margin-right: 2px;
 }
 
-#najlacnejsie {
-    justify-self: center;
+:hover.button-order {
+    background-color: #e8e8e8;
 }
 
-#najdrahsie {
-    justify-self: end;
+.products {
+    padding-left: 11vw;
+    padding-right: 11vw;
 }
 
 @include media-breakpoint-down(lg) {
@@ -107,6 +115,17 @@ input {
 
     .products-nav {
         padding-left: 1vw;
+        padding-right: 1vw;
+    }
+
+    .products-nav-2 {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+
+    .products {
+        padding-left: 1vw;
+        padding-right: 1vw;
     }
 }
 
@@ -139,8 +158,17 @@ input {
         text-align: center;
     }
 
-    .button-order {
-        width: 50%;
+    .filter-col-anime {
+        margin-bottom: $spacer * 0.5;
+    }
+
+    .filter-col-input-buttons {
+        margin-bottom: $spacer * 0.5;
+        margin-top: $spacer * 0.5;
+    }
+
+    .filter-col-color {
+        margin-bottom: $spacer * 0.5;
     }
 }
 
@@ -197,9 +225,5 @@ input {
     .list-group-item-start {
         border-left: none;
         border-top: 1px black solid;
-    }
-
-    .button-order {
-        width: 75%;
     }
 }
