@@ -1,0 +1,34 @@
+// Navigation Bar
+.list-group-item-custom {
+    @extend .list-group-item, .rounded-0;
+    background-color: $primary;
+    border: none;
+    border-right: 2px black solid;
+}
+
+.list-group-item-start {
+    @extend .list-group-item-custom;
+    border-left: 2px black solid;
+}
+
+.nav-link-product-type {
+    @extend .nav-link;
+    color: white;
+    :hover {
+        color: black;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .list-group-item-custom {
+        width: 35%;
+        align-self: flex-end;
+        text-align: end;
+        border: none;
+        border-bottom: 1px black solid;
+    }
+
+    .list-group-item-start {
+        border-top: 1px black solid;
+    }
+}

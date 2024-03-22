@@ -1,0 +1,73 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'components/main-bar.scss';
+@import 'components/main-nav.scss';
+@import 'components/main-footer.scss';
+
+// Then add additional custom code here
+
+// Product Detail
+.product-column {
+    max-width: 50%;
+}
+
+.product-size-button {
+    border-radius: 1px;
+    border-color: $primary;
+    width: 10%;
+    height: 10%;
+    &:hover {
+        background-color: $primary;
+    }
+    &:active,
+    &:focus {
+        background-color: $primary;
+    }
+}
+
+.col-product-price {
+    @extend .col-4;
+    width: 180px;
+}
+
+.col-piece-add-to-cart {
+    @extend .col-8, .d-flex, .justify-content-center;
+}
+
+input[type='number'] {
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inc-dec-button {
+    @extend .btn, .btn-primary, .btn-sm, .rounded-0;
+}
+
+@include media-breakpoint-down(xl) {
+    .product-column {
+        max-width: 100%;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .product-header-name {
+        font-size: calc(1rem + 1vw);
+    }
+
+    .col-piece-add-to-cart {
+        width: 100%;
+    }
+}

@@ -11979,6 +11979,37 @@ textarea.form-control-lg {
   margin-left: 10vw;
 }
 
+@media (max-width: 991.98px) {
+  .prof-cart-link {
+    margin-right: 5vw;
+    -moz-column-gap: 3vw;
+         column-gap: 3vw;
+  }
+  .main-logo {
+    margin-left: 0vw;
+  }
+}
+@media (max-width: 767.98px) {
+  .main-logo {
+    order: 1;
+  }
+  .prof-cart-link {
+    order: 2;
+  }
+  .main-search {
+    order: 3;
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .main-logo {
+    width: 50%;
+  }
+  .prof-cart-link img {
+    width: 80%;
+    height: auto;
+  }
+}
 .list-group-item-custom, .list-group-item-start {
   background-color: #0d6efd;
   border: none;
@@ -11996,6 +12027,18 @@ textarea.form-control-lg {
   color: black;
 }
 
+@media (max-width: 575.98px) {
+  .list-group-item-custom, .list-group-item-start {
+    width: 35%;
+    align-self: flex-end;
+    text-align: end;
+    border: none;
+    border-bottom: 1px black solid;
+  }
+  .list-group-item-start {
+    border-top: 1px black solid;
+  }
+}
 .footer {
   color: gray;
 }
@@ -12014,6 +12057,15 @@ textarea.form-control-lg {
   border-color: #e9ecef;
 }
 
+@media (max-width: 767.98px) {
+  .left-footer {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .footer {
+    text-align: center;
+  }
+}
 .products-nav {
   background-color: #f8f8f8;
   padding-top: 0.5vw;
@@ -12047,8 +12099,7 @@ label {
   padding: 10px 14px;
   margin-right: 2px;
 }
-
-:hover.button-order {
+.button-order:hover {
   background-color: #e8e8e8;
 }
 
@@ -12058,14 +12109,6 @@ label {
 }
 
 @media (max-width: 991.98px) {
-  .prof-cart-link {
-    margin-right: 5vw;
-    -moz-column-gap: 3vw;
-         column-gap: 3vw;
-  }
-  .main-logo {
-    margin-left: 0vw;
-  }
   .products-nav {
     padding-left: 1vw;
     padding-right: 1vw;
@@ -12080,23 +12123,6 @@ label {
   }
 }
 @media (max-width: 767.98px) {
-  .main-logo {
-    order: 1;
-  }
-  .prof-cart-link {
-    order: 2;
-  }
-  .main-search {
-    order: 3;
-    width: 100%;
-  }
-  .left-footer {
-    text-align: center;
-    margin-bottom: 0;
-  }
-  .footer {
-    text-align: center;
-  }
   .filter-col-anime {
     margin-bottom: 0.5rem;
   }
@@ -12106,24 +12132,5 @@ label {
   }
   .filter-col-color {
     margin-bottom: 0.5rem;
-  }
-}
-@media (max-width: 575.98px) {
-  .main-logo {
-    width: 50%;
-  }
-  .prof-cart-link img {
-    width: 80%;
-    height: auto;
-  }
-  .list-group-item-custom, .list-group-item-start {
-    width: 35%;
-    align-self: flex-end;
-    text-align: end;
-    border: none;
-    border-bottom: 1px black solid;
-  }
-  .list-group-item-start {
-    border-top: 1px black solid;
   }
 }

@@ -11979,41 +11979,6 @@ textarea.form-control-lg {
   margin-left: 10vw;
 }
 
-.list-group-item-custom, .list-group-item-start {
-  background-color: #0d6efd;
-  border: none;
-  border-right: 2px black solid;
-}
-
-.list-group-item-start {
-  border-left: 2px black solid;
-}
-
-.nav-link-product-type {
-  color: white;
-}
-.nav-link-product-type :hover {
-  color: black;
-}
-
-.footer {
-  color: gray;
-}
-
-.left-footer {
-  text-align: right;
-}
-
-.footer-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card {
-  border-color: #e9ecef;
-}
-
 @media (max-width: 991.98px) {
   .prof-cart-link {
     margin-right: 5vw;
@@ -12035,13 +12000,6 @@ textarea.form-control-lg {
     order: 3;
     width: 100%;
   }
-  .left-footer {
-    text-align: center;
-    margin-bottom: 0;
-  }
-  .footer {
-    text-align: center;
-  }
 }
 @media (max-width: 575.98px) {
   .main-logo {
@@ -12051,6 +12009,25 @@ textarea.form-control-lg {
     width: 80%;
     height: auto;
   }
+}
+.list-group-item-custom, .list-group-item-start {
+  background-color: #0d6efd;
+  border: none;
+  border-right: 2px black solid;
+}
+
+.list-group-item-start {
+  border-left: 2px black solid;
+}
+
+.nav-link-product-type {
+  color: white;
+}
+.nav-link-product-type :hover {
+  color: black;
+}
+
+@media (max-width: 575.98px) {
   .list-group-item-custom, .list-group-item-start {
     width: 35%;
     align-self: flex-end;
@@ -12060,5 +12037,32 @@ textarea.form-control-lg {
   }
   .list-group-item-start {
     border-top: 1px black solid;
+  }
+}
+.footer {
+  color: gray;
+}
+
+.left-footer {
+  text-align: right;
+}
+
+.footer-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border-color: #e9ecef;
+}
+
+@media (max-width: 767.98px) {
+  .left-footer {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .footer {
+    text-align: center;
   }
 }
