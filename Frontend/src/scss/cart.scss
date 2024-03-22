@@ -9,3 +9,81 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
+
+.product-container {
+    @extend .container-fluid, .mt-3;
+    padding-left: 11vw;
+    padding-right: 11vw;
+}
+.product-row {
+    @extend .row, .justify-content-center, .align-items-center, .p-2, .bg-light;
+    border: 1px solid $secondary;
+}
+
+.col-image {
+    @extend .col-2;
+}
+
+.col-text {
+    @extend .col;
+}
+
+.col-piece-amount {
+    @extend .d-flex, .justify-content-center;
+    width: 150px;
+}
+
+.col-price {
+    @extend .col-2;
+    text-align: center;
+}
+
+.input-piece-amount {
+    width: 100px;
+    text-align: center;
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.inc-dec-button {
+    @extend .btn, .btn-primary, .btn-sm, .rounded-0;
+    width: 30px;
+}
+
+.order-button-container {
+    @extend .d-flex, .justify-content-end;
+    padding-left: 11vw;
+    padding-right: 11vw;
+    margin-top: 3vh;
+}
+
+.order-button {
+    @extend .btn, .btn-primary;
+}
+
+@include media-breakpoint-down(md) {
+    .col-image {
+        width: 100%;
+    }
+
+    .col-text {
+        flex-basis: auto;
+        width: 100%;
+        text-align: center;
+        margin-top: $spacer;
+        margin-bottom: $spacer;
+    }
+
+    .col-price {
+        text-align: center;
+    }
+}

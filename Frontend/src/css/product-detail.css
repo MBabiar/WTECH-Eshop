@@ -851,7 +851,7 @@ progress {
   width: 16.66666667%;
 }
 
-.col-3 {
+.col-3, .input-piece-amount {
   flex: 0 0 auto;
   width: 25%;
 }
@@ -11998,6 +11998,9 @@ textarea.form-control-lg {
 .main-logo {
   margin-left: 10vw;
 }
+.main-logo:hover {
+  cursor: pointer;
+}
 
 @media (max-width: 991.98px) {
   .prof-cart-link {
@@ -12107,16 +12110,17 @@ textarea.form-control-lg {
   width: 180px;
 }
 
-input[type=number] {
+.input-piece-amount {
+  text-align: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-input[type=number]::-webkit-inner-spin-button {
+.input-piece-amount::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number]::-webkit-outer-spin-button {
+.input-piece-amount::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

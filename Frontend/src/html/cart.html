@@ -8,14 +8,14 @@
 
         <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-        <title>Homepage</title>
+        <title>Cart</title>
     </head>
 
     <body>
         <!-- Main Bar -->
         <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
             <div class="container-fluid">
-                <a class="main-logo">
+                <a href="homepage.html" class="main-logo">
                     <img src="../images/logo.png" class="img-fluid" alt="" />
                 </a>
                 <form class="main-search d-flex">
@@ -61,6 +61,115 @@
                 </div>
             </div>
         </nav>
+
+        <!-- Cart -->
+        <div class="product-container">
+            <div class="product-row">
+                <div class="col-image">
+                    <img src="../images/tricko-bleach-1.png" alt="" class="img-fluid" />
+                </div>
+                <div class="col-text">Tričko Bleach a ešte treba nejake pismenka do 50 slov</div>
+                <div class="col-piece-amount">
+                    <input
+                        title="amount-1"
+                        type="number"
+                        id="amount-1"
+                        class="input-piece-amount"
+                        value="1"
+                        min="1"
+                        data-min="1"
+                        required />
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" id="inc-button-1" class="inc-dec-button">↑</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="dec-button-1" class="inc-dec-button">↓</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        window.addEventListener('load', function () {
+                            let amountInput_1 = document.getElementById('amount-1');
+                            let incButton_1 = document.getElementById('inc-button-1');
+                            let decButton_1 = document.getElementById('dec-button-1');
+
+                            incButton_1.onclick = function () {
+                                if (isNaN(parseInt(amountInput_1.value))) {
+                                    amountInput_1.value = 1;
+                                } else {
+                                    amountInput_1.value = parseInt(amountInput_1.value) + 1;
+                                }
+                            };
+
+                            decButton_1.onclick = function () {
+                                if (parseInt(amountInput_1.value) > 1) {
+                                    amountInput_1.value = parseInt(amountInput_1.value) - 1;
+                                }
+                            };
+                        });
+                    </script>
+                </div>
+                <div class="col-price">20€</div>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="product-row">
+                <div class="col-image">
+                    <img src="../images/tricko-bleach-1.png" alt="" class="img-fluid" />
+                </div>
+                <div class="col-text">Tričko Bleach a ešte treba nejake pismenka do 50 slov</div>
+                <div class="col-piece-amount">
+                    <input
+                        title="amount-2"
+                        type="number"
+                        id="amount-2"
+                        class="input-piece-amount"
+                        value="1"
+                        min="1"
+                        data-min="1"
+                        required />
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" id="inc-button-2" class="inc-dec-button">↑</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="dec-button-2" class="inc-dec-button">↓</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        window.addEventListener('load', function () {
+                            let amountInput_2 = document.getElementById('amount-2');
+                            let incButton_2 = document.getElementById('inc-button-2');
+                            let decButton_2 = document.getElementById('dec-button-2');
+
+                            incButton_2.onclick = function () {
+                                if (isNaN(parseInt(amountInput_2.value))) {
+                                    amountInput_2.value = 1;
+                                } else {
+                                    amountInput_2.value = parseInt(amountInput_2.value) + 1;
+                                }
+                            };
+
+                            decButton_2.onclick = function () {
+                                if (parseInt(amountInput_2.value) > 1) {
+                                    amountInput_2.value = parseInt(amountInput_2.value) - 1;
+                                }
+                            };
+                        });
+                    </script>
+                </div>
+                <div class="col-price">20€</div>
+            </div>
+        </div>
+
+        <div class="order-button-container">
+            <button type="button" class="order-button" onclick="window.location.href='order-1.html'">
+                Daľej
+            </button>
+        </div>
 
         <!-- Footer -->
         <section class="footer">

@@ -11978,6 +11978,9 @@ textarea.form-control-lg {
 .main-logo {
   margin-left: 10vw;
 }
+.main-logo:hover {
+  cursor: pointer;
+}
 
 @media (max-width: 991.98px) {
   .prof-cart-link {
