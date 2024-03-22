@@ -20,14 +20,15 @@
 }
 
 // Navigation Bar
-.list-group-item {
+.list-group-item-custom {
+    @extend .list-group-item, .rounded-0;
     background-color: $primary;
     border: none;
     border-right: 2px black solid;
-    @extend .rounded-0;
 }
 
 .list-group-item-start {
+    @extend .list-group-item-custom;
     border-left: 2px black solid;
 }
 
@@ -175,12 +176,15 @@ input[type='number'] {
         text-align: end;
     }
 
-    .list-group-item-start {
-        border-left: none;
-        border-top: 1px black solid;
+    .list-group-item-custom {
+        width: 35%;
+        align-self: flex-end;
+        text-align: end;
+        border: none;
+        border-bottom: 1px black solid;
     }
 
-    .product-size-button {
-        width: 50px;
+    .list-group-item-start {
+        border-top: 1px black solid;
     }
 }
