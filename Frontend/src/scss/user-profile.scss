@@ -9,3 +9,8 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
+.user-profile-container {
+    @extend .container, .mt-5;
+    width: 85vw;
+    margin-left: 10vw;
+}

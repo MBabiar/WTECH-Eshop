@@ -85,6 +85,144 @@
             </div>
         </nav>
 
+        <!-- Main content -->
+        <section class="main-content">
+            <div class="user-profile-container">
+                <div class="container-flex">
+                    <h1>Nastavenie môjho účtu</h1>
+                    <hr />
+                    <form>
+                        <h2>Osobné údaje</h2>
+                        <div class="input-row mt-3">
+                            <label for="inputName " class="col-label">Meno a Priezvisko</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputName"
+                                    id="inputName"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputEmail" class="col-label">Email</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputEmail"
+                                    id="inputEmail"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputTel" class="col-label">Telefón</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputTel"
+                                    id="inputTel"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputPassword" class="col-label">Nové heslo</label>
+                            <div class="col-input">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    name="inputPassword"
+                                    id="inputPassword"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputPasswordCheck" class="col-label">Potvrdenie hesla</label>
+                            <div class="col-input">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    name="inputPasswordCheck"
+                                    id="inputPasswordCheck"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="container-flex mt-4">
+                    <h2>Fakturačná adresa</h2>
+                    <form>
+                        <div class="input-row mt-3">
+                            <label for="inputStreet" class="col-label">Ulica</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputStreet"
+                                    id="inputStreet"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputHouseNum" class="col-label">Číslo domu</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputHouseNum"
+                                    id="inputHouseNum"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputCity" class="col-label">Mesto</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputCity"
+                                    id="inputCity"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputZip" class="col-label">PSČ</label>
+                            <div class="col-input">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="inputZip"
+                                    id="inputZip"
+                                    placeholder=""
+                                    required />
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <label for="inputCountry" class="col-label">Krajina</label>
+                            <div class="col-input">
+                                <select class="form-select" id="inputCountry" name="inputCountry" required>
+                                    <option value="1">Slovensko</option>
+                                    <option value="2">Česká republika</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="container-flex mt-4">
+                    <button type="submit" class="btn btn-primary">Uložiť</button>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <section class="footer">
             <footer class="bg-body-tertiary">
