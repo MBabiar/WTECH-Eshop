@@ -7,9 +7,21 @@
 .main-logo {
     @extend .navbar-brand;
     margin-left: 10vw;
+
     &:hover {
         cursor: pointer;
     }
+}
+
+.profile-img {
+    cursor: pointer;
+}
+
+.modal-dialog {
+    width: 200px;
+    position: absolute;
+    top: 80px;
+    right: 10vw;
 }
 
 @include media-breakpoint-down(lg) {
