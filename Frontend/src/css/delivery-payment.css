@@ -12141,5 +12141,11 @@ textarea.form-control-lg {
 
 .del-pay-next-button {
   width: 100px;
-  margin-right: 10vw;
+  margin-right: 22vw;
+}
+
+@media (max-width: 767.98px) {
+  .del-pay-next-button {
+    margin-right: 10vw;
+  }
 }

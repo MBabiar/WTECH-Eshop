@@ -32,5 +32,11 @@
 .del-pay-next-button {
     @extend .btn, .btn-primary;
     width: 100px;
-    margin-right: 10vw;
+    margin-right: 22vw;
+}
+
+@include media-breakpoint-down(md) {
+    .del-pay-next-button {
+        margin-right: 10vw;
+    }
 }

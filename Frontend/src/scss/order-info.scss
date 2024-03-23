@@ -12,8 +12,21 @@
 
 .order-info-container {
     @extend .container, .mt-5;
-    max-width: fit-content;
+    width: 85vw;
     margin-left: 10vw;
+}
+
+.input-row {
+    @extend .row, .mb-3;
+}
+
+.col-label {
+    @extend .col-3, .col-form-label;
+    width: 175px;
+}
+
+.col-input {
+    @extend .col-6;
 }
 
 .ord-inf-buttons-container {
@@ -32,5 +45,15 @@
 .ord-inf-next-button {
     @extend .btn, .btn-primary;
     width: 100px;
-    margin-right: 10vw;
+    margin-right: 22vw;
+}
+
+@include media-breakpoint-down(md) {
+    .col-input {
+        width: 100%;
+    }
+
+    .ord-inf-next-button {
+        margin-right: 10vw;
+    }
 }
