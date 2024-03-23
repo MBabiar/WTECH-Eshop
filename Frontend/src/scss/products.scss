@@ -45,6 +45,11 @@ label {
     &:hover {
         background-color: #e8e8e8;
     }
+    &:active,
+    &:focus {
+        background-color: $primary;
+        color: white;
+    }
 }
 
 .products {
