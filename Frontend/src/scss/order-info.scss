@@ -9,3 +9,28 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
+
+.order-info-container {
+    @extend .container, .mt-5;
+    max-width: fit-content;
+    margin-left: 10vw;
+}
+
+.ord-inf-buttons-container {
+    @extend .container-fluid, .mt-5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ord-inf-back-button {
+    @extend .btn;
+    width: 100px;
+    margin-left: 10vw;
+    background-color: #e4e4e4;
+}
+
+.ord-inf-next-button {
+    @extend .btn, .btn-primary;
+    width: 100px;
+    margin-right: 10vw;
+}
