@@ -731,7 +731,7 @@ progress {
 
 .container, .delivery-payment-container,
 .container-fluid,
-.order-buttons-container,
+.del-pay-buttons-container,
 .container-xxl,
 .container-xl,
 .container-lg,
@@ -3981,7 +3981,7 @@ textarea.form-control-lg {
 }
 .navbar > .container, .navbar > .delivery-payment-container,
 .navbar > .container-fluid,
-.navbar > .order-buttons-container,
+.navbar > .del-pay-buttons-container,
 .navbar > .container-sm,
 .navbar > .container-md,
 .navbar > .container-lg,
@@ -7985,7 +7985,7 @@ textarea.form-control-lg {
   margin-top: 1.5rem !important;
 }
 
-.mt-5, .order-buttons-container, .delivery-payment-container, .footer {
+.mt-5, .del-pay-buttons-container, .delivery-payment-container, .footer {
   margin-top: 3rem !important;
 }
 
@@ -12024,6 +12024,17 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 
+.profile-img {
+  cursor: pointer;
+}
+
+.modal-dialog {
+  width: 200px;
+  position: absolute;
+  top: 80px;
+  right: 10vw;
+}
+
 @media (max-width: 991.98px) {
   .prof-cart-link {
     margin-right: 5vw;
@@ -12117,7 +12128,7 @@ textarea.form-control-lg {
   margin-left: 10vw;
 }
 
-.order-buttons-container {
+.del-pay-buttons-container {
   display: flex;
   justify-content: space-between;
 }
