@@ -11982,6 +11982,17 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 
+.profile-img {
+  cursor: pointer;
+}
+
+.modal-dialog {
+  width: 200px;
+  position: absolute;
+  top: 80px;
+  right: 10vw;
+}
+
 @media (max-width: 991.98px) {
   .prof-cart-link {
     margin-right: 5vw;
