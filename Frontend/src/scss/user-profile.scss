@@ -9,51 +9,29 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
-.user-profile-container {
-    @extend .container, .mt-5;
-    width: 85vw;
+.user-profile-menu {
     margin-left: 10vw;
-}
-
-hr {
-    width: 50vw;
-}
-
-.input-row {
-    @extend .row, .mb-3;
-}
-
-.col-label {
-    @extend .col-3, .col-form-label;
-    width: 175px;
-}
-
-.col-input {
-    @extend .col-6;
-    width: 300px;
-}
-
-.submit-btn {
-    @extend .btn, .btn-primary;
-    width: 100px;
+    margin-top: 1vw;
+    width: 250px;
 }
 
 @include media-breakpoint-down(lg) {
-    .user-profile-container {
-        margin-left: 0vw;
-    }
-
-    hr {
-        width: 75vw;
+    .user-profile-menu {
+        margin-left: 0;
     }
 }
 
-@include media-breakpoint-down(sm) {
-    .col-input {
-        width: 100%;
+@include media-breakpoint-down(md) {
+    .filter-col-anime {
+        margin-bottom: $spacer * 0.5;
     }
 
-    hr {
-        width: 100%;
+    .filter-col-input-buttons {
+        margin-bottom: $spacer * 0.5;
+        margin-top: $spacer * 0.5;
+    }
+
+    .filter-col-color {
+        margin-bottom: $spacer * 0.5;
     }
 }
