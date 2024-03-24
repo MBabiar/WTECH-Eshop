@@ -16,6 +16,10 @@
     margin-left: 10vw;
 }
 
+hr {
+    width: 50vw;
+}
+
 .input-row {
     @extend .row, .mb-3;
 }
@@ -27,6 +31,7 @@
 
 .col-input {
     @extend .col-6;
+    width: 300px;
 }
 
 .ord-inf-buttons-container {
@@ -48,12 +53,28 @@
     margin-right: 22vw;
 }
 
+@include media-breakpoint-down(lg) {
+    .order-info-container {
+        margin-left: 0vw;
+    }
+}
+
 @include media-breakpoint-down(md) {
+    .ord-inf-next-button {
+        margin-right: 10vw;
+    }
+
+    hr {
+        width: 75vw;
+    }
+}
+
+@include media-breakpoint-down(sm) {
     .col-input {
         width: 100%;
     }
 
-    .ord-inf-next-button {
-        margin-right: 10vw;
+    hr {
+        width: 100%;
     }
 }

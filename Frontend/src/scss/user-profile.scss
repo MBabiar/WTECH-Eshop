@@ -11,7 +11,7 @@
 // Then add additional custom code here
 .user-profile-container {
     @extend .container, .mt-5;
-    width: 100%;
+    width: 85vw;
     margin-left: 10vw;
 }
 
@@ -55,8 +55,9 @@ hr {
 
 @include media-breakpoint-down(sm) {
     .col-input {
-        width: 70vw;
+        width: 100%;
     }
+
     hr {
         width: 100%;
     }

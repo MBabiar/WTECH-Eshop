@@ -12101,7 +12101,7 @@ textarea.form-control-lg {
   }
 }
 .user-profile-container {
-  width: 100%;
+  width: 85vw;
   margin-left: 10vw;
 }
 
@@ -12136,7 +12136,7 @@ hr {
 }
 @media (max-width: 575.98px) {
   .col-input {
-    width: 70vw;
+    width: 100%;
   }
   hr {
     width: 100%;
