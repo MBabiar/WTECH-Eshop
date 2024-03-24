@@ -57,6 +57,10 @@ hr {
         margin-left: 0vw;
     }
 
+    .ord-inf-back-button {
+        margin-left: 0;
+    }
+
     hr {
         width: 75vw;
     }
@@ -64,7 +68,7 @@ hr {
 
 @include media-breakpoint-down(md) {
     .ord-inf-next-button {
-        margin-right: 10vw;
+        margin-right: 15vw;
     }
 }
 

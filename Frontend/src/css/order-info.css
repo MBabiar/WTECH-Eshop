@@ -12159,13 +12159,16 @@ hr {
   .order-info-container {
     margin-left: 0vw;
   }
+  .ord-inf-back-button {
+    margin-left: 0;
+  }
   hr {
     width: 75vw;
   }
 }
 @media (max-width: 767.98px) {
   .ord-inf-next-button {
-    margin-right: 10vw;
+    margin-right: 15vw;
   }
 }
 @media (max-width: 575.98px) {
