@@ -85,29 +85,42 @@
         </nav>
 
         <!-- Product Detail -->
-        <div class="container">
+        <div class="container mt-4">
             <h1 class="product-header-name">Mikina s kapucňou a neviem čo este treba vela pismenok</h1>
             <div class="row justify-content-center align-items-center">
-                <div class="col product-column">
+                <div class="product-column">
                     <div class="card">
-                        <img class="card-img-top" src="../images/tricko-bleach-1.png" alt="Title" />
+                        <img
+                            class="card-img-top main-image"
+                            src="../images/tricko-bleach-1.png"
+                            alt="Title" />
                     </div>
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row-sub-images">
+                        <div class="col-sub-image">
                             <div class="card">
-                                <img src="../images/tricko-bleach-1.png" alt="Title" />
+                                <img src="../images/tricko-bleach-1.png" class="sub-image" alt="Title" />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-sub-image">
                             <div class="card">
-                                <img src="../images/tricko-bleach-1.png" alt="Title" />
+                                <img src="../images/hoddie.jfif" class="sub-image" alt="Title" />
                             </div>
                         </div>
                     </div>
+                    <script>
+                        let mainImage = document.querySelector('.main-image');
+                        let subImages = document.querySelectorAll('.sub-image');
+
+                        subImages.forEach((image) => {
+                            image.addEventListener('click', function () {
+                                mainImage.src = this.src;
+                            });
+                        });
+                    </script>
                 </div>
 
-                <div class="col product-column bg-light">
-                    <div class="container-flex">
+                <div class="product-column-details">
+                    <div class="container-flex mt-3">
                         <p>
                             Bavlněná mikina, kterou ocení každý milovník anime Black Bulls. Atraktivní potisk
                             s motivem Black Bulls.
@@ -125,7 +138,7 @@
                         </div>
                     </div>
                     <br />
-                    <div class="container">
+                    <div class="container mb-3">
                         <p>Skladom (&gt;5ks)</p>
                         <div class="row">
                             <h1 class="col-product-price">10€</h1>

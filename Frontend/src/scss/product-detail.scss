@@ -12,7 +12,36 @@
 
 // Product Detail
 .product-column {
+    @extend .col;
     max-width: 50%;
+}
+
+.product-column-details {
+    @extend .product-column;
+    background-color: whitesmoke;
+}
+
+.row-sub-images {
+    @extend .row;
+    display: flex;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.col-sub-image {
+    @extend .col-3;
+    padding: 0;
+}
+
+.main-image {
+    &:hover {
+        cursor: pointer;
+    }
+}
+.sub-image {
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .product-size-button {
@@ -23,10 +52,10 @@
     &:hover {
         background-color: $primary;
     }
-    &:active,
-    &:focus {
-        background-color: $primary;
-    }
+}
+
+.button-active {
+    background-color: $primary;
 }
 
 .col-product-price {
