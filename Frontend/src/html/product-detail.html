@@ -122,6 +122,19 @@
                             <button type="button" class="col-2 mx-2 btn product-size-button">M</button>
                             <button type="button" class="col-2 mx-2 btn product-size-button">L</button>
                             <button type="button" class="col-2 mx-2 btn product-size-button">XL</button>
+                            <script>
+                                let sizeButtons = document.querySelectorAll('.product-size-button');
+
+                                sizeButtons.forEach((button) => {
+                                    button.addEventListener('click', function () {
+                                        sizeButtons.forEach((btn) => {
+                                            btn.classList.remove('button-active');
+                                        });
+
+                                        this.classList.add('button-active');
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
                     <br />

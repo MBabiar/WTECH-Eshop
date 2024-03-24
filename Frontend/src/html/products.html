@@ -100,7 +100,7 @@
             <div class="navbar-collapse collapse row" id="navbarSupportedContent">
                 <div class="col-md-5 filter-col-input-buttons">
                     <div>
-                        <label>Cena:</label>
+                        <label for="price">Cena:</label>
                         <label for="Od">Od</label>
                         <input type="number" id="Od" name="Od" class="input-button-price" />
                         <label for="Do">Do</label>
@@ -144,9 +144,22 @@
 
         <div class="container-fluid">
             <div class="row products-nav-2 mt-1 mb-1">
-                <button type="button" name="" id="" class="button-order">Top</button>
-                <button type="button" name="" id="najlacnejsie" class="button-order">Najľacnejšie</button>
-                <button type="button" name="" id="najdrahsie" class="button-order">Najdahšie</button>
+                <button type="button" id="Top" class="button-order">Top</button>
+                <button type="button" id="najlacnejsie" class="button-order">Najľacnejšie</button>
+                <button type="button" id="najdrahsie" class="button-order">Najdahšie</button>
+                <script>
+                    let ordButtons = document.querySelectorAll('.button-order');
+
+                    ordButtons.forEach((button) => {
+                        button.addEventListener('click', function () {
+                            ordButtons.forEach((btn) => {
+                                btn.classList.remove('button-active');
+                            });
+
+                            this.classList.add('button-active');
+                        });
+                    });
+                </script>
             </div>
         </div>
 

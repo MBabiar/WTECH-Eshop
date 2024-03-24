@@ -12113,7 +12113,8 @@ textarea.form-control-lg {
 .product-size-button:hover {
   background-color: #0d6efd;
 }
-.product-size-button:active, .product-size-button:focus {
+
+.button-active {
   background-color: #0d6efd;
 }
 

@@ -12116,7 +12116,8 @@ label {
 .button-order:hover {
   background-color: #e8e8e8;
 }
-.button-order:active, .button-order:focus {
+
+.button-active {
   background-color: #0d6efd;
   color: white;
 }
