@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="../../css/user-profile.css" />
 
-        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
         <title>User Profile</title>
     </head>
@@ -88,12 +88,15 @@
         <!-- Main content -->
         <div class="container-fluid user-profile-menu">
             <div class="row products-nav-2 mt-1 mb-1 justify-content-center">
-                <a href="zmena-hesla.html" class="col-sm-auto">
-                    <button type="button" class="button-order">Zmena hesla</button>
-                </a>
-                <a href="objednavky.html" class="col-sm-auto">
-                    <button type="button" class="button-order">Moje objednávky</button>
-                </a>
+                <button type="button" class="button-order" onclick="window.location.href='zmena-hesla.html'">
+                    Zmena hesla
+                </button>
+                <button
+                    type="button"
+                    class="button-order active"
+                    onclick="window.location.href='objednavky.html'">
+                    Moje objednávky
+                </button>
             </div>
         </div>
 
