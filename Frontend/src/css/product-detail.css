@@ -797,7 +797,7 @@ progress {
   margin-top: var(--bs-gutter-y);
 }
 
-.col {
+.col, .product-column, .product-column-details {
   flex: 1 0 0%;
 }
 
@@ -12100,8 +12100,12 @@ textarea.form-control-lg {
     text-align: center;
   }
 }
-.product-column {
+.product-column, .product-column-details {
   max-width: 50%;
+}
+
+.product-column-details {
+  background-color: whitesmoke;
 }
 
 .row-sub-images {
@@ -12152,7 +12156,7 @@ textarea.form-control-lg {
 }
 
 @media (max-width: 1199.98px) {
-  .product-column {
+  .product-column, .product-column-details {
     max-width: 100%;
   }
 }

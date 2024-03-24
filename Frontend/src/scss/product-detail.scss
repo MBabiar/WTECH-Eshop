@@ -12,7 +12,13 @@
 
 // Product Detail
 .product-column {
+    @extend .col;
     max-width: 50%;
+}
+
+.product-column-details {
+    @extend .product-column;
+    background-color: whitesmoke;
 }
 
 .row-sub-images {
