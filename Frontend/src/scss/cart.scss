@@ -38,19 +38,21 @@
     text-align: center;
 }
 
+.col-delete {
+    @extend .col-1;
+    text-align: center;
+}
+
 .input-piece-amount {
     width: 100px;
     text-align: center;
     -webkit-appearance: none;
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+    &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
-    -moz-appearance: none;
+    -moz-appearance: textfield;
     appearance: none;
 }
 

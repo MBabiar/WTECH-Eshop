@@ -12124,14 +12124,10 @@ textarea.form-control-lg {
 .input-piece-amount {
   text-align: center;
   -webkit-appearance: none;
-  -moz-appearance: none;
+  -moz-appearance: textfield;
   appearance: none;
 }
-.input-piece-amount::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.input-piece-amount::-webkit-outer-spin-button {
+.input-piece-amount::-webkit-inner-spin-button, .input-piece-amount::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

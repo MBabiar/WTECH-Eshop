@@ -42,15 +42,12 @@
     @extend .col-3;
     text-align: center;
     -webkit-appearance: none;
-    &::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+    &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
-    -moz-appearance: none;
+    -moz-appearance: textfield;
     appearance: none;
 }
 

@@ -842,7 +842,7 @@ progress {
   width: auto;
 }
 
-.col-1 {
+.col-1, .col-delete {
   flex: 0 0 auto;
   width: 8.33333333%;
 }
@@ -12139,18 +12139,18 @@ textarea.form-control-lg {
   text-align: center;
 }
 
+.col-delete {
+  text-align: center;
+}
+
 .input-piece-amount {
   width: 100px;
   text-align: center;
   -webkit-appearance: none;
-  -moz-appearance: none;
+  -moz-appearance: textfield;
   appearance: none;
 }
-.input-piece-amount::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.input-piece-amount::-webkit-outer-spin-button {
+.input-piece-amount::-webkit-inner-spin-button, .input-piece-amount::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
