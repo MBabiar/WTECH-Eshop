@@ -12053,8 +12053,23 @@ textarea.form-control-lg {
     border-top: 1px black solid;
   }
 }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
 .footer {
   color: gray;
+  flex-shrink: 0;
 }
 
 .left-footer {
