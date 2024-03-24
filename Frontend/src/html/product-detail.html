@@ -90,20 +90,33 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col product-column">
                     <div class="card">
-                        <img class="card-img-top" src="../images/tricko-bleach-1.png" alt="Title" />
+                        <img
+                            class="card-img-top main-image"
+                            src="../images/tricko-bleach-1.png"
+                            alt="Title" />
                     </div>
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row-sub-images">
+                        <div class="col-sub-image">
                             <div class="card">
-                                <img src="../images/tricko-bleach-1.png" alt="Title" />
+                                <img src="../images/tricko-bleach-1.png" class="sub-image" alt="Title" />
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-sub-image">
                             <div class="card">
-                                <img src="../images/tricko-bleach-1.png" alt="Title" />
+                                <img src="../images/hoddie.jfif" class="sub-image" alt="Title" />
                             </div>
                         </div>
                     </div>
+                    <script>
+                        let mainImage = document.querySelector('.main-image');
+                        let subImages = document.querySelectorAll('.sub-image');
+
+                        subImages.forEach((image) => {
+                            image.addEventListener('click', function () {
+                                mainImage.src = this.src;
+                            });
+                        });
+                    </script>
                 </div>
 
                 <div class="col product-column bg-light">
@@ -122,19 +135,6 @@
                             <button type="button" class="col-2 mx-2 btn product-size-button">M</button>
                             <button type="button" class="col-2 mx-2 btn product-size-button">L</button>
                             <button type="button" class="col-2 mx-2 btn product-size-button">XL</button>
-                            <script>
-                                let sizeButtons = document.querySelectorAll('.product-size-button');
-
-                                sizeButtons.forEach((button) => {
-                                    button.addEventListener('click', function () {
-                                        sizeButtons.forEach((btn) => {
-                                            btn.classList.remove('button-active');
-                                        });
-
-                                        this.classList.add('button-active');
-                                    });
-                                });
-                            </script>
                         </div>
                     </div>
                     <br />
