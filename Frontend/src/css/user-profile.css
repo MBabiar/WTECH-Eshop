@@ -12080,26 +12080,20 @@ textarea.form-control-lg {
     text-align: center;
   }
 }
-.user-profile-menu {
-  margin-left: 10vw;
-  margin-top: 1vw;
-  width: 250px;
+.button-order {
+  color: black;
+  background-color: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: left;
+  padding: 10px 14px;
+  margin-right: 2px;
 }
-
-@media (max-width: 991.98px) {
-  .user-profile-menu {
-    margin-left: 0;
-  }
+.button-order:hover {
+  background-color: #e8e8e8;
 }
-@media (max-width: 767.98px) {
-  .filter-col-anime {
-    margin-bottom: 0.5rem;
-  }
-  .filter-col-input-buttons {
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  .filter-col-color {
-    margin-bottom: 0.5rem;
-  }
+.button-order:active, .button-order:focus {
+  background-color: #0d6efd;
+  color: white;
 }

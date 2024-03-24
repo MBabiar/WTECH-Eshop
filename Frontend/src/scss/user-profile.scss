@@ -9,29 +9,20 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
-.user-profile-menu {
-    margin-left: 10vw;
-    margin-top: 1vw;
-    width: 250px;
-}
-
-@include media-breakpoint-down(lg) {
-    .user-profile-menu {
-        margin-left: 0;
+.button-order {
+    color: black;
+    background-color: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    width: fit-content;
+    text-align: left;
+    padding: 10px 14px;
+    margin-right: 2px;
+    &:hover {
+        background-color: #e8e8e8;
     }
-}
-
-@include media-breakpoint-down(md) {
-    .filter-col-anime {
-        margin-bottom: $spacer * 0.5;
-    }
-
-    .filter-col-input-buttons {
-        margin-bottom: $spacer * 0.5;
-        margin-top: $spacer * 0.5;
-    }
-
-    .filter-col-color {
-        margin-bottom: $spacer * 0.5;
+    &:active,
+    &:focus {
+        background-color: $primary;
+        color: white;
     }
 }
