@@ -12126,3 +12126,8 @@ body {
     width: 100%;
   }
 }
+@media (max-width: 575.98px) {
+  .user-profile-password {
+    width: 100%;
+  }
+}

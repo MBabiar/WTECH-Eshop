@@ -39,3 +39,9 @@
         width: 100%;
     }
 }
+
+@include media-breakpoint-down(sm) {
+    .user-profile-password {
+        width: 100%;
+    }
+}
