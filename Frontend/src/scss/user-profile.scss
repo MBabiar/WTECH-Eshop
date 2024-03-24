@@ -25,3 +25,17 @@
         color: white;
     }
 }
+
+.user-profile-orders {
+    width: 600px;
+}
+
+.user-profile-password {
+    width: 400px;
+}
+
+@include media-breakpoint-down(md) {
+    .user-profile-orders {
+        width: 100%;
+    }
+}

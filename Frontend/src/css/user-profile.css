@@ -12097,3 +12097,17 @@ textarea.form-control-lg {
   background-color: #0d6efd;
   color: white;
 }
+
+.user-profile-orders {
+  width: 600px;
+}
+
+.user-profile-password {
+  width: 400px;
+}
+
+@media (max-width: 767.98px) {
+  .user-profile-orders {
+    width: 100%;
+  }
+}
