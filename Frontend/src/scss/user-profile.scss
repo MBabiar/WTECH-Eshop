@@ -11,6 +11,53 @@
 // Then add additional custom code here
 .user-profile-container {
     @extend .container, .mt-5;
-    width: 85vw;
+    width: 100%;
     margin-left: 10vw;
+}
+
+hr {
+    width: 50vw;
+}
+
+.input-row {
+    @extend .row, .mb-3;
+}
+
+.col-label {
+    @extend .col-3, .col-form-label;
+    width: 175px;
+}
+
+.col-input {
+    @extend .col-6;
+    width: 300px;
+}
+
+.submit-btn {
+    @extend .btn, .btn-primary;
+    width: 100px;
+}
+
+@include media-breakpoint-down(lg) {
+    .user-profile-container {
+        margin-left: 0vw;
+    }
+    hr {
+        width: 75vw;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    hr {
+        width: 75vw;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .col-input {
+        width: 70vw;
+    }
+    hr {
+        width: 100%;
+    }
 }
