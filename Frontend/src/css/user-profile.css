@@ -12129,11 +12129,6 @@ hr {
     width: 75vw;
   }
 }
-@media (max-width: 767.98px) {
-  hr {
-    width: 75vw;
-  }
-}
 @media (max-width: 575.98px) {
   .col-input {
     width: 100%;

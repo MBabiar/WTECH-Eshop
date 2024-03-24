@@ -9,7 +9,6 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
-
 .order-info-container {
     @extend .container, .mt-5;
     width: 85vw;
@@ -57,15 +56,15 @@ hr {
     .order-info-container {
         margin-left: 0vw;
     }
+
+    hr {
+        width: 75vw;
+    }
 }
 
 @include media-breakpoint-down(md) {
     .ord-inf-next-button {
         margin-right: 10vw;
-    }
-
-    hr {
-        width: 75vw;
     }
 }
 
