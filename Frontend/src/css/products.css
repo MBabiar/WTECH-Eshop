@@ -12126,6 +12126,13 @@ label {
   padding-right: 11vw;
 }
 
+.card-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
 @media (max-width: 991.98px) {
   .products-nav {
     padding-left: 1vw;

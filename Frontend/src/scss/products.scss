@@ -57,6 +57,13 @@ label {
     padding-right: 11vw;
 }
 
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
 @include media-breakpoint-down(lg) {
     .products-nav {
         padding-left: 1vw;
