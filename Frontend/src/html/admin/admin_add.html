@@ -4,9 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="../css/admin.css" />
+        <link rel="stylesheet" href="../../css/admin.css" />
 
-        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
         <title>Homepage</title>
     </head>
@@ -30,8 +30,6 @@
                             alt=""
                             data-bs-toggle="modal"
                             data-bs-target="#ProfileModal" />
-
-                        <!-- modal -->
                         <div
                             class="modal fade"
                             id="ProfileModal"
@@ -46,7 +44,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- modal -->
                     </div>
 
                     <a href="cart.html" class="col nav-link">
@@ -72,13 +69,13 @@
                 <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
                     <ul class="navbar-nav mt-2 mt-lg-0 list-group">
                         <li class="list-group-item-start">
-                            <a href="products.html" class="nav-link-product-type" href="#">Tričká</a>
+                            <a href="../products.html" class="nav-link-product-type">Tričká</a>
                         </li>
                         <li class="list-group-item-custom">
-                            <a href="products.html" class="nav-link-product-type" href="#">Mikiny</a>
+                            <a href="../products.html" class="nav-link-product-type">Mikiny</a>
                         </li>
                         <li class="list-group-item-custom">
-                            <a href="products.html" class="nav-link-product-type" href="#">Čapice</a>
+                            <a href="../products.html" class="nav-link-product-type">Čapice</a>
                         </li>
                     </ul>
                 </div>
@@ -86,6 +83,22 @@
         </nav>
 
         <!-- Main Content -->
+        <div class="container-fluid">
+            <div class="row products-nav-2 mt-1 mb-1 justify-content-center">
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    onclick="window.location.href='admin_add.html'">
+                    Pridať produkt
+                </button>
+                <button
+                    type="button"
+                    class="admin-nav-button"
+                    onclick="window.location.href='admin_change.html'">
+                    Zmeniť/Zmazať produkt
+                </button>
+            </div>
+        </div>
 
         <!-- Footer -->
         <section class="footer">

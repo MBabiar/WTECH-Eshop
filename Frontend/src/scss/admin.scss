@@ -9,3 +9,13 @@
 @import 'components/main-footer.scss';
 
 // Then add additional custom code here
+.admin-nav-button {
+    background-color: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    width: fit-content;
+    padding: 10px 14px;
+    margin-right: 2px;
+    &:hover {
+        background-color: #e8e8e8;
+    }
+}
