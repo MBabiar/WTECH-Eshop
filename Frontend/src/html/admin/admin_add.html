@@ -15,8 +15,8 @@
         <!-- Main Bar -->
         <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
             <div class="container-fluid">
-                <a href="homepage.html" class="main-logo">
-                    <img src="../images/logo.png" class="img-fluid" alt="" />
+                <a href="../homepage.html" class="main-logo">
+                    <img src="../../images/logo.png" class="img-fluid" alt="" />
                 </a>
                 <form class="main-search d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -25,7 +25,7 @@
                 <div class="prof-cart-link">
                     <div class="col nav-link">
                         <img
-                            src="../images/profile_placeholder.png"
+                            src="../../images/profile_placeholder.png"
                             class="img-fluid profile-img"
                             alt=""
                             data-bs-toggle="modal"
@@ -38,16 +38,16 @@
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content dropdown-menu">
-                                    <a class="dropdown-item" href="user-profile.html">Profil</a>
-                                    <a class="dropdown-item" href="login.html">Prihlásiť sa</a>
-                                    <a class="dropdown-item" href="register.html">Registrovať sa</a>
+                                    <a class="dropdown-item" href="../user-profile.html">Profil</a>
+                                    <a class="dropdown-item" href="../login.html">Prihlásiť sa</a>
+                                    <a class="dropdown-item" href="../register.html">Registrovať sa</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <a href="cart.html" class="col nav-link">
-                        <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
+                    <a href="../cart.html" class="col nav-link">
+                        <img src="../../images/shopping_cart.png" class="img-fluid" alt="" />
                     </a>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                             <a href="../products.html" class="nav-link-product-type">Mikiny</a>
                         </li>
                         <li class="list-group-item-custom">
-                            <a href="../products.html" class="nav-link-product-type">Čapice</a>
+                            <a href="../products.html" class="nav-link-product-type">Čiapky</a>
                         </li>
                     </ul>
                 </div>
@@ -100,12 +100,120 @@
             </div>
         </div>
 
+        <section class="main-content">
+            <form class="needs-validation" novalidate>
+                <div class="add-product-container">
+                    <div class="container-flex">
+                        <h1>Pridávanie Produktu</h1>
+                        <div class="row-input mt-3">
+                            <label for="inputProdName" class="col-label">Názov Produktu</label>
+                            <div class="col-input">
+                                <input type="text" class="form-control" id="inputProdName" required />
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Vyplň údaje.</div>
+                            </div>
+                        </div>
+                        <div class="row-input mt-3">
+                            <label for="inputProdCategory" class="col-label">Kategória</label>
+                            <div class="col-input">
+                                <select
+                                    class="form-select"
+                                    id="inputProdCategory"
+                                    name="inputProdCategory"
+                                    required>
+                                    <option value="1">Tričko</option>
+                                    <option value="2">Mikina</option>
+                                    <option value="3">Čiapka</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row-input mt-3">
+                            <label for="inputProdAnime" class="col-label">Anime</label>
+                            <div class="col-input">
+                                <select
+                                    class="form-select"
+                                    id="inputProdAnime"
+                                    name="inputProdAnime"
+                                    required>
+                                    <option value="1">Naruto</option>
+                                    <option value="2">Bleach</option>
+                                    <option value="3">One Piece</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row-input mt-3">
+                            <label for="inputProdColor" class="col-label">Farba</label>
+                            <div class="col-input">
+                                <select
+                                    class="form-select"
+                                    id="inputProdColor"
+                                    name="inputProdColor"
+                                    required>
+                                    <option value="1">Čierna</option>
+                                    <option value="2">Biela</option>
+                                    <option value="3">Červená</option>
+                                    <option value="4">Modrá</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row-input mt-3">
+                            <label for="inputProdPrice" class="col-label">Cena ( € )</label>
+                            <div class="col-input">
+                                <input type="number" class="form-control" id="inputProdPrice" required />
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Vyplň údaje.</div>
+                            </div>
+                        </div>
+                        <div class="row-input mt-3">
+                            <label for="inputProdDescription" class="col-label">Popis Produktu</label>
+                            <div class="col-input">
+                                <!-- Any content between the opening and closing tags of a <textarea> is considered its default value. Therefore closing tag needs to be exactly after opening tag if we don't want to have any spaces in textarea. If I would place closing tag in the next line there would be spaces due to indentation-->
+                                <textarea
+                                    class="form-control input-description"
+                                    id="inputProdDescription"
+                                    required></textarea>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Vyplň údaje.</div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label"
+                                >Multiple files input example</label
+                            >
+                            <input class="form-control" type="file" id="formFileMultiple" multiple />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function () {
+                    'use strict';
+                    let forms = document.querySelectorAll('.needs-validation');
+                    Array.prototype.slice.call(forms).forEach(function (form) {
+                        form.addEventListener(
+                            'submit',
+                            function (event) {
+                                if (!form.checkValidity()) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            },
+                            false
+                        );
+                    });
+                })();
+            </script>
+        </section>
+
         <!-- Footer -->
         <section class="footer">
             <footer class="bg-body-tertiary">
                 <div class="bg-dark">
                     <div class="container p-4">
-                        <img class="footer-img" src="../images/logo.png" alt="" />
+                        <img class="footer-img" src="../../images/logo.png" alt="" />
                         <div class="row">
                             <div class="left-footer">
                                 <ul class="list-unstyled mb-0">
