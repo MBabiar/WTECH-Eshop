@@ -49,6 +49,9 @@ label {
 .button-active {
     background-color: $primary;
     color: white;
+    &:hover {
+        background-color: $primary;
+    }
 }
 
 .products {
