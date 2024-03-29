@@ -12114,6 +12114,11 @@ body {
 
 .col-label {
   width: 175px;
+  font-weight: bold;
+}
+
+.form-label {
+  font-weight: bold;
 }
 
 .col-input {
