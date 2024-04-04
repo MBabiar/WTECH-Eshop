@@ -1,2 +1,0 @@
-WTECH - Backend
-PHP - Laravel
