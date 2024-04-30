@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -11,7 +12,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $usersList = User::all();
+        return view('users.index')->with(
+            'usersList',
+            $usersList
+        );
     }
 
     /**
@@ -35,7 +40,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('users.show', ['id' => $id]);
     }
 
     /**

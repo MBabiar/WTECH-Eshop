@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>User profile</title>
 </head>
 
 <body>
-    <h1>Welcome to Laravel</h1>
+    <h1>Hello, user {{ $id }}</h1>
 </body>
 
 </html>
