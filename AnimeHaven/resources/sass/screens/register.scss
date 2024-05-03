@@ -1,0 +1,8 @@
+// TODO: I found out this is not needed(mb-3.row > .col-4), use col instead of col-4 in register
+@include media-breakpoint-down(sm) {
+    .mb-3.row > .col-4 {
+        text-align: left;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}

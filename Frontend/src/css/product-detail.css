@@ -12153,6 +12153,10 @@ body {
 
 .button-active {
   background-color: #0d6efd;
+  color: white;
+}
+.button-active:hover {
+  background-color: #0d6efd;
 }
 
 .col-product-price {

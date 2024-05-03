@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="../css/cart.css" />
+
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>Cart</title>
+    </head>
+
+    <body>
+        <!-- Main Bar -->
+        <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
+            <div class="container-fluid">
+                <a href="homepage.html" class="main-logo">
+                    <img src="../images/logo.png" class="img-fluid" alt="" />
+                </a>
+                <form class="main-search d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="prof-cart-link">
+                    <div class="col nav-link">
+                        <img
+                            src="../images/profile_placeholder.png"
+                            class="img-fluid profile-img"
+                            alt=""
+                            data-bs-toggle="modal"
+                            data-bs-target="#ProfileModal" />
+                        <div
+                            class="modal fade"
+                            id="ProfileModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content dropdown-menu">
+                                    <a class="dropdown-item" href="user-profile.html">Profil</a>
+                                    <a class="dropdown-item" href="login.html">Prihlásiť sa</a>
+                                    <a class="dropdown-item" href="register.html">Registrovať sa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="cart.html" class="col nav-link">
+                        <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main-Navigation">
+            <div class="container justify-content-end">
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-0 list-group">
+                        <li class="list-group-item-start">
+                            <a href="products.html" class="nav-link-product-type">Tričká</a>
+                        </li>
+                        <li class="list-group-item-custom">
+                            <a href="products.html" class="nav-link-product-type">Mikiny</a>
+                        </li>
+                        <li class="list-group-item-custom">
+                            <a href="products.html" class="nav-link-product-type">Čiapky</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Cart -->
+        <div class="product-container">
+            <div class="product-row">
+                <div class="col-image">
+                    <img src="../images/tricko-bleach-1.png" alt="" class="img-fluid" />
+                </div>
+                <div class="col-text">Tričko Bleach a ešte treba nejake pismenka do 50 slov</div>
+                <div class="col-piece-amount">
+                    <input
+                        title="amount-1"
+                        type="number"
+                        id="amount-1"
+                        class="input-piece-amount"
+                        value="1"
+                        min="1"
+                        data-min="1"
+                        required />
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" id="inc-button-1" class="inc-dec-button">↑</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="dec-button-1" class="inc-dec-button">↓</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        window.addEventListener('load', function () {
+                            let amountInput_1 = document.getElementById('amount-1');
+                            let incButton_1 = document.getElementById('inc-button-1');
+                            let decButton_1 = document.getElementById('dec-button-1');
+
+                            incButton_1.onclick = function () {
+                                if (isNaN(parseInt(amountInput_1.value))) {
+                                    amountInput_1.value = 1;
+                                } else {
+                                    amountInput_1.value = parseInt(amountInput_1.value) + 1;
+                                }
+                            };
+
+                            decButton_1.onclick = function () {
+                                if (parseInt(amountInput_1.value) > 1) {
+                                    amountInput_1.value = parseInt(amountInput_1.value) - 1;
+                                }
+                            };
+                        });
+                    </script>
+                </div>
+                <div class="col-price">20€</div>
+                <div class="col-delete">
+                    <button type="button" class="btn btn-danger">X</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="product-row">
+                <div class="col-image">
+                    <img src="../images/tricko-bleach-1.png" alt="" class="img-fluid" />
+                </div>
+                <div class="col-text">Tričko Bleach a ešte treba nejake pismenka do 50 slov</div>
+                <div class="col-piece-amount">
+                    <input
+                        title="amount-2"
+                        type="number"
+                        id="amount-2"
+                        class="input-piece-amount"
+                        value="1"
+                        min="1"
+                        data-min="1"
+                        required />
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" id="inc-button-2" class="inc-dec-button">↑</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" id="dec-button-2" class="inc-dec-button">↓</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        window.addEventListener('load', function () {
+                            let amountInput_2 = document.getElementById('amount-2');
+                            let incButton_2 = document.getElementById('inc-button-2');
+                            let decButton_2 = document.getElementById('dec-button-2');
+
+                            incButton_2.onclick = function () {
+                                if (isNaN(parseInt(amountInput_2.value))) {
+                                    amountInput_2.value = 1;
+                                } else {
+                                    amountInput_2.value = parseInt(amountInput_2.value) + 1;
+                                }
+                            };
+
+                            decButton_2.onclick = function () {
+                                if (parseInt(amountInput_2.value) > 1) {
+                                    amountInput_2.value = parseInt(amountInput_2.value) - 1;
+                                }
+                            };
+                        });
+                    </script>
+                </div>
+                <div class="col-price">20€</div>
+                <div class="col-delete">
+                    <button type="button" class="btn btn-danger">X</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-button-container">
+            <button type="button" class="order-button" onclick="window.location.href='delivery-payment.html'">
+                Daľej
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <section class="footer">
+            <footer class="bg-body-tertiary">
+                <div class="bg-dark">
+                    <div class="container p-4">
+                        <img class="footer-img" src="../images/logo.png" alt="" />
+                        <div class="row">
+                            <div class="left-footer">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <p>Copyright © AnimeHaven</p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Vytvorenie a dizajnovanie stránky - Mário Babiar, Peter Brandajský
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <p>Tel. kontakt: 0910 638 409, 0902 203 124</p>
+                                    </li>
+                                    <li>
+                                        <p>Mail: xbabiar@stuba.sk, xbrandajsky@stuba.sk</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </body>
+</html>

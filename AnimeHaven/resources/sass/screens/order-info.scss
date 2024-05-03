@@ -1,0 +1,60 @@
+.order-info-container {
+    @extend .container, .mt-5;
+    width: 85vw;
+    margin-left: 10vw;
+}
+
+.input-row {
+    @extend .row, .mb-3;
+}
+
+.col-label {
+    @extend .col-3, .col-form-label;
+    width: 175px;
+}
+
+.col-input {
+    @extend .col-6;
+    width: 300px;
+}
+
+.ord-inf-buttons-container {
+    @extend .container-fluid, .mt-5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ord-inf-back-button {
+    @extend .btn;
+    width: 100px;
+    margin-left: 10vw;
+    background-color: #e4e4e4;
+}
+
+.ord-inf-next-button {
+    @extend .btn, .btn-primary;
+    width: 100px;
+    margin-right: 22vw;
+}
+
+@include media-breakpoint-down(lg) {
+    .order-info-container {
+        margin-left: 0vw;
+    }
+
+    .ord-inf-back-button {
+        margin-left: 0;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .ord-inf-next-button {
+        margin-right: 15vw;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .col-input {
+        width: 100%;
+    }
+}

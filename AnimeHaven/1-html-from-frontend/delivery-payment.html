@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="../css/delivery-payment.css" />
+
+        <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <title>Order 1</title>
+    </head>
+
+    <body>
+        <!-- Main Bar -->
+        <nav class="navbar navbar-light bg-dark" aria-label="Main-Bar">
+            <div class="container-fluid">
+                <a href="homepage.html" class="main-logo">
+                    <img src="../images/logo.png" class="img-fluid" alt="" />
+                </a>
+                <form class="main-search d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="prof-cart-link">
+                    <div class="col nav-link">
+                        <img
+                            src="../images/profile_placeholder.png"
+                            class="img-fluid profile-img"
+                            alt=""
+                            data-bs-toggle="modal"
+                            data-bs-target="#ProfileModal" />
+                        <div
+                            class="modal fade"
+                            id="ProfileModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content dropdown-menu">
+                                    <a class="dropdown-item" href="user-profile.html">Profil</a>
+                                    <a class="dropdown-item" href="login.html">Prihlásiť sa</a>
+                                    <a class="dropdown-item" href="register.html">Registrovať sa</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="cart.html" class="col nav-link">
+                        <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-sm bg-primary" aria-label="Main-Navigation">
+            <div class="container justify-content-end">
+                <button
+                    class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
+                    <ul class="navbar-nav mt-2 mt-lg-0 list-group">
+                        <li class="list-group-item-start">
+                            <a href="products.html" class="nav-link-product-type">Tričká</a>
+                        </li>
+                        <li class="list-group-item-custom">
+                            <a href="products.html" class="nav-link-product-type">Mikiny</a>
+                        </li>
+                        <li class="list-group-item-custom">
+                            <a href="products.html" class="nav-link-product-type">Čiapky</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <section class="main-content content">
+            <div class="delivery-payment-container">
+                <div class="container-flex">
+                    <h1>Doprava</h1>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="doprava" value="" id="" checked />
+                        <label class="form-check-label" for=""> Doručenie Domov - Packeta Home </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="doprava" value="" id="" />
+                        <label class="form-check-label" for="">
+                            Doručenie Domov - SPS Slovak Parcel Service
+                        </label>
+                    </div>
+                </div>
+                <div class="container-flex mt-4">
+                    <h1>Platba</h1>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="platba" value="" id="" checked />
+                        <label class="form-check-label" for=""> Online Platba Kartou </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="platba" value="" id="" />
+                        <label class="form-check-label" for=""> Google Pay </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="platba" value="" id="" />
+                        <label class="form-check-label" for=""> Dobierkou na mieste </label>
+                    </div>
+                </div>
+            </div>
+            <div class="del-pay-buttons-container">
+                <button
+                    id="del-pay-back-button"
+                    type="button"
+                    class="del-pay-back-button"
+                    onclick="window.location.href='cart.html'">
+                    Späť
+                </button>
+                <button
+                    type="del-pay-next-button"
+                    class="del-pay-next-button"
+                    onclick="window.location.href='order-info.html'">
+                    Ďalej
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer">
+            <footer class="bg-body-tertiary">
+                <div class="bg-dark">
+                    <div class="container p-4">
+                        <img class="footer-img" src="../images/logo.png" alt="" />
+                        <div class="row">
+                            <div class="left-footer">
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <p>Copyright © AnimeHaven</p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Vytvorenie a dizajnovanie stránky - Mário Babiar, Peter Brandajský
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <p>Tel. kontakt: 0910 638 409, 0902 203 124</p>
+                                    </li>
+                                    <li>
+                                        <p>Mail: xbabiar@stuba.sk, xbrandajsky@stuba.sk</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+    </body>
+</html>

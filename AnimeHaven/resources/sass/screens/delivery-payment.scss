@@ -1,0 +1,30 @@
+.delivery-payment-container {
+    @extend .container, .mt-5;
+    max-width: fit-content;
+    margin-left: 10vw;
+}
+
+.del-pay-buttons-container {
+    @extend .container-fluid, .mt-5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.del-pay-back-button {
+    @extend .btn;
+    width: 100px;
+    margin-left: 10vw;
+    background-color: #e4e4e4;
+}
+
+.del-pay-next-button {
+    @extend .btn, .btn-primary;
+    width: 100px;
+    margin-right: 22vw;
+}
+
+@include media-breakpoint-down(md) {
+    .del-pay-next-button {
+        margin-right: 10vw;
+    }
+}
