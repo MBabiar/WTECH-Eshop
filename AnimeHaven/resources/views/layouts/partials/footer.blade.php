@@ -2,7 +2,10 @@
     <footer class="bg-body-tertiary">
         <div class="bg-dark">
             <div class="container p-4">
-                <img class="footer-img" src="../images/logo.png" alt="" />
+                {{-- Logo --}}
+                <img class="footer-img" src="{{ asset('images/logo.png') }}" alt="" />
+
+                {{-- Info --}}
                 <div class="row">
                     <div class="left-footer">
                         <ul class="list-unstyled mb-0">
@@ -11,7 +14,7 @@
                             </li>
                             <li>
                                 <p>
-                                    Vytvorenie a dizajnovanie stránky - Mário Babiar, Peter Brandajský
+                                    Vytvorenie a dizajn stránky - Mário Babiar, Peter Brandajský
                                 </p>
                             </li>
                         </ul>

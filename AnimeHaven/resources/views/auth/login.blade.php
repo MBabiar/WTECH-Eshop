@@ -1,9 +1,8 @@
 <x-app-layout>
-    <div class="container img-container">
-        <a href="homepage.html">
-            <img src="../images/logo.png" class="img-fluid" alt="" />
-        </a>
-    </div>
+    {{-- Logo --}}
+    <x-logo-image></x-logo-image>
+
+    {{-- Login Form --}}
     <div class="form-container">
         <h1>Prihlásenie</h1>
         <hr />

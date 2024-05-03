@@ -2,7 +2,7 @@
     <div class="container-fluid">
         {{-- Logo --}}
         <a href="homepage.html" class="main-logo">
-            <img src="../images/logo.png" class="img-fluid" alt="" />
+            <img src="{{ asset('images/logo.png') }}" class="img-fluid" alt="" />
         </a>
 
         {{-- Search --}}
@@ -15,7 +15,7 @@
         <div class="prof-cart-link">
             {{-- Profile --}}
             <div class="col nav-link">
-                <img src="../images/profile_placeholder.png" class="img-fluid profile-img" alt=""
+                <img src="{{ asset('images/profile_placeholder.png') }}" class="img-fluid profile-img" alt=""
                     data-bs-toggle="modal" data-bs-target="#ProfileModal" />
                 <div class="modal fade" id="ProfileModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -31,7 +31,7 @@
 
             {{-- Cart --}}
             <a href="cart.html" class="col nav-link">
-                <img src="../images/shopping_cart.png" class="img-fluid" alt="" />
+                <img src="{{ asset('images/shopping_cart.png') }}" class="img-fluid" alt="" />
             </a>
         </div>
     </div>
