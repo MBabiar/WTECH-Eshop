@@ -21,8 +21,7 @@
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content dropdown-menu">
-                            {{-- TODO: Add route to Profile --}}
-                            <a class="dropdown-item" href="user-profile.html">Profil</a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">Profil</a>
                             @if (Auth::check())
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -39,7 +38,7 @@
 
             {{-- Cart --}}
             {{-- TODO: Add route to cart --}}
-            <a href="cart.html" class="col nav-link">
+            <a href="{{ route('cart') }}" class="col nav-link">
                 <img src="{{ asset('images/shopping_cart.png') }}" class="img-fluid" alt="" />
             </a>
         </div>

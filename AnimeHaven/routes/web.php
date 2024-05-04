@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 // Homepage
 Route::get('/', [Homepage::class, 'index'])->name('homepage');
 
+// TODO: All routes with functions needs change
+
 // Authentication
 Route::middleware('guest')->group(function () {
     // Register
@@ -24,8 +26,39 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
-    // TODO: Add change password
+    Route::get('/profile', function () {
+        return view('profile.profile');
+    })->name('profile');
+
+    Route::get('/orders', function () {
+        return view('profile.orders');
+    })->name('orders');
+
+    Route::get('/password-change', function () {
+        return view('profile.password-change');
+    })->name('password-change');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+// Others - needs changes
+Route::get('/cart', function () {
+    return view('order.cart');
+})->name('cart');
+
+Route::get('/delivery-payment', function () {
+    return view('order.delivery-payment');
+})->name('delivery-payment');
+
+Route::get('/order-info', function () {
+    return view('order.order-info');
+})->name('order-info');
+
+Route::get('/product-detail', function () {
+    return view('product.product-detail');
+})->name('product-detail');
+
+Route::get('/products', function () {
+    return view('product.products');
+})->name('products');
