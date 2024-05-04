@@ -1,31 +1,42 @@
 <x-app-layout>
-    {{-- Logo --}}
-    <x-logo-image></x-logo-image>
-
-    {{-- Login Form --}}
+    {{-- Login Form Container --}}
     <div class="form-container">
         <h1>Prihlásenie</h1>
         <hr />
-        <form>
-            <div class="mb-3 row">
-                <label for="inputEmail" class="col-3 col-form-label">Email</label>
-                <div class="col-8">
-                    <input type="email" class="form-control" name="inputEmail" id="inputEmail"
-                        placeholder="John@example.com" />
+
+        {{-- Login Form --}}
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            {{-- Email  --}}
+            <div class="mb-3 ">
+                <div class="row">
+                    <label for="email" class="col-3 col-form-label">Email</label>
+                    <div class="col-8">
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="John@example.com" />
+                    </div>
                 </div>
+                <x-input-error :messages="$errors->get('email')" class="li-left-align" />
             </div>
-            <div class="mb-3 row">
-                <label for="inputPassword" class="col-3 col-form-label">Heslo</label>
-                <div class="col-8">
-                    <input type="password" class="form-control" name="inputPassword" id="inputPassword"
-                        placeholder="Heslo" />
+
+            {{-- Password --}}
+            <div class="mb-3 ">
+                <div class="row">
+                    <label for="password" class="col-3 col-form-label">Heslo</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Heslo" />
+                    </div>
                 </div>
+                <x-input-error :messages="$errors->get('password')" class="li-left-align" />
             </div>
+
+            {{-- Login Button --}}
+            <button type="submit" class="btn btn-primary">Prihlásiť sa</button>
         </form>
-        <button type="button" class="btn btn-primary">Login</button>
-        <br />
         <div class="register-link-container">
-            <a class="register-link" href="register.html" class="badge bg-primary">Nová Registrácia</a>
+            <a class="register-link" href="{{ route('register') }}" class="badge bg-primary">Nová Registrácia</a>
         </div>
     </div>
 </x-app-layout>

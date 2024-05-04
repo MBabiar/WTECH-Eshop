@@ -1,10 +1,5 @@
-.img-container {
-    text-align: center;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-}
-
 .form-container {
+    @extend .mt-5;
     background-color: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
@@ -14,23 +9,33 @@
     margin-left: auto;
     margin-right: auto;
     padding: 5vh 5vh;
-    width: 400px;
+    width: 600px;
+}
+
+.li-left-align {
+    text-align: left;
 }
 
 .register-link-container {
     text-align: left;
 }
 
+@include media-breakpoint-down(md) {
+    .form-container {
+        width: 500px;
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .form-container {
         width: 300px;
     }
-    .mb-3.row > .col-3 {
+    .mb-3 > .row > .col-3 {
         text-align: left;
         flex: 0 0 100%;
         max-width: 100%;
     }
-    .mb-3.row > .col-8 {
+    .mb-3 > .row > .col-8 {
         flex: 0 0 100%;
         max-width: 100%;
     }
