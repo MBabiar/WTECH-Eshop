@@ -5,15 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+
+
+    public function index(string $category, Request $request)
     {
-        //
+        $sort = $request->input('sort', 'popularity');
+
+        if ($sort === 'popularity') {
+            $products = Product::where('category', $category)->orderBy('popularity', 'desc')->get();
+        } elseif ($sort === 'asc') {
+            $products = Product::where('category', $category)->orderBy('price', 'asc')->get();
+        } else {
+            $products = Product::where('category', $category)->orderBy('price', 'desc')->get();
+        }
+
+        return view('product.products', compact('products', 'category'));
     }
 
     /**

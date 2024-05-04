@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('type');
+            $table->string('category');
             $table->string('anime');
             $table->string('color');
             $table->decimal('price', 8, 2);

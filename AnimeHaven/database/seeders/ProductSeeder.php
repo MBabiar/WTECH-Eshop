@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Naruto T-Shirt',
                 'description' => 'Naruto T-Shirt description',
-                'type' => 'shirt',
+                'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
@@ -34,7 +34,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'One Piece T-Shirt',
                 'description' => 'One Piece T-Shirt description',
-                'type' => 'shirt',
+                'category' => 'shirt',
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
@@ -49,7 +49,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Dragon Ball T-Shirt',
                 'description' => 'Dragon Ball T-Shirt description',
-                'type' => 'shirt',
+                'category' => 'shirt',
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,
@@ -66,7 +66,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Naruto Hoodie',
                 'description' => 'Naruto Hoodie description',
-                'type' => 'hoodie',
+                'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
@@ -81,7 +81,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'One Piece Hoodie',
                 'description' => 'One Piece Hoodie description',
-                'type' => 'hoodie',
+                'category' => 'hoodie',
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
@@ -96,7 +96,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Dragon Ball Hoodie',
                 'description' => 'Dragon Ball Hoodie description',
-                'type' => 'hoodie',
+                'category' => 'hoodie',
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,
@@ -113,7 +113,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Naruto Hat',
                 'description' => 'Naruto Hat description',
-                'type' => 'hat',
+                'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
@@ -125,7 +125,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'One Piece Hat',
                 'description' => 'One Piece Hat description',
-                'type' => 'hat',
+                'category' => 'hat',
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
@@ -137,7 +137,7 @@ class ProductSeeder extends Seeder
             [
                 'name' => 'Dragon Ball Hat',
                 'description' => 'Dragon Ball Hat description',
-                'type' => 'hat',
+                'category' => 'hat',
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,

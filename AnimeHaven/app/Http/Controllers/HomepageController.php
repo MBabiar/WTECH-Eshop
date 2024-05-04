@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Homepage extends Controller
+class HomepageController extends Controller
 {
     /**
      * Display the homepage view.

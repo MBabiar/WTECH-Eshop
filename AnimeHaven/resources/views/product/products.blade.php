@@ -1,5 +1,5 @@
 <x-app-layout>
-    {{-- Products --}}
+    {{-- Filter --}}
     <div class="container-fluid navbar navbar-expand-md justify-content-center mt-1 products-nav">
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,11 +46,15 @@
         </div>
     </div>
 
+    {{-- Sort --}}
     <div class="container-fluid">
         <div class="row products-nav-2 mt-1 mb-1">
-            <button type="button" id="Top" class="button-order">Top</button>
-            <button type="button" id="najlacnejsie" class="button-order">Najlacnejšie</button>
-            <button type="button" id="najdrahsie" class="button-order">Najdlhšie</button>
+            <a href="{{ route('products', ['category' => $category]) }}"
+                class="button-order {{ request('sort') === null ? 'button-active' : '' }}">Top</a>
+            <a href="{{ route('products', ['category' => $category, 'sort' => 'asc']) }}"
+                class="button-order {{ request('sort') === 'asc' ? 'button-active' : '' }}">Najlacnejšie</a>
+            <a href="{{ route('products', ['category' => $category, 'sort' => 'desc']) }}"
+                class="button-order {{ request('sort') === 'desc' ? 'button-active' : '' }}">Najdlhšie</a>
             <script>
                 let ordButtons = document.querySelectorAll('.button-order');
 
@@ -67,183 +71,24 @@
         </div>
     </div>
 
+    {{-- Products --}}
     <div class="row products container-fluid">
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
+        @foreach ($products as $product)
+            <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
+                <div class="card">
+                    <a href="{{ route('product-detail') }}">
+                        <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ $product->name }}
+                        </h5>
+                        <p class="card-text">Cena: {{ $product->price }}€</p>
+                        <a href="#" class="btn btn-primary">Do košíka</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="">Bleach tričko</h5>
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="">Bleach tričko</h5>
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhy nazov a 3 bodky a este">
-                        Bleach tričko dlhy nazov a 3 bodky a este
-                    </h5>
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-
-        {{-- Next Row --}}
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-
-        {{-- Next Row --}}
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
-            <div class="card">
-                <a href="{{ route('product-detail') }}">
-                    <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
-                </a>
-                <div class="card-body">
-                    <h5 class="card-title" title="Bleach tričko dlhyyyyyyyyyyyyy nazoov">
-                        Bleach tričko dlhyyyyyyyyyyyyy nazoov
-                    </h5>
-
-                    <p class="card-text">Cena: 20€</p>
-                    <a href="#" class="btn btn-primary">Do košíka</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
     {{-- Paging --}}

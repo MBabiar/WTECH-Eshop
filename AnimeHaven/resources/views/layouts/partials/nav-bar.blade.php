@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0 list-group">
                 <li class="list-group-item-start">
-                    <a href="{{ route('products') }}" class="nav-link-product-type">Tričká</a>
+                    <a href="{{ route('products', ['category' => 'shirt']) }}" class="nav-link-product-type">Tričká</a>
                 </li>
                 <li class="list-group-item-custom">
-                    <a href="{{ route('products') }}" class="nav-link-product-type">Mikiny</a>
+                    <a href="{{ route('products', ['category' => 'hoodie']) }}" class="nav-link-product-type">Mikiny</a>
                 </li>
                 <li class="list-group-item-custom">
-                    <a href="{{ route('products') }}" class="nav-link-product-type">Čiapky</a>
+                    <a href="{{ route('products', ['category' => 'hat']) }}" class="nav-link-product-type">Čiapky</a>
                 </li>
             </ul>
         </div>

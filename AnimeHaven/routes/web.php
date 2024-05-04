@@ -3,11 +3,12 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Homepage;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
-Route::get('/', [Homepage::class, 'index'])->name('homepage');
+Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
 // TODO: All routes with functions needs change
 
@@ -59,6 +60,4 @@ Route::get('/product-detail', function () {
     return view('product.product-detail');
 })->name('product-detail');
 
-Route::get('/products', function () {
-    return view('product.products');
-})->name('products');
+Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
