@@ -8,15 +8,17 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse row" id="navbarSupportedContent">
+            {{-- Price --}}
             <div class="col-md-5 filter-col-input-buttons">
                 <div>
                     <label for="price">Cena:</label>
-                    <label for="Od">Od</label>
-                    <input type="number" id="Od" name="Od" class="input-button-price" />
-                    <label for="Do">Do</label>
-                    <input type="number" id="Do" name="Do" class="input-button-price" />
+                    <label for="price-min">Od</label>
+                    <input type="number" id="price-min" name="price-min" min="0" class="input-button-price" />
+                    <label for="price-max">Do</label>
+                    <input type="number" id="price-max" name="price-max" min="0" class="input-button-price" />
                 </div>
             </div>
+            {{-- Anime --}}
             <div class="col-md-4 filter-col-anime">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -30,6 +32,7 @@
                     </ul>
                 </div>
             </div>
+            {{-- Color --}}
             <div class="col-md-3 filter-col-color">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -55,19 +58,6 @@
                 class="button-order {{ request('sort') === 'asc' ? 'button-active' : '' }}">Najlacnejšie</a>
             <a href="{{ route('products', ['category' => $category, 'sort' => 'desc']) }}"
                 class="button-order {{ request('sort') === 'desc' ? 'button-active' : '' }}">Najdlhšie</a>
-            <script>
-                let ordButtons = document.querySelectorAll('.button-order');
-
-                ordButtons.forEach((button) => {
-                    button.addEventListener('click', function() {
-                        ordButtons.forEach((btn) => {
-                            btn.classList.remove('button-active');
-                        });
-
-                        this.classList.add('button-active');
-                    });
-                });
-            </script>
         </div>
     </div>
 
@@ -77,7 +67,7 @@
             <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
                 <div class="card">
                     <a href="{{ route('product-detail') }}">
-                        <img src="../images/tricko-bleach-1.png" class="card-img-top" alt="..." />
+                        <img src="{{ asset($product->image) }}" class="card-img-top" alt="..." />
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">

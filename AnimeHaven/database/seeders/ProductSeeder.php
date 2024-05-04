@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -53,7 +53,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -70,7 +70,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -85,7 +85,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -100,7 +100,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -117,7 +117,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Naruto',
                 'color' => 'red',
                 'price' => 100.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -129,7 +129,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'One Piece',
                 'color' => 'yellow',
                 'price' => 120.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -141,7 +141,7 @@ class ProductSeeder extends Seeder
                 'anime' => 'Dragon Ball',
                 'color' => 'orange',
                 'price' => 110.00,
-                'image' => 'null',
+                'image' => 'images/tricko-bleach-1.png',
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
