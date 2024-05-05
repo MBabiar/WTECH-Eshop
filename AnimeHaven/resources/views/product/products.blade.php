@@ -7,60 +7,55 @@
             Spresniť parametre
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse row" id="navbarSupportedContent">
+        <form action="{{ route('products', ['category' => $category]) }}" method="GET"
+            class="navbar-collapse collapse row" id="navbarSupportedContent">
             {{-- Price --}}
-            <div class="col-md-5 filter-col-input-buttons">
-                <div>
+            <div class="filter-col-input-buttons">
+                <div class="filter-row-input-buttons">
                     <label for="price">Cena:</label>
                     <label for="price-min">Od</label>
-                    <input type="number" id="price-min" name="price-min" min="0" class="input-button-price" />
+                    <input type="number" id="price-min" name="price-min" min="0"
+                        value="{{ request('price-min') ?? 0 }}" class="input-button-price" />
                     <label for="price-max">Do</label>
-                    <input type="number" id="price-max" name="price-max" min="0" class="input-button-price" />
+                    <input type="number" id="price-max" name="price-max" min="0"
+                        value="{{ request('price-max') ?? 100 }}" class="input-button-price" />
                 </div>
             </div>
             {{-- Anime --}}
-            <div class="col-md-4 filter-col-anime">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Anime
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Bleach</a></li>
-                        <li><a class="dropdown-item" href="#">Naruto</a></li>
-                        <li><a class="dropdown-item" href="#">Death Note</a></li>
-                    </ul>
-                </div>
+            <div class="filter-col-other">
+                <select class="form-select filter-row-other" id="anime" name="anime">
+                    <option value="" {{ request('anime') === '' ? 'selected' : '' }} hidden>Anime</option>
+                    <option value="Naruto" {{ request('anime') === 'Naruto' ? 'selected' : '' }}>Naruto</option>
+                    <option value="Bleach" {{ request('anime') === 'Bleach' ? 'selected' : '' }}>Bleach</option>
+                    <option value="Death Note" {{ request('anime') === 'Death Note' ? 'selected' : '' }}>Death Note
+                    </option>
+                </select>
             </div>
             {{-- Color --}}
-            <div class="col-md-3 filter-col-color">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Farba
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Čierna</a></li>
-                        <li><a class="dropdown-item" href="#">Biela</a></li>
-                        <li><a class="dropdown-item" href="#">Červená</a></li>
-                    </ul>
-                </div>
+            <div class="filter-col-other">
+                <select class="form-select filter-row-other" id="color" name="color">
+                    <option value="" {{ request('color') === '' ? 'selected' : '' }} hidden>Farba</option>
+                    <option value="black" {{ request('color') === 'black' ? 'selected' : '' }}>Čierna</option>
+                    <option value="white" {{ request('color') === 'white' ? 'selected' : '' }}>Biela</option>
+                    <option value="blue" {{ request('color') === 'blue' ? 'selected' : '' }}>Modrá</option>
+                </select>
             </div>
-        </div>
+            {{-- Submit Button --}}
+            <button type="submit" class="filter-col-btn filter-row-btn">Filtruj</button>
+        </form>
     </div>
 
     {{-- Sort --}}
     <div class="container-fluid">
         <div class="row products-nav-2 mt-1 mb-1">
-            <a href="{{ route('products', ['category' => $category]) }}"
+            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => $sort]) }}"
                 class="button-order {{ request('sort') === null ? 'button-active' : '' }}">Top</a>
-            <a href="{{ route('products', ['category' => $category, 'sort' => 'asc']) }}"
-                class="button-order {{ request('sort') === 'asc' ? 'button-active' : '' }}">Najlacnejšie</a>
-            <a href="{{ route('products', ['category' => $category, 'sort' => 'desc']) }}"
-                class="button-order {{ request('sort') === 'desc' ? 'button-active' : '' }}">Najdlhšie</a>
+            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => 'price-asc']) }}"
+                class="button-order {{ request('sort') === 'price-asc' ? 'button-active' : '' }}">Najlacnejšie</a>
+            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => 'price-desc']) }}"
+                class="button-order {{ request('sort') === 'price-desc' ? 'button-active' : '' }}">Najdrahšie</a>
         </div>
     </div>
-
     {{-- Products --}}
     <div class="row products container-fluid">
         @foreach ($products as $product)
@@ -81,7 +76,7 @@
         @endforeach
     </div>
 
-    {{-- Paging --}}
+    {{-- Pagination --}}
     <div class="container-fluid mt-5">
         <div class="row justify-content-center">
             <nav aria-label="Page navigation example">

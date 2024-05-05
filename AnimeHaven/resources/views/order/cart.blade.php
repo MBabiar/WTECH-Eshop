@@ -95,7 +95,7 @@
 
     <div class="order-button-container">
         <button type="button" class="order-button" onclick="window.location.href='{{ route('delivery-payment') }}'">
-            Dalej
+            Ďalej
         </button>
     </div>
 </x-app-layout>

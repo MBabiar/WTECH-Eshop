@@ -12,21 +12,34 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-
-
     public function index(string $category, Request $request)
     {
+        $anime = $request->input('anime', null);
+        $color = $request->input('color', null);
+        $priceMin = intval($request->input('price-min') ?? 0);
+        $priceMax = intval($request->input('price-max') ?? 1000);
         $sort = $request->input('sort', 'popularity');
 
-        if ($sort === 'popularity') {
-            $products = Product::where('category', $category)->orderBy('popularity', 'desc')->get();
-        } elseif ($sort === 'asc') {
-            $products = Product::where('category', $category)->orderBy('price', 'asc')->get();
-        } else {
-            $products = Product::where('category', $category)->orderBy('price', 'desc')->get();
+        $query = Product::query()->where('category', $category);
+
+        if ($anime) {
+            $query->where('anime', $anime);
+        }
+        if ($color) {
+            $query->where('color', $color);
         }
 
-        return view('product.products', compact('products', 'category'));
+        if ($sort === 'popularity') {
+            $query->orderBy('popularity', 'desc');
+        } elseif ($sort === 'price-asc') {
+            $query->orderBy('price', 'asc');
+        } else {
+            $query->orderBy('price', 'desc');
+        }
+
+        $products = $query->whereBetween('price', [$priceMin, $priceMax])->get();
+
+        return view('product.products', compact('products', 'category', 'anime', 'color', 'sort'));
     }
 
     /**
