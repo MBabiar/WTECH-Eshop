@@ -22,19 +22,19 @@ label {
 }
 
 .filter-col-input-buttons {
-    width: 280px;
+    width: 300px;
     padding-right: 0;
 }
 
 .filter-col-other {
-    width: 170px;
+    width: 175px;
     padding: 0;
     margin-left: $spacer * 5;
 }
 
 .filter-col-btn {
     @extend .btn, .btn-primary;
-    width: 115px;
+    width: 100px;
     margin-left: $spacer * 5;
 }
 
@@ -101,6 +101,10 @@ label {
         padding-right: 1vw;
     }
 
+    .filter-col-input-buttons {
+        width: 280px;
+    }
+
     .filter-col-other {
         margin-left: $spacer * 0.5;
     }
@@ -129,7 +133,7 @@ label {
     }
 
     .filter-row-other {
-        width: 170px;
+        width: 175px;
     }
 
     .filter-col-btn {
@@ -139,6 +143,6 @@ label {
     }
 
     .filter-row-btn {
-        width: 115px;
+        width: 100px;
     }
 }
