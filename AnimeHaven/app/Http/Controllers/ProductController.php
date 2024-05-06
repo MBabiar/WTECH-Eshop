@@ -37,7 +37,7 @@ class ProductController extends Controller
             $query->orderBy('price', 'desc');
         }
 
-        $products = $query->whereBetween('price', [$priceMin, $priceMax])->get();
+        $products = $query->whereBetween('price', [$priceMin, $priceMax])->paginate(12);
 
         return view('product.products', compact('products', 'category', 'anime', 'color', 'sort'));
     }
