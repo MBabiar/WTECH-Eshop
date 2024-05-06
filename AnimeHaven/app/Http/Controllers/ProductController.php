@@ -16,8 +16,8 @@ class ProductController extends Controller
     {
         $anime = $request->input('anime', null);
         $color = $request->input('color', null);
-        $priceMin = intval($request->input('price-min') ?? 0);
-        $priceMax = intval($request->input('price-max') ?? 1000);
+        $price_min = intval($request->input('price_min') ?? 0);
+        $price_max = intval($request->input('price_max') ?? 100);
         $sort = $request->input('sort', 'popularity');
 
         $query = Product::query()->where('category', $category);
@@ -31,15 +31,15 @@ class ProductController extends Controller
 
         if ($sort === 'popularity') {
             $query->orderBy('popularity', 'desc');
-        } elseif ($sort === 'price-asc') {
+        } elseif ($sort === 'price_asc') {
             $query->orderBy('price', 'asc');
         } else {
             $query->orderBy('price', 'desc');
         }
 
-        $products = $query->whereBetween('price', [$priceMin, $priceMax])->paginate(12);
+        $products = $query->whereBetween('price', [$price_min, $price_max])->paginate(12);
 
-        return view('product.products', compact('products', 'category', 'anime', 'color', 'sort'));
+        return view('product.products', compact('products', 'category', 'anime', 'color', 'price_min', 'price_max', 'sort'));
     }
 
     /**

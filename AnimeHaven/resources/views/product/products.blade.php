@@ -7,18 +7,21 @@
             Spresniť parametre
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form action="{{ route('products', ['category' => $category]) }}" method="GET"
+        <form action="{{ route('products', ['category' => request('category')]) }}" method="GET"
             class="navbar-collapse collapse row" id="navbarSupportedContent">
+            @if (request('sort'))
+                <input type="hidden" name="sort" value="{{ request('sort') }}">
+            @endif
             {{-- Price --}}
             <div class="filter-col-input-buttons">
                 <div class="filter-row-input-buttons">
                     <label for="price">Cena:</label>
-                    <label for="price-min">Od</label>
-                    <input type="number" id="price-min" name="price-min" min="0"
-                        value="{{ request('price-min') ?? 0 }}" class="input-button-price" />
-                    <label for="price-max">Do</label>
-                    <input type="number" id="price-max" name="price-max" min="0"
-                        value="{{ request('price-max') ?? 100 }}" class="input-button-price" />
+                    <label for="price_min">Od</label>
+                    <input type="number" id="price_min" name="price_min" min="0"
+                        value="{{ request('price_min') ?? 0 }}" class="input-button-price" />
+                    <label for="price_max">Do</label>
+                    <input type="number" id="price_max" name="price_max" min="0"
+                        value="{{ request('price_max') ?? 100 }}" class="input-button-price" />
                 </div>
             </div>
             {{-- Anime --}}
@@ -48,14 +51,21 @@
     {{-- Sort --}}
     <div class="container-fluid">
         <div class="row products-nav-2 mt-1 mb-1">
-            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => $sort]) }}"
-                class="button-order {{ request('sort') === null ? 'button-active' : '' }}">Top</a>
-            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => 'price-asc']) }}"
-                class="button-order {{ request('sort') === 'price-asc' ? 'button-active' : '' }}">Najlacnejšie</a>
-            <a href="{{ route('products', ['category' => $category, 'anime' => $anime, 'color' => $color, 'sort' => 'price-desc']) }}"
-                class="button-order {{ request('sort') === 'price-desc' ? 'button-active' : '' }}">Najdrahšie</a>
+            <form method="GET" action="{{ route('products', ['category' => request('category')]) }}" class="p-0">
+                @foreach (request()->except('category', 'page', 'sort') as $name => $value)
+                    <input type="hidden" name="{{ $name }}" value="{{ $value }}">
+                @endforeach
+
+                <button type="submit" name="sort" value=""
+                    class="button-order {{ request('sort') === null ? 'button-active' : '' }}">Top</button>
+                <button type="submit" name="sort" value="price_asc"
+                    class="button-order {{ request('sort') === 'price_asc' ? 'button-active' : '' }}">Najlacnejšie</button>
+                <button type="submit" name="sort" value="price_desc"
+                    class="button-order {{ request('sort') === 'price_desc' ? 'button-active' : '' }}">Najdrahšie</button>
+            </form>
         </div>
     </div>
+
     {{-- Products --}}
     <div class="row products container-fluid">
         @foreach ($products as $product)
@@ -77,5 +87,5 @@
     </div>
 
     {{-- Pagination --}}
-    {{ $products->links('pagination::bootstrap-5') }}
+    {{ $products->appends(request()->input())->links('pagination::bootstrap-5') }}
 </x-app-layout>

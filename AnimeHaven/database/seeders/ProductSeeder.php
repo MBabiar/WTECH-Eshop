@@ -9,6 +9,9 @@ use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
+    /**
+     * Get shirts data.
+     */
     public function get_shirts(): array
     {
         return [
@@ -18,15 +21,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto T-Shirt Black V2',
@@ -34,15 +29,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 5,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto T-Shirt White',
@@ -50,15 +37,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 7,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto T-Shirt White V2',
@@ -66,15 +45,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto T-Shirt Blue',
@@ -82,15 +53,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 9,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto T-Shirt Blue V2',
@@ -98,15 +61,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt Black',
@@ -114,15 +69,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt Black V2',
@@ -130,15 +77,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 5,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt White',
@@ -146,15 +85,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 7,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt White V2',
@@ -162,15 +93,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt Blue',
@@ -178,15 +101,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach T-Shirt Blue V2',
@@ -194,15 +109,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt Black',
@@ -210,15 +117,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 4,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt Black V2',
@@ -226,15 +125,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 5,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt White',
@@ -242,15 +133,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt White V2',
@@ -258,15 +141,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt Blue',
@@ -274,15 +149,7 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note T-Shirt Blue V2',
@@ -290,19 +157,14 @@ class ProductSeeder extends Seeder
                 'category' => 'shirt',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 6,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ]
         ];
     }
 
+    /**
+     * Get hoodies data.
+     */
     public function get_hoodies(): array
     {
         return [
@@ -312,15 +174,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto Hoodie Black V2',
@@ -328,15 +182,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto Hoodie White',
@@ -344,15 +190,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto Hoodie White V2',
@@ -360,15 +198,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 5,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto Hoodie Blue',
@@ -376,15 +206,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 6,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Naruto Hoodie Blue V2',
@@ -392,15 +214,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 7,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie Black',
@@ -408,15 +222,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 8,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie Black V2',
@@ -424,15 +230,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 9,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie White',
@@ -440,15 +238,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie White V2',
@@ -456,15 +246,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie Blue',
@@ -472,15 +254,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 4,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Bleach Hoodie Blue V2',
@@ -488,15 +262,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie Black',
@@ -504,15 +270,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 6,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie Black V2',
@@ -520,15 +278,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 7,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie White',
@@ -536,15 +286,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie White V2',
@@ -552,15 +294,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie Blue',
@@ -568,15 +302,7 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ],
             [
                 'name' => 'Death Note Hoodie Blue V2',
@@ -584,19 +310,14 @@ class ProductSeeder extends Seeder
                 'category' => 'hoodie',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'S', 'stock' => 5],
-                    ['size' => 'M', 'stock' => 8],
-                    ['size' => 'L', 'stock' => 10],
-                    ['size' => 'XL', 'stock' => 12],
-                ],
             ]
         ];
     }
 
+    /**
+     * Get hats data.
+     */
     public function get_hats(): array
     {
         return [
@@ -606,12 +327,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 4,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Naruto Hat Black V2',
@@ -619,12 +336,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'black',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Naruto Hat White',
@@ -632,12 +345,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Naruto Hat White V2',
@@ -645,12 +354,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'white',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Naruto Hat Blue',
@@ -658,12 +363,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Naruto Hat Blue V2',
@@ -671,12 +372,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Naruto',
                 'color' => 'blue',
-                'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat Black',
@@ -684,12 +381,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 6,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat Black V2',
@@ -697,12 +390,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'black',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat White',
@@ -710,12 +399,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat White V2',
@@ -723,12 +408,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'white',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat Blue',
@@ -736,12 +417,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 7,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Bleach Hat Blue V2',
@@ -749,12 +426,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Bleach',
                 'color' => 'blue',
-                'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat Black',
@@ -762,12 +435,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 4,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat Black V2',
@@ -775,12 +444,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'Black',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 6,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat White',
@@ -788,12 +453,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat White V2',
@@ -801,12 +462,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'White',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 2,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat Blue',
@@ -814,12 +471,8 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 3,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ],
             [
                 'name' => 'Death Note Hat Blue V2',
@@ -827,23 +480,48 @@ class ProductSeeder extends Seeder
                 'category' => 'hat',
                 'anime' => 'Death Note',
                 'color' => 'Blue',
-                'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
-                'popularity' => 1,
-                'variants' => [
-                    ['size' => 'A', 'stock' => 10]
-                ],
+
             ]
         ];
     }
+
     /**
      * Run the database seeds.
      */
+
     public function run(): void
     {
         $shirts = $this->get_shirts();
         $hoodies = $this->get_hoodies();
         $hats = $this->get_hats();
+
+        // Define the sizes for each product type
+        $sizes = [
+            'shirt' => ['S', 'M', 'L', 'XL'],
+            'hoodie' => ['S', 'M', 'L', 'XL'],
+            'hat' => ['A'],
+        ];
+
+        // Add a random price, popularity, and variants to each product type
+        $productTypes = ['shirt' => &$shirts, 'hoodie' => &$hoodies, 'hat' => &$hats];
+        foreach ($productTypes as $productType => &$products) {
+            foreach ($products as &$product) {
+                $product['price'] = rand(1000, 6000) / 100;
+                $product['popularity'] = rand(1, 100);
+
+                // Add variants to each product
+                foreach ($sizes[$productType] as $size) {
+                    $product['variants'][] = [
+                        'size' => $size,
+                        'stock' => rand(1, 10),
+                    ];
+                }
+            }
+            unset($product);
+        }
+        unset($products);
+
         $products = array_merge($shirts, $hoodies, $hats);
 
         foreach ($products as $product) {
