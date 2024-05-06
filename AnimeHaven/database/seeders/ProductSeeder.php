@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -35,6 +36,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 5,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -50,6 +52,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 7,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -65,6 +68,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -80,6 +84,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 9,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -95,6 +100,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -110,6 +116,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -125,6 +132,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 5,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -140,6 +148,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 7,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -155,6 +164,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -170,6 +180,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -185,6 +196,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -200,6 +212,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 4,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -215,6 +228,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 5,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -230,6 +244,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -245,6 +260,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -260,6 +276,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -275,6 +292,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 6,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -296,6 +314,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -311,6 +330,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -326,6 +346,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -341,6 +362,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 5,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -356,6 +378,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 6,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -371,6 +394,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 7,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -386,6 +410,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 8,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -401,6 +426,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 9,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -416,6 +442,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -431,6 +458,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -446,6 +474,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 4,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -461,6 +490,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -476,6 +506,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 6,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -491,6 +522,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 7,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -506,6 +538,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -521,6 +554,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -536,6 +570,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -551,6 +586,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'S', 'stock' => 5],
                     ['size' => 'M', 'stock' => 8],
@@ -572,6 +608,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 4,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -584,6 +621,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -596,6 +634,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -608,6 +647,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -620,6 +660,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -632,6 +673,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 25.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -644,6 +686,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 6,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -656,6 +699,7 @@ class ProductSeeder extends Seeder
                 'color' => 'black',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -668,6 +712,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -680,6 +725,7 @@ class ProductSeeder extends Seeder
                 'color' => 'white',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -692,6 +738,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 7,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -704,6 +751,7 @@ class ProductSeeder extends Seeder
                 'color' => 'blue',
                 'price' => 30.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -716,6 +764,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 4,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -728,6 +777,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Black',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 6,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -740,6 +790,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -752,6 +803,7 @@ class ProductSeeder extends Seeder
                 'color' => 'White',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 2,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -764,6 +816,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 3,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
@@ -776,6 +829,7 @@ class ProductSeeder extends Seeder
                 'color' => 'Blue',
                 'price' => 50.00,
                 'image' => 'images/tricko-bleach-1.png',
+                'popularity' => 1,
                 'variants' => [
                     ['size' => 'A', 'stock' => 10]
                 ],
