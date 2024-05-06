@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -14,30 +16,41 @@ class ProductController extends Controller
      */
     public function index(string $category, Request $request)
     {
+        $start = microtime(true);
         $anime = $request->input('anime', null);
         $color = $request->input('color', null);
         $price_min = intval($request->input('price_min') ?? 0);
         $price_max = intval($request->input('price_max') ?? 100);
         $sort = $request->input('sort') ?? 'popularity';
+        $page = $request->input('page') ?? 1;
 
-        $query = Product::query()->where('category', $category);
+        // Create a unique cache key based on the request
+        $cacheKey = "products.{$category}.{$anime}.{$color}.{$price_min}.{$price_max}.{$sort}.page{$page}";
 
-        if ($anime) {
-            $query->where('anime', $anime);
-        }
-        if ($color) {
-            $query->where('color', $color);
-        }
+        // Retrieve the products from the cache if they exist, otherwise execute the query and store the result in the cache
+        $products = Cache::remember($cacheKey, 60, function () use ($category, $anime, $color, $price_min, $price_max, $sort) {
+            $query = Product::query()->where('category', $category);
 
-        if ($sort === 'popularity') {
-            $query->orderBy('popularity', 'desc');
-        } elseif ($sort === 'price_asc') {
-            $query->orderBy('price', 'asc');
-        } else {
-            $query->orderBy('price', 'desc');
-        }
+            if ($anime) {
+                $query->where('anime', $anime);
+            }
+            if ($color) {
+                $query->where('color', $color);
+            }
 
-        $products = $query->whereBetween('price', [$price_min, $price_max])->paginate(12);
+            if ($sort === 'popularity') {
+                $query->orderBy('popularity', 'desc');
+            } elseif ($sort === 'price_asc') {
+                $query->orderBy('price', 'asc');
+            } else {
+                $query->orderBy('price', 'desc');
+            }
+
+            return $query->whereBetween('price', [$price_min, $price_max])->paginate(12);
+        });
+        $end = microtime(true);
+        $executionTime = $end - $start;
+        Log::info("Execution time: {$executionTime}");
 
         return view('product.products', compact('products', 'category', 'anime', 'color', 'price_min', 'price_max', 'sort'));
     }
