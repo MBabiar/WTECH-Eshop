@@ -18,7 +18,7 @@ class ProductController extends Controller
         $color = $request->input('color', null);
         $price_min = intval($request->input('price_min') ?? 0);
         $price_max = intval($request->input('price_max') ?? 100);
-        $sort = $request->input('sort', 'popularity');
+        $sort = $request->input('sort') ?? 'popularity';
 
         $query = Product::query()->where('category', $category);
 
