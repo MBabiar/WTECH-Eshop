@@ -4,4 +4,4 @@ import "bootstrap";
 import "./partials/main-search";
 
 // Product Scripts
-import "./product/stock-display";
+import "./product";

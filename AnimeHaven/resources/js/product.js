@@ -1,5 +1,18 @@
+// Switch Images
+
+window.switchImage = function switchImage() {
+    let mainImage = document.querySelector(".main-image");
+    let subImages = document.querySelectorAll(".sub-image");
+
+    subImages.forEach((image) => {
+        image.addEventListener("click", function () {
+            mainImage.src = this.src;
+        });
+    });
+};
+
 // Product Detail Page Script - Stock Display
-function fetchProductVariants() {
+window.fetchProductVariants = function fetchProductVariants() {
     let productId = window.productId;
     fetch(`/products/${productId}/variants`)
         .then((response) => response.json())
@@ -22,10 +35,5 @@ function fetchProductVariants() {
                     }
                 });
             });
-
-            // Trigger a 'change' event on the initially selected size input
-            document
-                .querySelector('input[name="size"]:checked')
-                .dispatchEvent(new Event("change"));
         });
-}
+};

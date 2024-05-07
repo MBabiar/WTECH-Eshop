@@ -17,16 +17,6 @@
                         </div>
                     @endforeach
                 </div>
-                <script>
-                    let mainImage = document.querySelector('.main-image');
-                    let subImages = document.querySelectorAll('.sub-image');
-
-                    subImages.forEach((image) => {
-                        image.addEventListener('click', function() {
-                            mainImage.src = this.src;
-                        });
-                    });
-                </script>
             </div>
 
             <div class="product-column-details">
@@ -40,12 +30,11 @@
                         @foreach ($variants as $variant)
                             <label class="product-size-button">
                                 <input type="radio" name="size" id="size{{ $variant->size }}"
-                                    value="{{ $variant->size }}" autocomplete="off" checked> {{ $variant->size }}
+                                    value="{{ $variant->size }}"> {{ $variant->size }}
                             </label>
                         @endforeach
 
                         <script>
-                            console.log(@json($variants));
                             let ordButtons = document.querySelectorAll('.product-size-button');
 
                             ordButtons.forEach((button) => {
@@ -62,7 +51,7 @@
                 </div>
                 <br />
                 <div class="container mb-3">
-                    <p id="stock-display">Skladom (&gt;5ks)</p>
+                    <p id="stock-display">Skladom: Vyberte Veľkosť</p>
                     <div class="row">
                         <h1 class="col-product-price">{{ $product->price }}€</h1>
                         <div class="col-piece-add-to-cart">
@@ -138,7 +127,10 @@
         </div>
     </div>
     <script>
-        window.productId = @json($product->id);
-        fetchProductVariants();
+        document.addEventListener('DOMContentLoaded', (event) => {
+            window.productId = @json($product->id);
+            window.switchImage();
+            window.fetchProductVariants();
+        });
     </script>
 </x-app-layout>
