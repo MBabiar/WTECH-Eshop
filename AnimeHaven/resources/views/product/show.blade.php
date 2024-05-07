@@ -28,30 +28,31 @@
                     <div class="row">
                         <p class="col-12">Vyberte Veľkosť:</p>
                         @foreach ($variants as $variant)
-                            <label class="product-size-button">
-                                <input type="radio" name="size" id="size{{ $variant->size }}"
-                                    value="{{ $variant->size }}"> {{ $variant->size }}
-                            </label>
+                            @if ($loop->first)
+                                <label class="product-size-button button-active">
+                                    <input type="radio" name="size" id="size{{ $variant->size }}"
+                                        value="{{ $variant->size }}" checked> {{ $variant->size }}
+                                </label>
+                            @else
+                                <label class="product-size-button">
+                                    <input type="radio" name="size" id="size{{ $variant->size }}"
+                                        value="{{ $variant->size }}"> {{ $variant->size }}
+                                </label>
+                            @endif
                         @endforeach
-
-                        <script>
-                            let ordButtons = document.querySelectorAll('.product-size-button');
-
-                            ordButtons.forEach((button) => {
-                                button.addEventListener('click', function() {
-                                    ordButtons.forEach((btn) => {
-                                        btn.classList.remove('button-active');
-                                    });
-
-                                    this.classList.add('button-active');
-                                });
-                            });
-                        </script>
                     </div>
                 </div>
                 <br />
                 <div class="container mb-3">
-                    <p id="stock-display">Skladom: Vyberte Veľkosť</p>
+                    <p id="stock-display">
+                        @if ($variants->first()->stock <= 0)
+                            Nedostupné
+                        @elseif ($variants->first()->stock <= 5)
+                            Skladom ({{ $variants->first()->stock }}ks)
+                        @else
+                            Skladom (&gt;5ks)
+                        @endif
+                    </p>
                     <div class="row">
                         <h1 class="col-product-price">{{ $product->price }}€</h1>
                         <div class="col-piece-add-to-cart">
@@ -129,8 +130,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             window.productId = @json($product->id);
-            window.switchImage();
-            window.fetchProductVariants();
+            window.productShowScripts();
         });
     </script>
 </x-app-layout>
