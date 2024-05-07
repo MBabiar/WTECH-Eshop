@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
@@ -60,4 +61,6 @@ Route::get('/product-detail', function () {
     return view('product.product-detail');
 })->name('product-detail');
 
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product-show');

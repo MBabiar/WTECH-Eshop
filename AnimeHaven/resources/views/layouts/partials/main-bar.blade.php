@@ -6,10 +6,20 @@
         </a>
 
         {{-- Search --}}
-        <form class="main-search d-flex">
-            <input class="form-control me-2" type="search" placeholder="Vyhľadať" aria-label="Search" />
-            <button class="btn btn-outline-success" type="submit">Vyhľadať</button>
+        <form id="searchFormMain" class="main-search d-flex" method="GET" action="{{ route('search') }}">
+            @csrf
+            <input id="searchInput" class="form-control me-2" type="query" placeholder="Vyhľadať"
+                autocomplete="off" />
+            <div id="searchResults" class="dropdown-menu"></div>
         </form>
+
+        {{-- Script for defining routes --}}
+        <script type="text/javascript">
+            window.routes = {
+                search: '{{ route('search') }}',
+                productShowPattern: '{{ route('product-show', ['product_id' => ':id']) }}'
+            };
+        </script>
 
         {{-- Profile Navigation --}}
         <div class="prof-cart-link">

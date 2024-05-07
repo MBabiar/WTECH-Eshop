@@ -46,13 +46,14 @@ class ProductController extends Controller
                 $query->orderBy('price', 'desc');
             }
 
-            return $query->whereBetween('price', [$price_min, $price_max])->paginate(12);
+            return $query->whereBetween('price', [$price_min, $price_max])->paginate(12)->withQueryString();
         });
         $end = microtime(true);
         $executionTime = $end - $start;
         Log::info("Execution time: {$executionTime}");
 
-        return view('product.products', compact('products', 'category', 'anime', 'color', 'price_min', 'price_max', 'sort'));
+        $viewName = 'product.products';
+        return view('product.products', compact('viewName', 'products', 'category', 'anime', 'color', 'price_min', 'price_max', 'sort'));
     }
 
     /**
@@ -74,9 +75,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(int $product_id)
     {
-        //
+        $product = Product::find($product_id);
+        return view('product.show', compact('product'));
     }
 
     /**

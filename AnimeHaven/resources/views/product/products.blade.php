@@ -9,6 +9,7 @@
         </button>
         <form action="{{ route('products', ['category' => request('category')]) }}" method="GET"
             class="navbar-collapse collapse row" id="navbarSupportedContent">
+            @csrf
             @if (request('sort'))
                 <input type="hidden" name="sort" value="{{ request('sort') }}">
             @endif
@@ -52,6 +53,7 @@
     <div class="container-fluid">
         <div class="row products-nav-2 mt-1 mb-1">
             <form method="GET" action="{{ route('products', ['category' => request('category')]) }}" class="p-0">
+                @csrf
                 @foreach (request()->except('category', 'page', 'sort') as $name => $value)
                     <input type="hidden" name="{{ $name }}" value="{{ $value }}">
                 @endforeach
@@ -71,7 +73,7 @@
         @foreach ($products as $product)
             <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
                 <div class="card">
-                    <a href="{{ route('product-detail') }}">
+                    <a href="{{ route('product-show', ['product_id' => $product->id]) }}">
                         <img src="{{ asset($product->image) }}" class="card-img-top" alt="..." />
                     </a>
                     <div class="card-body">
@@ -87,5 +89,5 @@
     </div>
 
     {{-- Pagination --}}
-    {{ $products->appends(request()->input())->links('pagination::bootstrap-5') }}
+    {{ $products->links('pagination::bootstrap-5') }}
 </x-app-layout>
