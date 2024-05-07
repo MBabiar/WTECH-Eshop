@@ -11,8 +11,19 @@ const search = async (query) => {
 
     data.forEach((product) => {
         const link = document.createElement("a");
+        link.classList.add("search-result-item");
         link.href = routes.productShowPattern.replace(":id", product.id);
-        link.textContent = product.name;
+
+        // Create an img element and set its src attribute to the product's image URL
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.style.width = "50px"; // Set the width of the image
+        img.style.height = "50px"; // Set the height of the image
+        link.appendChild(img); // Append the image to the link
+
+        const text = document.createTextNode(product.name); // Create a text node
+        link.appendChild(text); // Append the text node to the link
+
         link.addEventListener("click", (event) => {
             event.preventDefault();
             window.location.href = link.href;

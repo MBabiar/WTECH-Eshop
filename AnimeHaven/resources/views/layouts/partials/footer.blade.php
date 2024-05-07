@@ -34,3 +34,11 @@
         </div>
     </footer>
 </section>
+
+{{-- Script for defining routes --}}
+<script type="text/javascript">
+    window.routes = {
+        search: '{{ route('search') }}',
+        productShowPattern: '{{ route('product-show', ['product_id' => ':id']) }}'
+    };
+</script>

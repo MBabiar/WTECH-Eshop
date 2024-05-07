@@ -13,14 +13,6 @@
             <div id="searchResults" class="dropdown-menu"></div>
         </form>
 
-        {{-- Script for defining routes --}}
-        <script type="text/javascript">
-            window.routes = {
-                search: '{{ route('search') }}',
-                productShowPattern: '{{ route('product-show', ['product_id' => ':id']) }}'
-            };
-        </script>
-
         {{-- Profile Navigation --}}
         <div class="prof-cart-link">
             {{-- Profile --}}

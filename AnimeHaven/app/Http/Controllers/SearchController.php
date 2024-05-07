@@ -13,15 +13,21 @@ class SearchController extends Controller
      */
     public function search(Request $request)
     {
-        // Your search logic here
-        // For example, if you're searching products:
         $query = $request->input('query');
 
         $products = Product::search($query)->paginate(5)->withQueryString();
 
-        Log::info("Search query: {$query}");
-        Log::info("Number of results: {$products->total()}");
-        Log::info("Products: {$products->toJson()}");
+        // Eager load the images relationship for each product
+        $products->load('images');
+
+        // Add the URL of the first image to each product
+        $products->getCollection()->transform(function ($product) {
+            $product->image = $product->images->first() ? $product->images->first()->image : null;
+            unset ($product->images);
+            return $product;
+        });
+        Log::info('Search query: ' . $query);
+        Log::info('Search results: ' . $products->toJson());
 
         return response()->json($products);
     }
