@@ -16,7 +16,6 @@ class ProductController extends Controller
      */
     public function index(string $category, Request $request)
     {
-        $start = microtime(true);
         $anime = $request->input('anime', null);
         $color = $request->input('color', null);
         $price_min = intval($request->input('price_min') ?? 0);
@@ -48,12 +47,8 @@ class ProductController extends Controller
 
             return $query->whereBetween('price', [$price_min, $price_max])->paginate(12)->withQueryString();
         });
-        $end = microtime(true);
-        $executionTime = $end - $start;
-        Log::info("Execution time: {$executionTime}");
 
-        $viewName = 'product.products';
-        return view('product.products', compact('viewName', 'products', 'category', 'anime', 'color', 'price_min', 'price_max', 'sort'));
+        return view('product.index', compact('products'));
     }
 
     /**
