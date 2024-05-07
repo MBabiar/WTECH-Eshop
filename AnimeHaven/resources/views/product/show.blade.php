@@ -5,19 +5,17 @@
         <div class="row justify-content-center align-items-center">
             <div class="product-column-images">
                 <div class="card">
-                    <img class="card-img-top main-image" src="../images/tricko-bleach-1.png" alt="Title" />
+                    <img class="card-img-top main-image" src="{{ asset($product->images->first()->image) }}"
+                        alt="Title" />
                 </div>
                 <div class="row-sub-images">
-                    <div class="col-sub-image">
-                        <div class="card">
-                            <img src="../images/tricko-bleach-1.png" class="sub-image" alt="Title" />
+                    @foreach ($product->images as $image)
+                        <div class="col-sub-image">
+                            <div class="card">
+                                <img src="{{ asset($image->image) }}" class="sub-image" alt="Title" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sub-image">
-                        <div class="card">
-                            <img src="../images/hoddie.jfif" class="sub-image" alt="Title" />
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <script>
                     let mainImage = document.querySelector('.main-image');
@@ -39,11 +37,15 @@
                 <div class="container-flex">
                     <div class="row">
                         <p class="col-12">Vyberte Veľkosť:</p>
-                        <button type="button" class="product-size-button">S</button>
-                        <button type="button" class="product-size-button">M</button>
-                        <button type="button" class="product-size-button">L</button>
-                        <button type="button" class="product-size-button">XL</button>
+                        @foreach ($variants as $variant)
+                            <label class="product-size-button">
+                                <input type="radio" name="size" id="size{{ $variant->size }}"
+                                    value="{{ $variant->size }}" autocomplete="off" checked> {{ $variant->size }}
+                            </label>
+                        @endforeach
+
                         <script>
+                            console.log(@json($variants));
                             let ordButtons = document.querySelectorAll('.product-size-button');
 
                             ordButtons.forEach((button) => {
@@ -60,7 +62,7 @@
                 </div>
                 <br />
                 <div class="container mb-3">
-                    <p>Skladom (&gt;5ks)</p>
+                    <p id="stock-display">Skladom (&gt;5ks)</p>
                     <div class="row">
                         <h1 class="col-product-price">{{ $product->price }}€</h1>
                         <div class="col-piece-add-to-cart">
@@ -100,12 +102,12 @@
                                 };
                             </script>
 
-                            <button type="button" class="add-to-cart-btn">
+                            <button id="addToCartButton" type="button" class="add-to-cart-btn">
                                 Pridať do košíka
                             </button>
 
                             <script>
-                                var addToCartButton = document.getElementsByClassName('btn-primary')[0];
+                                let addToCartButton = document.getElementById('addToCartButton');
                                 addToCartButton.onclick = function() {
                                     let amount = parseInt(document.getElementById('amount').value);
                                     if (amount <= 0) {
@@ -135,4 +137,8 @@
             </div>
         </div>
     </div>
+    <script>
+        window.productId = @json($product->id);
+        fetchProductVariants();
+    </script>
 </x-app-layout>

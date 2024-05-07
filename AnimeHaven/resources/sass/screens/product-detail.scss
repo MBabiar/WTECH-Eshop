@@ -35,6 +35,13 @@
 
 .product-size-button {
     @extend .btn, .btn-secondary, .col-2, .mx-2;
+    input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+    }
+    display: flex;
+    text-align: center;
+    justify-content: center;
     width: 60px;
     height: 40px;
     &:hover {

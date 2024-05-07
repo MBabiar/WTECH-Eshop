@@ -28,7 +28,7 @@ class ProductController extends Controller
 
         // Retrieve the products from the cache if they exist, otherwise execute the query and store the result in the cache
         $products = Cache::remember($cacheKey, 60, function () use ($category, $anime, $color, $price_min, $price_max, $sort) {
-            $query = Product::query()->where('category', $category);
+            $query = Product::query()->where('category', $category)->with('images');
 
             if ($anime) {
                 $query->where('anime', $anime);
@@ -73,7 +73,18 @@ class ProductController extends Controller
     public function show(int $product_id)
     {
         $product = Product::find($product_id);
-        return view('product.show', compact('product'));
+        $variants = $product->variants;
+        return view('product.show', compact('product', 'variants'));
+    }
+
+    /**
+     * Get variants data.
+     */
+    public function variants(int $product_id)
+    {
+        $product = Product::find($product_id);
+        $variants = $product->variants;
+        return response()->json($variants);
     }
 
     /**

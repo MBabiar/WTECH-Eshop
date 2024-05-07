@@ -17,7 +17,15 @@ class Product extends Model
      */
     public function variants(): HasMany
     {
-        return $this->hasMany(Variant::class);
+        return $this->hasMany(Variant::class)->select('product_id', 'size', 'stock');
+    }
+
+    /**
+     * Get the images for the product.
+     */
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class)->select('product_id', 'image');
     }
 
     /**

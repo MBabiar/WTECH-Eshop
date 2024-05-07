@@ -64,3 +64,4 @@ Route::get('/product-detail', function () {
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
 Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product-show');
+Route::get('/products/{product}/variants', [ProductController::class, 'variants']);

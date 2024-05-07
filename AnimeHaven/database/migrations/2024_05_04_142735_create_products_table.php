@@ -20,7 +20,6 @@ return new class extends Migration {
             $table->string('color');
             $table->decimal('price', 8, 2);
             $table->integer('popularity')->default(0);
-            $table->string('image');
             $table->timestamps();
         });
     }
