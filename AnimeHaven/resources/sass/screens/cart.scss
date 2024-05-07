@@ -33,7 +33,13 @@
 
 .inc-dec-button {
     @extend .btn, .btn-primary, .btn-sm, .rounded-0;
+    background-color: black;
+    border-color: black;
     width: 30px;
+    &:hover {
+        background-color: $danger;
+        border-color: $danger;
+    }
 }
 
 .order-button-container {

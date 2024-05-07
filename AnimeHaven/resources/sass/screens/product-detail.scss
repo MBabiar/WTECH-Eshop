@@ -1,11 +1,13 @@
-.product-column {
+.product-column-images {
     @extend .col;
-    max-width: 50%;
+    max-width: 45%;
 }
 
 .product-column-details {
-    @extend .product-column;
+    @extend .col;
+    max-width: 55%;
     background-color: whitesmoke;
+    align-self: start;
 }
 
 .row-sub-images {
@@ -32,26 +34,36 @@
 }
 
 .product-size-button {
-    border-radius: 1px;
-    border-color: $primary;
-    width: 10%;
-    height: 10%;
+    @extend .btn, .btn-secondary, .col-2, .mx-2;
+    width: 60px;
+    height: 40px;
     &:hover {
         background-color: $primary;
     }
 }
 
 .col-product-price {
-    @extend .col-4;
-    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 30%;
 }
 
 .col-piece-add-to-cart {
-    @extend .col-8, .d-flex, .justify-content-center;
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.row-piece-input {
+    @extend .row, .p-0, .m-0;
+    width: fit-content;
 }
 
 .input-piece-amount {
     width: 100px;
+    height: 60px;
     text-align: center;
     -webkit-appearance: none;
     &::-webkit-inner-spin-button,
@@ -63,8 +75,21 @@
     appearance: none;
 }
 
-@include media-breakpoint-down(xl) {
-    .product-column {
+.add-to-cart-btn {
+    @extend .btn, .btn-primary;
+    border-radius: 0;
+    height: 60px;
+    &:hover {
+        background-color: $primary;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .product-column-images {
+        max-width: 100%;
+    }
+
+    .product-column-details {
         max-width: 100%;
     }
 }
@@ -73,8 +98,10 @@
     .product-header-name {
         font-size: calc(1rem + 1vw);
     }
-
+}
+@include media-breakpoint-down(sm) {
     .col-piece-add-to-cart {
         width: 100%;
+        justify-content: flex-start;
     }
 }

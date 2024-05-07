@@ -1,9 +1,9 @@
 <x-app-layout>
     {{-- Product Detail --}}
     <div class="container mt-4">
-        <h1 class="product-header-name">Mikina s kapucňou a neviem čo este treba vela pismenok</h1>
+        <h1 class="product-header-name">{{ $product->name }}</h1>
         <div class="row justify-content-center align-items-center">
-            <div class="product-column">
+            <div class="product-column-images">
                 <div class="card">
                     <img class="card-img-top main-image" src="../images/tricko-bleach-1.png" alt="Title" />
                 </div>
@@ -33,20 +33,16 @@
 
             <div class="product-column-details">
                 <div class="container-flex mt-3">
-                    <p>
-                        Bavlněná mikina, kterou ocení každý milovník anime Black Bulls. Atraktivní potisk
-                        s motivem Black Bulls.
-                    </p>
-                    <p>Dlouhý rukáv, černé provedení, oboustranný potisk, dvojité prošití, 80% bavlna</p>
+                    {{ $product->description }}
                 </div>
                 <br />
                 <div class="container-flex">
                     <div class="row">
-                        <p class="col-3" style="width: fit-content">Vyberte Veľkosť:</p>
-                        <button type="button" class="col-2 mx-2 btn product-size-button">S</button>
-                        <button type="button" class="col-2 mx-2 btn product-size-button">M</button>
-                        <button type="button" class="col-2 mx-2 btn product-size-button">L</button>
-                        <button type="button" class="col-2 mx-2 btn product-size-button">XL</button>
+                        <p class="col-12">Vyberte Veľkosť:</p>
+                        <button type="button" class="product-size-button">S</button>
+                        <button type="button" class="product-size-button">M</button>
+                        <button type="button" class="product-size-button">L</button>
+                        <button type="button" class="product-size-button">XL</button>
                         <script>
                             let ordButtons = document.querySelectorAll('.product-size-button');
 
@@ -66,16 +62,19 @@
                 <div class="container mb-3">
                     <p>Skladom (&gt;5ks)</p>
                     <div class="row">
-                        <h1 class="col-product-price">10€</h1>
+                        <h1 class="col-product-price">{{ $product->price }}€</h1>
                         <div class="col-piece-add-to-cart">
-                            <input title="amount" type="number" id="amount" class="input-piece-amount"
-                                value="1" min="1" data-min="1" required />
-                            <div class="container col-1">
-                                <div class="row">
-                                    <button type="button" class="inc-dec-button">↑</button>
-                                </div>
-                                <div class="row">
-                                    <button type="button" class="inc-dec-button">↓</button>
+                            <div class="row-piece-input">
+                                <input title="amount" type="number" id="amount" class="input-piece-amount"
+                                    value="1" min="1" data-min="1" required />
+
+                                <div class="col">
+                                    <div class="row">
+                                        <button type="button" class="inc-dec-button">↑</button>
+                                    </div>
+                                    <div class="row">
+                                        <button type="button" class="inc-dec-button">↓</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -101,7 +100,7 @@
                                 };
                             </script>
 
-                            <button type="button" class="col mx-3 btn btn-primary">
+                            <button type="button" class="add-to-cart-btn">
                                 Pridať do košíka
                             </button>
 
