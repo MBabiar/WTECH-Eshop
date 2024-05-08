@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddImageProductRequest;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -63,7 +65,56 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        // Create a new product
+        $product = Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'category' => $request->category,
+            'anime' => $request->anime,
+            'color' => $request->color,
+            'price' => $request->price,
+        ]);
+
+        // Create a directory to store the images
+        $directory = public_path("images/product/{$product->id}");
+        if (!file_exists($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        $images = array_merge([$request->file('mainImage')], $request->file('images') ?? []);
+
+        // Store the images in the directory and save the image paths in the database
+        foreach ($images as $image) {
+            $destinationPath = public_path('images/product/' . $product->id);
+            $imageName = time() . '.' . $image->extension();
+            $image->move($destinationPath, $imageName);
+
+            $imagePath = 'images/product/' . $product->id . '/' . $imageName;
+            $product->images()->create([
+                'product_id' => $product->id,
+                'image' => $imagePath,
+            ]);
+        }
+
+        // Create variants based on the category
+        if ($request->category === 'hat') {
+            $product->variants()->create([
+                'product_id' => $product->id,
+                'size' => 'A',
+                'stock' => 0,
+            ]);
+        } else {
+            $sizes = ['S', 'M', 'L', 'XL'];
+            foreach ($sizes as $size) {
+                $product->variants()->create([
+                    'product_id' => $product->id,
+                    'size' => $size,
+                    'stock' => 0,
+                ]);
+            }
+        }
+
+        return redirect()->route('product.show', $product);
     }
 
     /**
@@ -106,12 +157,8 @@ class ProductController extends Controller
     /**
      * Add images to the specified product.
      */
-    public function addImage(Request $request, Product $product)
+    public function addImage(AddImageProductRequest $request, Product $product)
     {
-        $request->validate([
-            'image.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
-        ]);
-
         if ($request->hasfile('image')) {
             foreach ($request->file('image') as $image) {
                 $destinationPath = public_path('images/product/' . $product->id);

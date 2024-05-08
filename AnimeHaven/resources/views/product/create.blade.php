@@ -1,116 +1,91 @@
 <x-app-layout>
     <!-- Main Content -->
-    <form class="needs-validation" novalidate>
+    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data" class="needs-validation"
+        novalidate>
+        @csrf
         <div class="add-product-container">
             <div class="container-flex">
                 <h1>Pridávanie Produktu</h1>
                 <div class="row-input mt-3">
-                    <label for="inputProdName" class="col-label">Názov Produktu</label>
+                    <label for="name" class="col-label">Názov Produktu</label>
                     <div class="col-input">
-                        <input type="text" class="form-control" id="inputProdName" required />
-                        <div class="valid-feedback">Looks good!</div>
+                        <input type="text" class="form-control" id="name" name="name" required />
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
                 </div>
                 <div class="row-input mt-3">
-                    <label for="inputProdCategory" class="col-label">Kategória</label>
+                    <label for="category" class="col-label">Kategória</label>
                     <div class="col-input">
-                        <select class="form-select" id="inputProdCategory" name="inputProdCategory" required>
-                            <option value="1">Tričko</option>
-                            <option value="2">Mikina</option>
-                            <option value="3">Čiapka</option>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="" hidden></option>
+                            <option value="shirt">Tričko</option>
+                            <option value="hoodie">Mikina</option>
+                            <option value="hat">Čiapka</option>
                         </select>
                     </div>
                 </div>
                 <div class="row-input mt-3">
-                    <label for="inputProdAnime" class="col-label">Anime</label>
+                    <label for="anime" class="col-label">Anime</label>
                     <div class="col-input">
-                        <select class="form-select" id="inputProdAnime" name="inputProdAnime" required>
-                            <option value="1">Naruto</option>
-                            <option value="2">Bleach</option>
-                            <option value="3">One Piece</option>
+                        <select class="form-select" id="anime" name="anime" required>
+                            <option value="" hidden></option>
+                            <option value="Naruto">Naruto</option>
+                            <option value="Bleach">Bleach</option>
+                            <option value="Death Note">Death Note</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row-input mt-3">
-                    <label for="inputProdColor" class="col-label">Farba</label>
+                    <label for="color" class="col-label">Farba</label>
                     <div class="col-input">
-                        <select class="form-select" id="inputProdColor" name="inputProdColor" required>
-                            <option value="1">Čierna</option>
-                            <option value="2">Biela</option>
-                            <option value="3">Červená</option>
-                            <option value="4">Modrá</option>
+                        <select class="form-select" id="color" name="color" required>
+                            <option value="" hidden></option>
+                            <option value="black">Čierna</option>
+                            <option value="white">Biela</option>
+                            <option value="blue">Modrá</option>
                         </select>
                     </div>
                 </div>
                 <div class="row-input mt-3">
-                    <label for="inputProdPrice" class="col-label">Cena ( € )</label>
+                    <label for="price" class="col-label">Cena ( € )</label>
                     <div class="col-input">
-                        <input type="number" class="form-control" id="inputProdPrice" required />
-                        <div class="valid-feedback">Looks good!</div>
+                        <input type="decimal" class="form-control" id="price" name="price" required />
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
                 </div>
                 <div class="row-input mt-3">
-                    <label for="inputProdDescription" class="col-label">Popis Produktu</label>
+                    <label for="description" class="col-label">Popis Produktu</label>
                     <div class="col-input">
-                        <!-- Any content between the opening and closing tags of a <textarea> is considered its default value. Therefore closing tag needs to be exactly after opening tag if we don't want to have any spaces in textarea. If I would place closing tag in the next line there would be spaces due to indentation-->
-                            <textarea
-                                class="form-control input-description"
-                                id="inputProdDescription"
-                                required></textarea>
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Vyplň údaje.</div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Nahraj obrázky produktu</label>
-                        <input
-                            class="form-control"
-                            type="file"
-                            id="formFileMultiple"
-                            multiple
-                            required
-                            onchange="validateFileInput(this)" />
-                        <div class="valid-feedback">Looks good!</div>
+                        <textarea id="description" name="description" required class="form-control input-description"></textarea>
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
-                    <div class="row-input mt-3">
-                        <div class="col-input">
-                            <button type="submit" class="btn btn-primary">Pridaj Produkt</button>
-                        </div>
+                </div>
+                <div class="mb-3">
+                    <label for="mainImage" class="form-label">Nahraj hlavný obrázok produktu</label>
+                    <input type="file" id="mainImage" name="mainImage" onchange="window.validateFileInput(this)"
+                        required class="form-control" />
+                    <div class="invalid-feedback">Vyber obrázok.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="images" class="form-label">Nahraj ďalšie obrázky produktu</label>
+                    <input type="file" id="images" name="images[]" onchange="window.validateFileInput(this)"
+                        required class="form-control" />
+                    <div class="invalid-feedback">Vyber obrázok/y.</div>
+                </div>
+                <div class="row-input mt-3">
+                    <div class="col-input">
+                        <button type="submit" class="btn btn-primary">Pridaj Produkt</button>
                     </div>
-                    <script>
-                        function validateFileInput(input) {
-                            if (input.files.length < 2) {
-                                input.setCustomValidity('Please upload at least 2 files.');
-                            } else {
-                                input.setCustomValidity('');
-                            }
-                        }
-                    </script>
                 </div>
             </div>
-        </form>
-        <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (function() {
-                'use strict';
-                let forms = document.querySelectorAll('.needs-validation');
-                Array.prototype.slice.call(forms).forEach(function(form) {
-                    form.addEventListener(
-                        'submit',
-                        function(event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        },
-                        false
-                    );
-                });
-            })();
-        </script>
+        </div>
+    </form>
+
+    {{-- Scripts --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            window.productEditScripts();
+        });
+    </script>
 </x-app-layout>

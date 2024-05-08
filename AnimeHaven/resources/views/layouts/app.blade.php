@@ -8,27 +8,26 @@
 
     <title>{{ config('app.name', 'AnimeHaven') }}</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-    <!-- Scripts -->
+    {{-- Scripts --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
-    <!-- Main Bar -->
+    {{-- Main Bar --}}
     @include('layouts.partials.main-bar')
 
-    <!-- Navigation Bar -->
+    {{-- Navigation Bar --}}
     @include('layouts.partials.nav-bar')
+
+    {{-- Floating Link for creating a new product --}}
+    @include('layouts.partials.add-product')
 
     <!-- Page Content -->
     <main>
         {{ $slot }}
     </main>
 
-    <!-- Footer -->
+    {{-- Footer --}}
     @include('layouts.partials.footer')
 
 </body>

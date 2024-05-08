@@ -96,8 +96,8 @@ window.productEditScripts = function productEditScripts() {
 window.validateFileInput = function (input) {
     let maxFileSize = 2 * 1024 * 1024; // 2MB
     if (input.files) {
-        for (let i = 0; i < input.files.length; i++) {
-            if (input.files[i].size > maxFileSize) {
+        for (let file of input.files) {
+            if (file.size > maxFileSize) {
                 alert("File size must be less than 2MB");
                 input.value = "";
                 return false;

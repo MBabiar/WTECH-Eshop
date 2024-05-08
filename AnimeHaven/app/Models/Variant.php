@@ -10,6 +10,12 @@ class Variant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'size',
+        'stock',
+    ];
+
     /**
      * Get the product of variant.
      */

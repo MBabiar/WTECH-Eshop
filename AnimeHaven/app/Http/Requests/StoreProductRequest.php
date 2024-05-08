@@ -11,7 +11,7 @@ class StoreProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
+            'category' => ['required', 'string', 'in:shirt,hoodie,hat'],
+            'anime' => ['required', 'string', 'max:255', 'in:Naruto,Bleach,Death Note'],
+            'color' => ['required', 'string', 'max:255', 'in:black,white,blue'],
+            'image.*' => ['required', 'image', 'mimes:jpeg,png,jpg,svg', 'max:2048']
         ];
     }
 }
