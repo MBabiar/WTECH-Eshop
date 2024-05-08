@@ -7,7 +7,6 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -101,6 +100,32 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $product->update($request->validated());
+        return redirect()->route('product.show', $product);
+    }
+
+    /**
+     * Add images to the specified product.
+     */
+    public function addImage(Request $request, Product $product)
+    {
+        $request->validate([
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+
+        if ($request->hasfile('image')) {
+            foreach ($request->file('image') as $image) {
+                $destinationPath = public_path('images/product/' . $product->id);
+                $imageName = time() . '.' . $image->extension();
+                $image->move($destinationPath, $imageName);
+
+                $imagePath = 'images/product/' . $product->id . '/' . $imageName;
+                $product->images()->create([
+                    'product_id' => $product->id,
+                    'image' => $imagePath,
+                ]);
+            }
+        }
+
         return redirect()->route('product.show', $product);
     }
 

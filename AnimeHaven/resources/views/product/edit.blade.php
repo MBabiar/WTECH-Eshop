@@ -11,7 +11,6 @@
                     <div class="col-input">
                         <input type="text" class="form-control" id="name" name="name"
                             value="{{ $product->name }}" required />
-                        <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
                 </div>
@@ -54,7 +53,6 @@
                     <div class="col-input">
                         <input type="decimal" class="form-control" id="price" name="price"
                             value="{{ $product->price }}" required />
-                        <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
                 </div>
@@ -62,7 +60,6 @@
                     <label for="description" class="col-label">Popis Produktu</label>
                     <div class="col-input">
                         <textarea class="form-control input-description" id="description" name="description" required>{{ $product->description }}</textarea>
-                        <div class="valid-feedback">Looks good!</div>
                         <div class="invalid-feedback">Vyplň údaje.</div>
                     </div>
                 </div>
@@ -74,15 +71,19 @@
             </div>
         </div>
     </form>
-    <form class="needs-validation" novalidate>
+
+    {{-- Product Add Image Form --}}
+    <form action="{{ route('product.addImage', $product) }}" method="POST" class="needs-validation"
+        enctype="multipart/form-data" novalidate>
+        @csrf
+        @method('PUT')
         <div class="add-product-container">
             <div class="container-flex">
                 <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Nahraj obrázky produktu</label>
-                    <input class="form-control" type="file" id="formFileMultiple" multiple required
-                        onchange="validateFileInput(this)" />
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Vyplň údaje.</div>
+                    <label for="image" class="form-label">Nahraj obrázky produktu</label>
+                    <input type="file" id="image" name="image[]" onchange="window.validateFileInput(this)"
+                        multiple required class="form-control" />
+                    <div class="invalid-feedback">Vyberte Fotku.</div>
                 </div>
                 <div class="row-input mt-3">
                     <div class="col-input">
@@ -92,24 +93,11 @@
             </div>
         </div>
     </form>
+
+    {{-- Scripts --}}
     <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-            'use strict';
-            let forms = document.querySelectorAll('.needs-validation');
-            Array.prototype.slice.call(forms).forEach(function(form) {
-                form.addEventListener(
-                    'submit',
-                    function(event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    },
-                    false
-                );
-            });
-        })();
+        document.addEventListener('DOMContentLoaded', (event) => {
+            window.productEditScripts();
+        });
     </script>
 </x-app-layout>

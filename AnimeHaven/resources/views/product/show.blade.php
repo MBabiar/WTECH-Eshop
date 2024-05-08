@@ -70,6 +70,7 @@
                                 </div>
                             </div>
 
+                            {{-- TODO --}}
                             <script>
                                 window.onload = function() {
                                     let amountInput = document.getElementById('amount');
@@ -96,6 +97,7 @@
                                 Pridať do košíka
                             </button>
 
+                            {{-- TODO --}}
                             <script>
                                 let addToCartButton = document.getElementById('addToCartButton');
                                 addToCartButton.onclick = function() {
@@ -130,6 +132,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Scripts --}}
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             window.productId = @json($product->id);

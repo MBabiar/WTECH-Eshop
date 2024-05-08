@@ -10,6 +10,11 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'image',
+    ];
+
     /**
      * Get the product that owns the image.
      */

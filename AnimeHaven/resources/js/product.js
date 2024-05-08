@@ -70,3 +70,39 @@ window.productShowScripts = function productShowScripts() {
     switchImage();
     clickVariant();
 };
+
+window.productEditScripts = function productEditScripts() {
+    function validation() {
+        "use strict";
+        let forms = document.querySelectorAll(".needs-validation");
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener(
+                "submit",
+                function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add("was-validated");
+                },
+                false
+            );
+        });
+    }
+
+    validation();
+};
+
+window.validateFileInput = function (input) {
+    let maxFileSize = 2 * 1024 * 1024; // 2MB
+    if (input.files) {
+        for (let i = 0; i < input.files.length; i++) {
+            if (input.files[i].size > maxFileSize) {
+                alert("File size must be less than 2MB");
+                input.value = "";
+                return false;
+            }
+        }
+    }
+    return true;
+};

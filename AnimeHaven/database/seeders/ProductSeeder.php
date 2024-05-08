@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Variant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class ProductSeeder extends Seeder
 {
@@ -694,6 +697,14 @@ class ProductSeeder extends Seeder
             unset($product['images']);
 
             $product = Product::factory()->create($product);
+            $directory = public_path("images/product/{$product->id}");
+
+            // Delete the directory if it already exists
+            if (File::isDirectory($directory)) {
+                File::deleteDirectory($directory);
+            }
+            // Create the directory
+            File::makeDirectory($directory, 0755, true);
 
             foreach ($variants as $variant) {
                 Variant::factory()->create([
@@ -703,9 +714,15 @@ class ProductSeeder extends Seeder
                 ]);
             }
             foreach ($images as $image) {
+                $sourcePath = public_path($image);
+                $imagePath = "{$directory}/" . basename($image);
+                $relativePath = "images/product/{$product->id}/" . basename($image);
+
+                File::copy($sourcePath, $imagePath);
+
                 Image::factory()->create([
                     'product_id' => $product->id,
-                    'image' => $image,
+                    'image' => $relativePath,
                 ]);
             }
         }
