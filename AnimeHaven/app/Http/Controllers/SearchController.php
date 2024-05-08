@@ -26,8 +26,6 @@ class SearchController extends Controller
             unset ($product->images);
             return $product;
         });
-        Log::info('Search query: ' . $query);
-        Log::info('Search results: ' . $products->toJson());
 
         return response()->json($products);
     }
