@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Scout\Searchable;
 
@@ -13,7 +14,7 @@ class Product extends Model
     use Searchable;
 
     /**
-     * Get the variants for the product.
+     * Get the variants of the product.
      */
     public function variants(): HasMany
     {
@@ -21,7 +22,7 @@ class Product extends Model
     }
 
     /**
-     * Get the images for the product.
+     * Get the images of the product.
      */
     public function images(): HasMany
     {

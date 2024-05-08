@@ -39,6 +39,6 @@
 <script type="text/javascript">
     window.routes = {
         search: '{{ route('search') }}',
-        productShowPattern: '{{ route('product-show', ['product_id' => ':id']) }}'
+        productShowPattern: '{{ route('product.show', ['product_id' => ':id']) }}'
     };
 </script>

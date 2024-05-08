@@ -28,20 +28,33 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated
 Route::middleware('auth')->group(function () {
+    // TODO: needs changes - adding Controllers
     Route::get('/profile', function () {
         return view('profile.profile');
     })->name('profile');
 
+    // TODO: needs changes - adding Controllers
     Route::get('/orders', function () {
         return view('profile.orders');
     })->name('orders');
 
+    // TODO: needs changes - adding Controllers
     Route::get('/password-change', function () {
         return view('profile.password-change');
     })->name('password-change');
 
+    // TODO: needs changes - adding Controllers
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+});
+
+// Admin
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/products/create', [ProductController::class, 'create'])->name('product.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+    Route::put('/products/{product}', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
 });
 
 // Search
@@ -49,11 +62,10 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Product
 Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
-Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product-show');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('can:update,product');
 
-// Others - needs changes
+// TODO: Others - needs changes
 Route::get('/cart', function () {
     return view('order.cart');
 })->name('cart');

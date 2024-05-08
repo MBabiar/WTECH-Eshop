@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -55,16 +54,14 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if the user has a role.
+     * Check if the user has admin role.
      *
      * @param string $role
      * @return bool
      */
-    public function hasRole(string $role): bool
+    public function isAdmin(): bool
     {
-        Log::info('User has role: ' . $role);
-        Log::info($this->roles()->where('name', $role)->exists());
-        return $this->roles()->where('name', $role)->exists();
+        return $this->roles()->where('name', 'admin')->exists();
     }
 
 }

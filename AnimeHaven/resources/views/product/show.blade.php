@@ -112,21 +112,24 @@
                 </div>
 
                 {{-- Admin Buttons --}}
-                @can('update', $product)
+                @if (Auth::user() && Auth::user()->isAdmin())
                     <div class="container">
                         <div class="row justify-content-center">
-                            <button type="button" class="col-3 mx-2 btn btn-warning"
-                                onclick="window.location.href='admin/admin_change.html'">
+                            <a class="admin-btn btn-warning" href="{{ route('product.edit', $product) }}">
                                 Upraviť
-                            </button>
-                            <button type="button" class="col-3 mx-2 btn btn-danger"
-                                onclick="window.location.href='admin/admin_delete_img.html'">
+                            </a>
+                            <a class="admin-btn btn-success" href="">
+                                Pridať obrázok
+                            </a>
+                            <a class="admin-btn btn-danger" href="">
                                 Vymazať obrázok
-                            </button>
-                            <button type="button" class="col-3 mx-2 btn btn-danger">Vymazať</button>
+                            </a>
+                            <button type="button" class="admin-btn btn-danger">Vymazať</button>
                         </div>
                     </div>
-                @endcan
+                @endif
+
+
             </div>
         </div>
     </div>

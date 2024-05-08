@@ -28,8 +28,24 @@
     height: 200px;
 }
 
+.admin-btn {
+    @extend .btn, .mx-2, .col-2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 75px;
+    margin-bottom: 1rem;
+}
+
 @include media-breakpoint-down(lg) {
     .add-product-container {
         margin-left: 0vw;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .admin-btn {
+        width: 35%;
     }
 }
