@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddImageProductRequest;
+use App\Http\Requests\DestroyImageProductRequest;
+use App\Models\Image;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -144,7 +146,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('product.edit', compact('product'));
+        $images = $product->images;
+        return view('product.edit', compact('product', 'images'));
     }
 
     /**
@@ -160,7 +163,7 @@ class ProductController extends Controller
     /**
      * Add images to the specified product.
      */
-    public function addImage(AddImageProductRequest $request, Product $product)
+    public function updateImage(AddImageProductRequest $request, Product $product)
     {
         if ($request->hasfile('image')) {
             foreach ($request->file('image') as $image) {
@@ -176,6 +179,19 @@ class ProductController extends Controller
             }
         }
 
+        return redirect()->route('product.show', $product);
+    }
+
+    /**
+     * Remove the specified image from storage.
+     */
+    public function destroyImage(DestroyImageProductRequest $request, Product $product)
+    {
+        $image_id = $request->image_id;
+        $image = Image::find($image_id);
+        File::delete(public_path($image->image));
+        $image->delete();
+        $this->deleteProductCache();
         return redirect()->route('product.show', $product);
     }
 

@@ -94,6 +94,29 @@
         </div>
     </form>
 
+    {{-- Product Images For Deleting --}}
+    <div class="container add-product-container">
+        <h1>Vymazať obrázok produktu</h1>
+        <div class="row">
+            @foreach ($images as $image)
+                <div class="col-3">
+                    <div class="card">
+                        <img src="{{ asset($image->image) }}" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <form action="{{ route('product.destroyImage', $product) }}" method="POST"
+                                class="delete-product-form">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="image_id" value="{{ $image->id }}" />
+                                <button type="submit" class="admin-btn btn-danger">Vymazať</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
     {{-- Scripts --}}
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {

@@ -5,7 +5,7 @@
         <div class="row justify-content-center align-items-center">
             <div class="product-column-images">
                 <div class="card">
-                    <img class="card-img-top main-image" src="{{ asset($product->images->first()->image) }}"
+                    <img class="card-img-top main-image" src="{{ asset(optional($product->images->first())->image) }}"
                         alt="Title" />
                 </div>
                 <div class="row-sub-images">
@@ -119,9 +119,6 @@
                         <div class="row justify-content-center">
                             <a class="admin-btn btn-warning" href="{{ route('product.edit', $product) }}">
                                 Upraviť
-                            </a>
-                            <a class="admin-btn btn-danger" href="">
-                                Vymazať obrázok
                             </a>
                             <form action="{{ route('product.destroy', $product) }}" method="POST"
                                 class="delete-product-form">
