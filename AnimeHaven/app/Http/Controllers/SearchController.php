@@ -15,7 +15,7 @@ class SearchController extends Controller
     {
         $query = $request->input('query');
 
-        $products = Product::search($query)->paginate(5)->withQueryString();
+        $products = Product::search($query)->orderBy('popularity')->paginate(5)->withQueryString();
 
         // Eager load the images relationship for each product
         $products->load('images');
