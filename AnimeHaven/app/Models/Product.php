@@ -13,6 +13,15 @@ class Product extends Model
     use HasFactory;
     use Searchable;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'category',
+        'anime',
+        'color',
+    ];
+
     /**
      * Get the variants of the product.
      */

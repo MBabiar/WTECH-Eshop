@@ -29,11 +29,12 @@
 }
 
 .admin-btn {
-    @extend .btn, .mx-2, .col-2;
+    @extend .btn, .mx-2;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100px;
     height: 75px;
     margin-bottom: 1rem;
 }
@@ -46,6 +47,7 @@
 
 @include media-breakpoint-down(md) {
     .admin-btn {
-        width: 35%;
+        width: 80px;
+        height: 60px;
     }
 }

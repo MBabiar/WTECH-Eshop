@@ -118,9 +118,6 @@
                             <a class="admin-btn btn-warning" href="{{ route('product.edit', $product) }}">
                                 Upraviť
                             </a>
-                            <a class="admin-btn btn-success" href="">
-                                Pridať obrázok
-                            </a>
                             <a class="admin-btn btn-danger" href="">
                                 Vymazať obrázok
                             </a>
