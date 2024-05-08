@@ -8,6 +8,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
@@ -114,6 +115,7 @@ class ProductController extends Controller
             }
         }
 
+        $this->deleteProductCache();
         return redirect()->route('product.show', $product);
     }
 
@@ -150,6 +152,7 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+        $this->deleteProductCache();
         $product->update($request->validated());
         return redirect()->route('product.show', $product);
     }
@@ -181,6 +184,19 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        $this->deleteProductCache();
+        return redirect()->route('homepage')->with('success', 'Product deleted successfully');
+    }
+
+    /**
+     * Delete the product cache.
+     */
+    private function deleteProductCache()
+    {
+        // Remove the cache directly from DB, since the cache key is dynamic
+        // Different driver may have different way to delete cache for dynamic key
+        // Or you can use Cache::flush() to delete all cache (not recommended)
+        DB::table('cache')->where('key', 'like', 'products%')->delete();
     }
 }

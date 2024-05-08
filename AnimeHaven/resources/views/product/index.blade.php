@@ -7,7 +7,7 @@
             Spresniť parametre
             <span class="navbar-toggler-icon"></span>
         </button>
-        <form action="{{ route('products', ['category' => request('category')]) }}" method="GET"
+        <form action="{{ route('product.index', ['category' => request('category')]) }}" method="GET"
             class="navbar-collapse collapse row" id="navbarSupportedContent">
             @csrf
             @if (request('sort'))
@@ -52,7 +52,8 @@
     {{-- Sort --}}
     <div class="container-fluid">
         <div class="row products-nav-2 mt-1 mb-1">
-            <form method="GET" action="{{ route('products', ['category' => request('category')]) }}" class="p-0">
+            <form method="GET" action="{{ route('product.index', ['category' => request('category')]) }}"
+                class="p-0">
                 @csrf
                 @foreach (request()->except('category', 'page', 'sort') as $name => $value)
                     <input type="hidden" name="{{ $name }}" value="{{ $value }}">

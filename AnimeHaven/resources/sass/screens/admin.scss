@@ -59,6 +59,14 @@
     background-color: #404040;
 }
 
+.delete-product-form {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
 @include media-breakpoint-down(lg) {
     .add-product-container {
         margin-left: 0vw;

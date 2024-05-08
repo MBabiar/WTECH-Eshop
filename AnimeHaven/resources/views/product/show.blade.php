@@ -123,7 +123,12 @@
                             <a class="admin-btn btn-danger" href="">
                                 Vymazať obrázok
                             </a>
-                            <button type="button" class="admin-btn btn-danger">Vymazať</button>
+                            <form action="{{ route('product.destroy', $product) }}" method="POST"
+                                class="delete-product-form">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="admin-btn btn-danger">Vymazať</button>
+                            </form>
                         </div>
                     </div>
                 @endif

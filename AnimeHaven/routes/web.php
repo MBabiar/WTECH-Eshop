@@ -62,7 +62,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // Product
-Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
+Route::get('/products/{category}', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
 

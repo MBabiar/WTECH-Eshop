@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->string('size');
             $table->integer('stock');
             $table->timestamps();
