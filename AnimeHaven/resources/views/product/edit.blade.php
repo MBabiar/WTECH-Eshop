@@ -99,7 +99,7 @@
         <h1>Vymazať obrázok produktu</h1>
         <div class="row">
             @foreach ($images as $image)
-                <div class="col-3">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-6">
                     <div class="card">
                         <img src="{{ asset($image->image) }}" class="card-img-top" alt="..." />
                         <div class="card-body">
@@ -108,7 +108,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="image_id" value="{{ $image->id }}" />
-                                <button type="submit" class="admin-btn btn-danger">Vymazať</button>
+                                <button type="submit" class="delete-image-btn">Vymazať</button>
                             </form>
                         </div>
                     </div>

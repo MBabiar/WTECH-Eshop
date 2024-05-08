@@ -34,9 +34,19 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100px;
-    height: 75px;
+    width: 80px;
+    height: 60px;
     margin-bottom: 1rem;
+}
+
+.delete-image-btn {
+    @extend .btn, .btn-danger, .mx-2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    height: 40px;
 }
 
 .floating-button {
@@ -70,12 +80,5 @@
 @include media-breakpoint-down(lg) {
     .add-product-container {
         margin-left: 0vw;
-    }
-}
-
-@include media-breakpoint-down(md) {
-    .admin-btn {
-        width: 80px;
-        height: 60px;
     }
 }

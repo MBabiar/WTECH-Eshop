@@ -72,7 +72,7 @@
     {{-- Products --}}
     <div class="row products container-fluid">
         @foreach ($products as $product)
-            <div class="col-md-6 mb-3 col-lg-4 col-sm-6 col-xl-3">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-6 mb-3">
                 <div class="card">
                     <a href="{{ route('product.show', ['product_id' => $product->id]) }}">
                         <img src="{{ asset(optional($product->images->first())->image) }}" class="card-img-top"
