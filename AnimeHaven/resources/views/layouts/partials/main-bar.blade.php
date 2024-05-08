@@ -10,7 +10,7 @@
             @csrf
             <input id="searchInput" class="form-control me-2" type="query" placeholder="Vyhľadať"
                 autocomplete="off" />
-            <div id="searchResults" class="dropdown-menu"></div>
+            <div id="searchResults" class="search-dropdown-menu"></div>
         </form>
 
         {{-- Profile Navigation --}}

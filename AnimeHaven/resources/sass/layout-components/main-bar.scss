@@ -18,7 +18,8 @@
     position: relative;
 }
 
-.dropdown-menu {
+.search-dropdown-menu {
+    @extend .dropdown-menu;
     display: none;
     background-color: white;
     z-index: 1;

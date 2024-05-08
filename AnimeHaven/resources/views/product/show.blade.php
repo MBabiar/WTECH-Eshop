@@ -110,20 +110,23 @@
                         </div>
                     </div>
                 </div>
+
                 {{-- Admin Buttons --}}
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <button type="button" class="col-3 mx-2 btn btn-warning"
-                            onclick="window.location.href='admin/admin_change.html'">
-                            Upraviť
-                        </button>
-                        <button type="button" class="col-3 mx-2 btn btn-danger"
-                            onclick="window.location.href='admin/admin_delete_img.html'">
-                            Vymazať obrázok
-                        </button>
-                        <button type="button" class="col-3 mx-2 btn btn-danger">Vymazať</button>
+                @can('update', $product)
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <button type="button" class="col-3 mx-2 btn btn-warning"
+                                onclick="window.location.href='admin/admin_change.html'">
+                                Upraviť
+                            </button>
+                            <button type="button" class="col-3 mx-2 btn btn-danger"
+                                onclick="window.location.href='admin/admin_delete_img.html'">
+                                Vymazať obrázok
+                            </button>
+                            <button type="button" class="col-3 mx-2 btn btn-danger">Vymazať</button>
+                        </div>
                     </div>
-                </div>
+                @endcan
             </div>
         </div>
     </div>

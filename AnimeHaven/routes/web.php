@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthenticatedSessionController::class, 'store']);
 });
 
-
+// Authenticated
 Route::middleware('auth')->group(function () {
     Route::get('/profile', function () {
         return view('profile.profile');
@@ -44,6 +44,15 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
+// Search
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+// Product
+Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
+Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product-show');
+Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->middleware('can:update,product');
+
 // Others - needs changes
 Route::get('/cart', function () {
     return view('order.cart');
@@ -56,12 +65,3 @@ Route::get('/delivery-payment', function () {
 Route::get('/order-info', function () {
     return view('order.order-info');
 })->name('order-info');
-
-Route::get('/product-detail', function () {
-    return view('product.product-detail');
-})->name('product-detail');
-
-Route::get('/search', [SearchController::class, 'search'])->name('search');
-Route::get('/products/{category}', [ProductController::class, 'index'])->name('products');
-Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product-show');
-Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
