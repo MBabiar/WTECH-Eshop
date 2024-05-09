@@ -37,6 +37,13 @@
         </form>
         <div class="register-link-container">
             <a class="register-link" href="{{ route('register') }}" class="badge bg-primary">Nová Registrácia</a>
+
+            @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">
+                    Zabudli ste heslo?
+                </a>
+            @endif
+
         </div>
     </div>
 </x-app-layout>
