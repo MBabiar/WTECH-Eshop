@@ -34,14 +34,4 @@ class Product extends Model
     {
         return $this->hasMany(Image::class)->select('id', 'product_id', 'image');
     }
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        return $this->only('name', 'description');
-    }
 }
