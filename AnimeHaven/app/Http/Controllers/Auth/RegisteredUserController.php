@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Rules\MatchOldPassword;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -55,5 +56,18 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('homepage', absolute: false));
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+
+        User::find(auth()->user()->id)->update(['password' => Hash::make($request->new_password)]);
+
+        return back()->with('message', 'Password successfully changed');
     }
 }

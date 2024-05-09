@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
     // TODO: needs changes - adding Controllers
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+
+    Route::post('/password-change', [RegisteredUserController::class, 'changePassword'])->name('password.change');
 });
 
 // Admin

@@ -16,16 +16,17 @@
     <div class="container-fluid user-profile-password mt-3 content">
         <div class="row">
             <div>
-                <form class="form-signin">
+                <form class="form-signin" method="POST" action="{{ route('password.change') }}">
+                    @csrf
                     <h1 class="h3 mb-3 font-weight-normal">Zmena hesla</h1>
                     <label for="inputPassword" class="sr-only">Staré heslo</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Staré heslo"
-                        required autofocus />
+                    <input type="password" id="inputPassword" class="form-control mb-2" name="current_password"
+                        placeholder="Staré heslo" required autofocus />
                     <label for="inputPassword" class="sr-only">Nové heslo</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2" placeholder="Nové heslo"
-                        required autofocus />
+                    <input type="password" id="inputPassword" class="form-control mb-2" name="new_password"
+                        placeholder="Nové heslo" required autofocus />
                     <label for="inputPassword" class="sr-only">Potvrdenie nového hesla</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2"
+                    <<input type="password" id="inputPassword" class="form-control mb-2" name="new_confirm_password"
                         placeholder="Potvrdenie nového hesla" required autofocus />
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Zmeniť heslo</button>
                 </form>
