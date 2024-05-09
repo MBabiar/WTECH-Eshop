@@ -14,7 +14,7 @@
                     <label for="email" class="col-3 col-form-label">Email</label>
                     <div class="col-8">
                         <input type="email" class="form-control" name="email" id="email"
-                            placeholder="John@example.com" />
+                            value="{{ old('email') }}" placeholder="John@example.com" />
                     </div>
                 </div>
                 <x-input-error :messages="$errors->get('email')" class="li-left-align" />

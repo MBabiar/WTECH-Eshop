@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Rules\EmailRegex;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -31,21 +32,9 @@ class LoginRequest extends FormRequest
                 'required',
                 'string',
                 'email',
-                'regex:/^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/'
+                new EmailRegex,
             ],
             'password' => ['required', 'string'],
-        ];
-    }
-
-    /**
-     * Get custom messages for validator errors.
-     *
-     * @return array
-     */
-    public function messages(): array
-    {
-        return [
-            'email.regex' => 'Email must be in the format of John@example.com',
         ];
     }
 

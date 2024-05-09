@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
@@ -37,4 +37,3 @@ class UpdatePasswordRequest extends FormRequest
         ];
     }
 }
-?>
