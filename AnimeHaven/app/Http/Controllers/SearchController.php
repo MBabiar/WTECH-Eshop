@@ -13,12 +13,16 @@ class SearchController extends Controller
      */
     public function search(Request $request)
     {
-        $query = $request->input('query');
+        $filterString = $request->input('query');
 
-        $products = Product::search($query)->orderBy('popularity')->paginate(5)->withQueryString();
+        $query = Product::query()->with('images');
 
-        // Eager load the images relationship for each product
-        $products->load('images');
+        $filterWords = explode(' ', $filterString);
+        foreach ($filterWords as $word) {
+            $query->where('name', 'ilike', "%{$word}%");
+        }
+
+        $products = $query->orderBy('popularity')->paginate(5)->withQueryString();
 
         // Add the URL of the first image to each product
         $products->getCollection()->transform(function ($product) {

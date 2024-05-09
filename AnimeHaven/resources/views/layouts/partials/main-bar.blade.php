@@ -6,11 +6,12 @@
         </a>
 
         {{-- Search --}}
-        <form id="searchFormMain" class="main-search d-flex" method="GET" action="{{ route('search') }}">
+        <form id="searchFormMain" class="main-search d-flex" method="GET" action="{{ route('product.index-search') }}">
             @csrf
-            <input id="searchInput" class="form-control me-2" type="query" placeholder="Vyhľadať"
+            <input id="searchInput" class="form-control me-2" type="query" name="query" placeholder="Vyhľadať"
                 autocomplete="off" />
             <div id="searchResults" class="search-dropdown-menu"></div>
+            <button class="btn btn-outline-success" type="submit">Hľadať</button>
         </form>
 
         {{-- Profile Navigation --}}
