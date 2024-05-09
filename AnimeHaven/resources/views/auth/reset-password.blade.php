@@ -4,16 +4,7 @@
 
         <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
-
-        <!-- Email Address -->
-        <div>
-            <label for="email" class="block font-medium text-sm text-gray-700">{{ __('Email') }}</label>
-            <input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus />
-            @error('email')
-                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-            @enderror
-        </div>
+        <input type="hidden" name="email" value="{{ $request->email }}">
 
         <!-- Password -->
         <div class="mt-4">

@@ -1,36 +1,28 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\View\View;
 
-
-class PasswordController extends Controller
+class PasswordResetLinkController extends Controller
 {
     /**
-     * Update the user's password.
+     * Display the password reset link request view.
      */
-    public function update(UpdatePasswordRequest $request): RedirectResponse
-    {
-        $validated = $request->validated();
-
-        $request->user()->update([
-            'password' => Hash::make($validated['password']),
-        ]);
-
-        return back()->with('status', 'password-updated');
-    }
-
     public function create(): View
     {
         return view('auth.forgot-password');
     }
 
+    /**
+     * Handle an incoming password reset link request.
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
@@ -45,10 +37,8 @@ class PasswordController extends Controller
         );
 
         return $status == Password::RESET_LINK_SENT
-            ? back()->with('status', __($status))
-            : back()->withInput($request->only('email'))
-                ->withErrors(['email' => __($status)]);
+                    ? back()->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                            ->withErrors(['email' => __($status)]);
     }
-
 }
-?>
