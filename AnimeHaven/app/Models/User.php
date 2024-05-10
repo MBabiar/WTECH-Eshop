@@ -54,6 +54,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the carts associated with the user.
+     */
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    /**
      * Check if the user has admin role.
      *
      * @param string $role
