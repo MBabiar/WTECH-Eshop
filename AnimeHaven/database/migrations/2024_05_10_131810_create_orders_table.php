@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('user_name');
             $table->string('user_email');
             $table->string('user_phone');
@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('user_city');
             $table->string('user_zip');
             $table->string('user_street');
-            $table->int('user_house_number');
+            $table->integer('user_house_number');
             $table->timestamps();
         });
     }

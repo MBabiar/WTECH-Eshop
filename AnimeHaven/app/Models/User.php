@@ -62,6 +62,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the orders associated with the user.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
      * Check if the user has admin role.
      *
      * @param string $role
