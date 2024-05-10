@@ -13,31 +13,41 @@
     </div>
 
     <!-- Zmena hesla -->
-    <div class="container-fluid user-profile-password mt-3 content">
-        <div class="row">
-            <div>
-                <form class="form-signin" method="POST" action="{{ route('password.change') }}">
-                    @csrf
-                    <h1 class="h3 mb-3 font-weight-normal">Zmena hesla</h1>
+    <div class="form-container">
+        <form method="POST" action="{{ route('password.change') }}">
+            @csrf
 
-                    <label for="inputPassword" class="sr-only">Staré heslo</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2" name="current_password"
-                        placeholder="Staré heslo" required autofocus />
-                    {{-- <x-input-error :messages="$errors->get('current_password')" class="li-left-align" /> --}}
-
-                    <label for="inputPassword" class="sr-only">Nové heslo</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2" name="password"
-                        placeholder="Nové heslo" required autofocus />
-                    {{-- <x-input-error :messages="$errors->get('password')" class="li-left-align" /> --}}
-
-                    <label for="inputPassword" class="sr-only">Potvrdenie nového hesla</label>
-                    <input type="password" id="inputPassword" class="form-control mb-2" name="password_confirmation"
-                        placeholder="Potvrdenie nového hesla" required autofocus />
-
-
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Zmeniť heslo</button>
-                </form>
+            <div class="mb-3 ">
+                <div class="row">
+                    <label for="inputPassword" class="col-3 col-form-label">Staré heslo</label>
+                    <div class="col-8">
+                        <input type="password" id="inputPassword" class="form-control" name="current_password"
+                            placeholder="Staré heslo" required autofocus />
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="mb-3 ">
+                <div class="row">
+                    <label for="inputPassword" class="col-3 col-form-label">Nové heslo</label>
+                    <div class="col-8">
+                        <input type="password" id="inputPassword" class="form-control" name="password"
+                            placeholder="Nové heslo" required autofocus />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 ">
+                <div class="row">
+                    <label for="inputPassword" class="col-3 col-form-label">Potvrdenie hesla</label>
+                    <div class="col-8">
+                        <input type="password" id="inputPassword" class="form-control" name="password_confirmation"
+                            placeholder="Potvrdenie hesla" required autofocus />
+                    </div>
+                </div>
+
+
+                <button class="btn btn-primary" type="submit">Zmeniť heslo</button>
+        </form>
     </div>
 </x-app-layout>
