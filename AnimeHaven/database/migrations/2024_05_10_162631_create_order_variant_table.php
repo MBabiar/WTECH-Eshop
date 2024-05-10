@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('order_table', function (Blueprint $table) {
+        Schema::create('order_variant', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained();
             $table->foreignId('variant_id')->constrained();
