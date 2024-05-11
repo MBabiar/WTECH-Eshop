@@ -91,6 +91,7 @@ class CartController extends Controller
             $variant = Variant::find($cartProduct['variant_id']);
             $product = $variant->product;
             $products[] = (object) [
+                'id' => $product->id,
                 'variant_id' => $variant->id,
                 'name' => Str::limit($product->name, 30),
                 'price' => $product->price,

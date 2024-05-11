@@ -2,17 +2,21 @@
     @foreach ($products as $product)
         <div class="product-container">
             <div class="product-row">
-                <div class="col-image">
-                    <img src="{{ asset($product->image) }}" alt="Product" class="img-fluid" />
-                </div>
-                <div class="col-text">
-                    <div class="row">
-                        <h3>{{ $product->name }}</h3>
+                <a href="{{ route('product.show', $product->id) }}" class="product-link"
+                    style="text-decoration: none; color: inherit">
+                    <div class="col-image">
+                        <img src="{{ asset($product->image) }}" alt="Product" class="img-fluid" />
                     </div>
-                    <div class="row">
-                        <p>Veľkosť: {{ $product->size }}</p>
+                    <div class="col-text">
+                        <div class="row">
+                            <h3>{{ $product->name }}</h3>
+                        </div>
+                        <div class="row">
+                            <p>Veľkosť: {{ $product->size }}</p>
+                        </div>
+
                     </div>
-                </div>
+                </a>
                 <div class="col-piece-amount">
                     <input type="number" id="amount{{ $product->variant_id }}"
                         name="amounts[{{ $product->variant_id }}]" class="input-piece-amount"

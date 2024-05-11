@@ -3,17 +3,25 @@
     padding-left: 11vw;
     padding-right: 11vw;
 }
+
 .product-row {
     @extend .row, .justify-content-center, .align-items-center, .p-2, .bg-light;
     border: 1px solid $secondary;
 }
 
+.product-link {
+    @extend .col, .row;
+    justify-content: center;
+}
+
 .col-image {
     @extend .col-2;
+    width: 150px;
 }
 
 .col-text {
     @extend .col;
+    align-self: center;
 }
 
 .col-piece-amount {
