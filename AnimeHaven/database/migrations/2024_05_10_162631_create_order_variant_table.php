@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('order_id')->constrained();
             $table->foreignId('variant_id')->constrained();
+            $table->integer('amount');
             $table->timestamps();
         });
     }

@@ -128,8 +128,30 @@ class OrderController extends Controller
     /**
      * Process the order.
      */
-    public function processOrderInfo()
+    public function storeOrderInfo(StoreOrderRequest $request)
     {
-        //
+        $order = new Order();
+        $order->user_id = auth()->user()->id;
+        $order->user_name = $request->validated('user_name');
+        $order->user_email = $request->validated('user_email');
+        $order->user_phone = $request->validated('user_phone');
+        $order->transportation = session('transportation');
+        $order->payment_method = session('payment_method');
+        $order->user_country = $request->validated('user_country');
+        $order->user_city = $request->validated('user_city');
+        $order->user_zip = $request->validated('user_zip');
+        $order->user_street = $request->validated('user_street');
+        $order->user_house_number = $request->validated('user_house_number');
+        $order->save();
+
+        // Store the order products
+        if (auth()->user()) {
+            $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
+        } else {
+            $cartProducts = session('cart');
+        }
+        foreach ($cartProducts as $cartProduct) {
+            $order->variants()->attach($cartProduct['variant_id'], ['amount' => $cartProduct['amount']]);
+        }
     }
 }

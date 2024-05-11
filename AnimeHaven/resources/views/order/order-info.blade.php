@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form action="{{ route('process-order-info') }}" method="POST" class="needs-validation" novalidate>
+    <form action="{{ route('store-order-info') }}" method="POST" class="needs-validation" novalidate>
         @csrf
         <section class="main-content">
             <div class="order-info-container">
