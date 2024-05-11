@@ -60,7 +60,7 @@
                             @endif
                         </p>
                         <div class="row">
-                            <h1 class="col-product-price">{{ $product->price }}€</h1>
+                            <h1 class="col-product-price">{{ $product->price }}€ /ks</h1>
                             <div class="col-piece-add-to-cart">
                                 <div class="row-piece-input">
                                     <input type="number" id="amount" name="amount" class="input-piece-amount"
