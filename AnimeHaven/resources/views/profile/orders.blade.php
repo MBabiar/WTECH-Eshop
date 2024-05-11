@@ -1,7 +1,6 @@
 <x-app-layout>
     <!-- Main content -->
     <x-profile-nav :active="'orders'" />
-
     <!-- Orders -->
     <div class="container-fluid user-profile-orders">
         <div class="row justify-content-center">
@@ -9,12 +8,15 @@
                 @foreach ($orders as $order)
                     <div class="card mt-2">
                         <div class="card-header">
-                            <h4>Objednávka č. {{ $order->id }}</h4>
+                            <h4>Objednávka č. {{ $loop->iteration }}</h4>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Objednané produkty</h5>
                             @foreach ($order->variants as $variant)
-                                <p class="card-text">{{ $variant->product->name }}</p>
+                                <p class="card-text">{{ $variant->product->name }} - {{ $variant->product->price }}€ -
+                                    Počet kusov:
+                                    {{ $variant->orders()->where('order_id', $order->id)->first()->pivot->amount }}
+                                </p>
                             @endforeach
                             <h5 class="card-title">Cena</h5>
                             <p class="card-text">{{ $order->price }}€</p>
