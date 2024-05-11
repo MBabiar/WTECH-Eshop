@@ -32,7 +32,9 @@ class OrderController extends Controller
     public function store(StoreOrderRequest $request)
     {
         $order = new Order();
-        $order->user_id = auth()->user()->id;
+        if (auth()->user()) {
+            $order->user_id = auth()->user()->id;
+        }
         $order->user_name = $request->validated('user_name');
         $order->user_email = $request->validated('user_email');
         $order->user_phone = $request->validated('user_phone');
@@ -54,6 +56,8 @@ class OrderController extends Controller
         foreach ($cartProducts as $cartProduct) {
             $order->variants()->attach($cartProduct['variant_id'], ['amount' => $cartProduct['amount']]);
         }
+
+        return redirect()->route('homepage')->with('success', 'Objednávka bola úspešne dokončená. Ďakujeme za nákup!');
     }
 
     /**
