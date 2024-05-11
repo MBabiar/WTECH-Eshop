@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
@@ -67,13 +68,24 @@ class OrderController extends Controller
     /**
      * Show the delivery and payment method.
      */
+    /**
+     * Show the delivery and payment method.
+     */
     public function showDeliveryPaymentForm()
     {
-        // Predvolené hodnoty
+        // Check if the cart is empty
+        if (auth()->user()) {
+            $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
+        } else {
+            $cartProducts = session('cart');
+        }
+        if (!$cartProducts || count($cartProducts) == 0) {
+            return back()->withErrors('Košík je prázdny');
+        }
+
         $transportation = null;
         $payment_method = null;
 
-        // Ak existujú údaje v session, použijeme ich
         if (session()->has('transportation')) {
             $transportation = session('transportation');
         }
@@ -81,7 +93,6 @@ class OrderController extends Controller
             $payment_method = session('payment_method');
         }
 
-        // Vrátiť zobrazenie formulára s predvyplnenými údajmi
         return view('order.delivery-payment', compact('transportation', 'payment_method'));
     }
 
@@ -117,7 +128,7 @@ class OrderController extends Controller
     /**
      * Process the order.
      */
-    public function processOrder()
+    public function processOrderInfo()
     {
         //
     }

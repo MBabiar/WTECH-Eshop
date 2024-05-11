@@ -82,15 +82,8 @@ Route::post('/cart/{variant_id}/decrement', [CartController::class, 'decrementAm
 Route::delete('/cart/{variant_id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 // Order
-Route::get('/delivery-payment', [OrderController::class, 'showDeliveryPayment'])->name('delivery-payment');
+Route::get('/delivery-payment', [OrderController::class, 'showDeliveryPaymentForm'])->name('delivery-payment');
 Route::post('/delivery-payment', [OrderController::class, 'storeDeliveryPayment'])->name('store-delivery-payment');
 Route::get('/order-info', [OrderController::class, 'showOrderInfo'])->name('order-info');
 Route::post('/order-info', [OrderController::class, 'processOrderInfo'])->name('process-order-info');
-
-Route::get('/delivery-payment', function () {
-    return view('order.delivery-payment');
-})->name('delivery-payment');
-
-Route::get('/order-info', function () {
-    return view('order.order-info');
-})->name('order-info');
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');

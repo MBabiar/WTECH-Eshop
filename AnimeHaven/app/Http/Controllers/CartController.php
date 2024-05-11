@@ -76,10 +76,14 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
+        // Check if the cart is empty
         if (auth()->user()) {
             $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
         } else {
             $cartProducts = session('cart');
+        }
+        if (!$cartProducts || count($cartProducts) == 0) {
+            return back()->withErrors('Košík je prázdny');
         }
 
         $products = [];
@@ -117,12 +121,17 @@ class CartController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the product from the cart.
      */
     public function destroy($variant_id)
     {
         if (auth()->user()) {
             Cart::where('variant_id', $variant_id)->where('user_id', auth()->id())->delete();
+
+            // Check if the cart is empty
+            if (Cart::where('user_id', auth()->id())->count() == 0) {
+                return redirect()->route('homepage')->with('success', 'Košík sa vyprázdnil.');
+            }
         } else {
             $cart = session('cart');
             foreach ($cart as $key => $item) {
@@ -131,6 +140,12 @@ class CartController extends Controller
                 }
             }
             session()->put('cart', $cart);
+
+            // Check if the cart is empty
+            if (empty($cart)) {
+                session()->forget('cart');
+                return redirect()->route('homepage')->with('success', 'Košík sa vyprázdnil.');
+            }
         }
 
         return back();
@@ -179,6 +194,11 @@ class CartController extends Controller
                 $cart->save();
             } else {
                 $cart->delete();
+
+                // Check if the cart is empty
+                if (Cart::where('user_id', auth()->id())->count() == 0) {
+                    return redirect()->route('homepage')->with('success', 'Košík sa vyprázdnil.');
+                }
             }
         } else {
             $cart = session('cart');
@@ -192,6 +212,12 @@ class CartController extends Controller
                 }
             }
             session()->put('cart', $cart);
+
+            // Check if the cart is empty
+            if (empty($cart)) {
+                session()->forget('cart');
+                return redirect()->route('homepage')->with('success', 'Košík sa vyprázdnil.');
+            }
         }
 
         return back();

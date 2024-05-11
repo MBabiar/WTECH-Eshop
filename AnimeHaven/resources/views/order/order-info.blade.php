@@ -1,13 +1,15 @@
 <x-app-layout>
-    <section class="main-content">
-        <form class="needs-validation" novalidate>
+    <form action="{{ route('process-order-info') }}" method="POST" class="needs-validation" novalidate>
+        @csrf
+        <section class="main-content">
             <div class="order-info-container">
                 <div class="container-flex">
                     <h1>Osobné údaje</h1>
                     <div class="input-row mt-3">
                         <label for="inputName" class="col-label">Meno a Priezvisko</label>
                         <div class="col-input">
-                            <input type="text" class="form-control" id="inputName" required />
+                            <input type="text" class="form-control" id="inputName"
+                                value="{{ old('inputName', session('inputName')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -16,7 +18,7 @@
                         <label for="inputEmail" class="col-label">Email</label>
                         <div class="col-input">
                             <input type="email" class="form-control" id="inputEmail" placeholder="example@gmail.com"
-                                required />
+                                value="{{ old('inputEmail', session('inputEmail')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje. example@gmail.com</div>
                         </div>
@@ -25,7 +27,8 @@
                     <div class="input-row">
                         <label for="inputTel" class="col-label">Telefón</label>
                         <div class="col-input">
-                            <input type="tel" class="form-control" id="inputTel" required />
+                            <input type="tel" class="form-control" id="inputTel"
+                                value="{{ old('inputTel', session('inputTel')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje. 0xxx xxx xxx</div>
                         </div>
@@ -38,15 +41,20 @@
                         <label for="inputCountry" class="col-label">Krajina</label>
                         <div class="col-input">
                             <select class="form-select" id="inputCountry" name="inputCountry" required>
-                                <option value="1">Slovensko</option>
-                                <option value="2">Česká republika</option>
+                                <option value="1"
+                                    {{ old('inputCountry', session('inputCountry')) == '1' ? 'selected' : '' }}>
+                                    Slovensko</option>
+                                <option value="2"
+                                    {{ old('inputCountry', session('inputCountry')) == '2' ? 'selected' : '' }}>Česká
+                                    republika</option>
                             </select>
                         </div>
                     </div>
                     <div class="input-row">
                         <label for="inputCity" class="col-label">Mesto</label>
                         <div class="col-input">
-                            <input type="text" class="form-control" id="inputCity" required />
+                            <input type="text" class="form-control" id="inputCity"
+                                value="{{ old('inputCity', session('inputCity')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -54,7 +62,8 @@
                     <div class="input-row">
                         <label for="inputPsc" class="col-label">PSČ</label>
                         <div class="col-input">
-                            <input type="number" class="form-control" id="inputPsc" required />
+                            <input type="number" class="form-control" id="inputPsc"
+                                value="{{ old('inputPsc', session('inputPsc')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -62,7 +71,8 @@
                     <div class="input-row">
                         <label for="inputStreet" class="col-label">Ulica</label>
                         <div class="col-input">
-                            <input type="text" class="form-control" id="inputStreet" required />
+                            <input type="text" class="form-control" id="inputStreet"
+                                value="{{ old('inputStreet', session('inputStreet')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -70,7 +80,8 @@
                     <div class="input-row">
                         <label for="inputHouseNum" class="col-label">Číslo domu</label>
                         <div class="col-input">
-                            <input type="number" class="form-control" id="inputHouseNum" required />
+                            <input type="number" class="form-control" id="inputHouseNum"
+                                value="{{ old('inputHouseNum', session('inputHouseNum')) }}" required />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -88,26 +99,26 @@
                     Ďalej
                 </button>
             </div>
-        </form>
-        <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (function() {
-                'use strict';
-                let forms = document.querySelectorAll('.needs-validation');
-                Array.prototype.slice.call(forms).forEach(function(form) {
-                    form.addEventListener(
-                        'submit',
-                        function(event) {
-                            if (!form.checkValidity()) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        },
-                        false
-                    );
-                });
-            })();
-        </script>
-    </section>
+            <script>
+                // Example starter JavaScript for disabling form submissions if there are invalid fields
+                (function() {
+                    'use strict';
+                    let forms = document.querySelectorAll('.needs-validation');
+                    Array.prototype.slice.call(forms).forEach(function(form) {
+                        form.addEventListener(
+                            'submit',
+                            function(event) {
+                                if (!form.checkValidity()) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            },
+                            false
+                        );
+                    });
+                })();
+            </script>
+        </section>
+    </form>
 </x-app-layout>
