@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Variant;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 
 class ProductSeeder extends Seeder
@@ -680,7 +680,7 @@ class ProductSeeder extends Seeder
                 foreach ($sizes[$productType] as $size) {
                     $product['variants'][] = [
                         'size' => $size,
-                        'stock' => rand(0, 2),
+                        'stock' => rand(0, 10),
                     ];
                 }
             }

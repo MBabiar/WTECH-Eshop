@@ -15,6 +15,28 @@
     margin-left: 10vw;
 }
 
+.product-form-left {
+    width: fit-content;
+    margin-right: 50px;
+}
+
+.col-label-variant {
+    width: 50px;
+}
+
+.col-input-variant {
+    width: 150px;
+}
+
+.form-control-variant {
+    @extend .form-control;
+    width: 150px;
+}
+
+.product-image-container {
+    width: fit-content;
+}
+
 .row-input {
     @extend .row, .mb-3;
 }
@@ -80,5 +102,8 @@
 @include media-breakpoint-down(lg) {
     .add-product-container {
         margin-left: 0vw;
+    }
+    .product-form-left {
+        width: 100%;
     }
 }

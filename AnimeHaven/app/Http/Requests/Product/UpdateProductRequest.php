@@ -28,6 +28,11 @@ class UpdateProductRequest extends FormRequest
             'category' => ['required', 'string', 'in:shirt,hoodie,hat'],
             'anime' => ['required', 'string', 'max:255', 'in:Naruto,Bleach,Death Note'],
             'color' => ['required', 'string', 'max:255', 'in:black,white,blue'],
+            'S' => ['required', 'numeric'],
+            'M' => ['required', 'numeric'],
+            'L' => ['required', 'numeric'],
+            'XL' => ['required', 'numeric'],
+            'A' => ['required', 'numeric'],
         ];
     }
 }

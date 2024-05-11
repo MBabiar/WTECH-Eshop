@@ -127,6 +127,15 @@ class ProductController extends Controller
             'price' => $request->price,
         ]);
 
+        $variants = [
+            'S' => $request->validated('S'),
+            'M' => $request->validated('M'),
+            'L' => $request->validated('L'),
+            'XL' => $request->validated('XL'),
+            'A' => $request->validated('A'),
+        ];
+
+
         // Create a directory to store the images
         $directory = public_path("images/product/{$product->id}");
         if (!file_exists($directory)) {
@@ -153,7 +162,7 @@ class ProductController extends Controller
             $product->variants()->create([
                 'product_id' => $product->id,
                 'size' => 'A',
-                'stock' => 0,
+                'stock' => $variants['A'],
             ]);
         } else {
             $sizes = ['S', 'M', 'L', 'XL'];
@@ -161,7 +170,7 @@ class ProductController extends Controller
                 $product->variants()->create([
                     'product_id' => $product->id,
                     'size' => $size,
-                    'stock' => 0,
+                    'stock' => $variants[$size],
                 ]);
             }
         }
@@ -175,10 +184,21 @@ class ProductController extends Controller
      */
     public function show(int $product_id)
     {
-        $product = Product::find($product_id);
-        $variants = $product->variants;
+        $product = Cache::remember("product-$product_id", 60, function () use ($product_id) {
+            return Product::with('images')->find($product_id);
+        });
+
+        $order = ['S', 'M', 'L', 'XL', 'A'];
+
+        $variants = Cache::remember("variants-$product_id", 60, function () use ($product, $order) {
+            return $product->variants->sortBy(function ($variant) use ($order) {
+                return array_search($variant->size, $order);
+            });
+        });
+
         return view('product.show', compact('product', 'variants'));
     }
+
 
     /**
      * Get variants data.
@@ -196,7 +216,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $images = $product->images;
-        return view('product.edit', compact('product', 'images'));
+        $variants = $product->variants;
+        return view('product.edit', compact('product', 'variants', 'images'));
     }
 
     /**
@@ -205,7 +226,50 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $this->deleteProductCache();
-        $product->update($request->validated());
+        Cache::forget("product-$product->id");
+
+        $newCategory = $request->category;
+        $variants = [
+            'S' => $request->validated('S'),
+            'M' => $request->validated('M'),
+            'L' => $request->validated('L'),
+            'XL' => $request->validated('XL'),
+            'A' => $request->validated('A'),
+        ];
+
+        if ($newCategory !== $product->category) {
+            // Delete the old variants
+            $product->variants()->delete();
+
+            // Create new variants based on the category
+            if ($newCategory === 'hat') {
+                Log::info('Creating hat variant');
+                Log::info('Stock: ' . $variants['A']);
+                $product->variants()->create([
+                    'product_id' => $product->id,
+                    'size' => 'A',
+                    'stock' => $variants['A'],
+                ]);
+            } else {
+                $sizes = ['S', 'M', 'L', 'XL'];
+                foreach ($sizes as $size) {
+                    Log::info('Creating size ' . $size . ' variant');
+                    Log::info('Stock: ' . $variants[$size]);
+                    $product->variants()->create([
+                        'product_id' => $product->id,
+                        'size' => $size,
+                        'stock' => $variants[$size],
+                    ]);
+                }
+            }
+        } else {
+            // Update the variants
+            $sizes = ['S', 'M', 'L', 'XL', 'A'];
+            foreach ($sizes as $size) {
+                $product->variants()->where('size', $size)->update(['stock' => $variants[$size]]);
+            }
+        }
+
         return redirect()->route('product.show', $product);
     }
 
@@ -214,6 +278,7 @@ class ProductController extends Controller
      */
     public function updateImage(AddImageProductRequest $request, Product $product)
     {
+        Cache::forget("product-$product->id");
         if ($request->hasfile('image')) {
             foreach ($request->file('image') as $image) {
                 $destinationPath = public_path('images/product/' . $product->id);
@@ -236,6 +301,7 @@ class ProductController extends Controller
      */
     public function destroyImage(DestroyImageProductRequest $request, Product $product)
     {
+        Cache::forget("product-$product->id");
         $image_id = $request->image_id;
         $image = Image::find($image_id);
         File::delete(public_path($image->image));

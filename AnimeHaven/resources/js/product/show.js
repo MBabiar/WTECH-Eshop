@@ -23,20 +23,6 @@ function clickVariant() {
             let stockDisplay = document.getElementById("stock-display");
 
             sizeInputs.forEach((input) => {
-                input.addEventListener("change", function () {
-                    let size = this.value;
-                    let stock = variants.find(
-                        (variant) => variant.size === size
-                    ).stock;
-                    if (stock <= 0) {
-                        stockDisplay.textContent = "Nedostupné";
-                    } else if (stock <= 5) {
-                        stockDisplay.textContent = "Skladom (" + stock + "ks)";
-                    } else {
-                        stockDisplay.textContent = "Skladom (&gt;5ks)";
-                    }
-                });
-
                 // Add click event listener to handle the active button
                 input.parentElement.addEventListener("click", function () {
                     sizeInputs.forEach((inp) => {
@@ -55,7 +41,7 @@ function clickVariant() {
                     } else if (stock <= 5) {
                         stockDisplay.textContent = "Skladom (" + stock + "ks)";
                     } else {
-                        stockDisplay.textContent = "Skladom (&gt;5ks)";
+                        stockDisplay.textContent = "Skladom (>5ks)";
                     }
                 });
             });

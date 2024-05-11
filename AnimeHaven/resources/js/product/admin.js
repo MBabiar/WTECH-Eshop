@@ -30,4 +30,52 @@ function validateFileInput(input) {
     return true;
 }
 
+function changeVariantsOnCategory() {
+    document.getElementById("category").addEventListener("change", function () {
+        let variantElements = ["S", "M", "L", "XL"];
+        if (this.value === "hat") {
+            variantElements.forEach(function (id) {
+                document.getElementById(
+                    id
+                ).parentElement.parentElement.hidden = true;
+            });
+            document.getElementById(
+                "A"
+            ).parentElement.parentElement.hidden = false;
+        } else {
+            variantElements.forEach(function (id) {
+                document.getElementById(
+                    id
+                ).parentElement.parentElement.hidden = false;
+            });
+            document.getElementById(
+                "A"
+            ).parentElement.parentElement.hidden = true;
+        }
+    });
+}
+
+function setInitialVariants() {
+    let categoryElement = document.getElementById("category");
+    let variantElements = ["S", "M", "L", "XL"];
+
+    if (categoryElement.value === "hat") {
+        variantElements.forEach(function (id) {
+            document.getElementById(
+                id
+            ).parentElement.parentElement.hidden = true;
+        });
+        document.getElementById("A").parentElement.parentElement.hidden = false;
+    } else {
+        variantElements.forEach(function (id) {
+            document.getElementById(
+                id
+            ).parentElement.parentElement.hidden = false;
+        });
+        document.getElementById("A").parentElement.parentElement.hidden = true;
+    }
+}
+
 validation();
+changeVariantsOnCategory();
+setInitialVariants();
