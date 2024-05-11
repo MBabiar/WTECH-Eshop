@@ -21,6 +21,7 @@ class Order extends Model
         'user_zip',
         'user_street',
         'user_house_number',
+        'price',
     ];
 
     /**
