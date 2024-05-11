@@ -73,6 +73,11 @@ class OrderController extends Controller
         }
         $order->update(['price' => $priceSum]);
 
+        foreach ($cartProducts as $cartProduct) {
+            $variant = Variant::find($cartProduct['variant_id']);
+            $variant->update(['stock' => $variant->stock - $cartProduct['amount']]);
+        }
+
         return redirect()->route('homepage')->with('success', 'Objednávka bola úspešne dokončená. Ďakujeme za nákup!');
     }
 
