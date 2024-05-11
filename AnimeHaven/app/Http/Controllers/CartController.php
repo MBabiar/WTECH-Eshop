@@ -51,7 +51,7 @@ class CartController extends Controller
                 Cart::create([
                     'user_id' => $userId,
                     'variant_id' => $variant->id,
-                    'amount' => $amount
+                    'amount' => $amount,
                 ]);
             } else {
                 if (session()->has('cart')) {

@@ -6,37 +6,23 @@
     <div class="container-fluid user-profile-orders">
         <div class="row justify-content-center">
             <div>
-                <div class="card mt-2">
-                    <div class="card-header">
-                        <h4>Objednávka č. 1</h4>
+                @foreach ($orders as $order)
+                    <div class="card mt-2">
+                        <div class="card-header">
+                            <h4>Objednávka č. {{ $order->id }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Objednané produkty</h5>
+                            @foreach ($order->variants as $variant)
+                                <p class="card-text">{{ $variant->product->name }}</p>
+                            @endforeach
+                            <h5 class="card-title">Cena</h5>
+                            <p class="card-text">{{ $order->total_price }}€</p>
+                            <h5 class="card-title">Dátum</h5>
+                            <p class="card-text">{{ $order->created_at->format('d.m.Y') }}</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Objednané produkty</h5>
-                        <p class="card-text">Tričko s potlačou</p>
-                        <p class="card-text">Mikina s potlačou</p>
-                        <p class="card-text">Čiapka s potlačou</p>
-                        <h5 class="card-title">Cena</h5>
-                        <p class="card-text">100€</p>
-                        <h5 class="card-title">Dátum</h5>
-                        <p class="card-text">12.12.2021</p>
-                    </div>
-                </div>
-
-                <div class="card mt-2">
-                    <div class="card-header">
-                        <h4>Objednávka č. 2</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Objednané produkty</h5>
-                        <p class="card-text">Tričko s potlačou</p>
-                        <p class="card-text">Mikina s potlačou</p>
-                        <p class="card-text">Čiapka s potlačou</p>
-                        <h5 class="card-title">Cena</h5>
-                        <p class="card-text">100€</p>
-                        <h5 class="card-title">Dátum</h5>
-                        <p class="card-text">12.12.2021</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

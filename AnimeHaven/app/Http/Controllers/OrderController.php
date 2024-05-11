@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Log;
+use App\Models\Variant;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
@@ -15,8 +17,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('profile.orders');
+        if (auth()->user()) {
+            $orders = Order::where('user_id', auth()->user()->id)->get();
+            return view('profile.orders', compact('orders'));
+        } else {
+            return redirect()->route('login');
+        }
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -45,6 +53,7 @@ class OrderController extends Controller
         $order->user_zip = $request->validated('user_zip');
         $order->user_street = $request->validated('user_street');
         $order->user_house_number = $request->validated('user_house_number');
+        $order->price = 0;
         $order->save();
 
         // Store the order products
@@ -55,19 +64,25 @@ class OrderController extends Controller
             $cartProducts = session('cart');
             session()->forget('cart');
         }
+        $priceSum = 0;
         foreach ($cartProducts as $cartProduct) {
+            $price = Variant::find($cartProduct['variant_id'])->product->price;
+            Log::info($price);
+            $priceSum += $price * $cartProduct['amount'];
             $order->variants()->attach($cartProduct['variant_id'], ['amount' => $cartProduct['amount']]);
         }
+        $order->update(['price' => $priceSum]);
 
         return redirect()->route('homepage')->with('success', 'Objednávka bola úspešne dokončená. Ďakujeme za nákup!');
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(Order $order)
     {
-        //
+        // 
     }
 
     /**

@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->string('user_zip');
             $table->string('user_street');
             $table->integer('user_house_number');
+            $table->float('price');
             $table->timestamps();
         });
     }
