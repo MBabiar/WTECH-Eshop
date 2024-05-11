@@ -17,7 +17,7 @@
                                 <p class="card-text">{{ $variant->product->name }}</p>
                             @endforeach
                             <h5 class="card-title">Cena</h5>
-                            <p class="card-text">{{ $order->total_price }}€</p>
+                            <p class="card-text">{{ $order->price }}€</p>
                             <h5 class="card-title">Dátum</h5>
                             <p class="card-text">{{ $order->created_at->format('d.m.Y') }}</p>
                         </div>
