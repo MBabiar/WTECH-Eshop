@@ -17,7 +17,6 @@ const search = async (query) => {
         // Create an img element and set its src attribute to the product's image URL
         const img = document.createElement("img");
         img.src = window.location.origin + "/" + product.image;
-        console.log(img.src);
         img.style.width = "50px"; // Set the width of the image
         img.style.height = "50px"; // Set the height of the image
         link.appendChild(img); // Append the image to the link

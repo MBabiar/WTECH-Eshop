@@ -14,7 +14,6 @@ function switchImage() {
 // Adds button-active class to the selected button (removes from others)
 // Displays stock information
 function clickVariant() {
-    console.log("tu");
     let productId = window.productId;
     fetch(`/products/${productId}/variants`)
         .then((response) => response.json())
@@ -46,7 +45,29 @@ function clickVariant() {
                 });
             });
         });
+
+}
+
+function incDecButtons() {
+    let amountInput = document.getElementById("amount");
+    let incButton = document.getElementById("inc-button");
+    let decButton = document.getElementById("dec-button");
+
+    incButton.onclick = function () {
+        if (isNaN(parseInt(amountInput.value))) {
+            amountInput.value = 1;
+        } else {
+            amountInput.value = parseInt(amountInput.value) + 1;
+        }
+    };
+
+    decButton.onclick = function () {
+        if (parseInt(amountInput.value) > 1) {
+            amountInput.value = parseInt(amountInput.value) - 1;
+        }
+    };
 }
 
 switchImage();
 clickVariant();
+incDecButtons();

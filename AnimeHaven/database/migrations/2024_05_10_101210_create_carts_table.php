@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('variant_id')->constrained()->cascadeOnDelete();
-            $table->integer('quantity');
+            $table->integer('amount');
             $table->timestamps();
         });
     }

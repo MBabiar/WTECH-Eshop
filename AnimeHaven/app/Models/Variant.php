@@ -26,6 +26,17 @@ class Variant extends Model
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * Get the carts for the variant.
+     */
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    /**
+     * Get the orders for the variant.
+     */
     public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class);

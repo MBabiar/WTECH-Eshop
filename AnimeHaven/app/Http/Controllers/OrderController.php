@@ -2,12 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 
 class OrderController extends Controller
 {
+
+    public function processDeliveryPayment(Request $request)
+    {
+        // Skontrolujte, či boli odoslané údaje z formulára
+        if ($request->isMethod('post')) {
+            // Získajte hodnoty z formulára
+            $doprava = $request->input('doprava');
+            $platba = $request->input('platba');
+
+            // Uložte hodnoty do session premenných
+            session(['doprava' => $doprava]);
+            session(['platba' => $platba]);
+
+            // Presmerujte používateľa na ďalší krok objednávky alebo kamkoľvek inam
+            return redirect()->route('order-info');
+        }
+
+        // Ak nie je požiadavka typu POST, môžete urobiť inú akciu, napr. presmerovať späť
+        return redirect()->back();
+    }
     /**
      * Display a listing of the resource.
      */

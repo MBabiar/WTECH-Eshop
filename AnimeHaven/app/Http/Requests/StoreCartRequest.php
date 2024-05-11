@@ -11,7 +11,7 @@ class StoreCartRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreCartRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'product_id' => ['required', 'integer', 'exists:products,id'],
+            'size' => ['required', 'string', 'in:S,M,L,XL,A'],
+            'amount' => ['required', 'integer', 'min:1']
         ];
     }
 }

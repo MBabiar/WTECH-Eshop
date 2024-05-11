@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordChangeController;
@@ -77,6 +79,12 @@ Route::get('/products/search', [ProductController::class, 'indexSearch'])->name(
 Route::get('/products/{category}', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
+
+//Cart
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+
+// Order
+Route::post('/delivery-payment', [OrderController::class, 'processDeliveryPayment'])->name('process-delivery-payment');
 
 // TODO: Others - needs changes
 Route::get('/cart', function () {
