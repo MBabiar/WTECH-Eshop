@@ -1,21 +1,19 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordChangeController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 // Homepage
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
-
-// TODO: All routes with functions needs change
 
 // Authentication
 Route::middleware('guest')->group(function () {
@@ -24,7 +22,7 @@ Route::middleware('guest')->group(function () {
         ->name('register');
     Route::post('/register', [RegisteredUserController::class, 'store'])->name('register');
 
-    //Login
+    // Login
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
@@ -38,26 +36,22 @@ Route::middleware('guest')->group(function () {
 
 // Authenticated
 Route::middleware('auth')->group(function () {
-    // TODO: needs changes - adding Controllers
+    // Profile
     Route::get('/profile', function () {
         return view('profile.profile');
     })->name('profile');
 
-    // TODO: needs changes - adding Controllers
-    Route::get('/orders', function () {
-        return view('profile.orders');
-    })->name('orders');
+    // Password Change
+    Route::get('/password-change', [PasswordChangeController::class, 'edit'])->name('password.change');
+    Route::post('/password-change', [PasswordChangeController::class, 'update'])->name('password.change');
 
-    // TODO: needs changes - adding Controllers
-    Route::get('/password-change', function () {
-        return view('profile.password-change');
-    })->name('password-change');
+    // Orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('order.show');
 
-    // TODO: needs changes - adding Controllers
+    // Logout
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-
-    Route::post('/password-change', [PasswordChangeController::class, 'update'])->name('password.change');
 });
 
 // Admin
@@ -82,14 +76,10 @@ Route::get('/products/{product}/variants', [ProductController::class, 'variants'
 
 //Cart
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
 // Order
 Route::post('/delivery-payment', [OrderController::class, 'processDeliveryPayment'])->name('process-delivery-payment');
-
-// TODO: Others - needs changes
-Route::get('/cart', function () {
-    return view('order.cart');
-})->name('cart');
 
 Route::get('/delivery-payment', function () {
     return view('order.delivery-payment');

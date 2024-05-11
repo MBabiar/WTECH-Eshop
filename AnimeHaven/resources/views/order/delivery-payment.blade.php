@@ -1,5 +1,6 @@
 <x-app-layout>
     <form action="{{ route('process-delivery-payment') }}" class="p-0">
+        @csrf
         <section class="main-content content">
             <div class="delivery-payment-container">
                 <div class="container-flex">

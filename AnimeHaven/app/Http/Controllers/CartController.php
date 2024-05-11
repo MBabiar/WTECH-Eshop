@@ -74,7 +74,13 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        if (auth()->user()) {
+            $cartProducts = Cart::where('user_id', auth()->user()->id)->all();
+        } else {
+            $cartProducts = session('cart');
+        }
+
+        return view('cart.show', compact('cartProducts'));
     }
 
     /**

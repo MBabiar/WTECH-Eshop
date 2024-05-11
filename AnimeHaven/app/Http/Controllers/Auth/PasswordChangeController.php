@@ -21,4 +21,12 @@ class PasswordChangeController extends Controller
 
         return back()->with('status', 'password-updated');
     }
+
+    /**
+     * Show the form for editing the user's password.
+     */
+    public function edit()
+    {
+        return view('profile.password-change');
+    }
 }
