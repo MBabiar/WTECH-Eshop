@@ -17,11 +17,16 @@
                     <div class="input-row">
                         <label for="user_email" class="col-label">Email</label>
                         <div class="col-input">
-                            <input type="email" class="form-control" id="user_email" name="user_email"
-                                placeholder="example@gmail.com" value="{{ old('user_email', session('user_email')) }}"
-                                required />
-                            <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Vyplň údaje. example@gmail.com</div>
+                            @auth
+                                <input type="email" class="form-control" id="user_email" name="user_email"
+                                    value="{{ auth()->user()->email }}" readonly />
+                            @else
+                                <input type="email" class="form-control" id="user_email" name="user_email"
+                                    placeholder="example@gmail.com" value="{{ old('user_email', session('user_email')) }}"
+                                    required />
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Vyplň údaje. example@gmail.com</div>
+                            @endauth
                         </div>
                     </div>
 
