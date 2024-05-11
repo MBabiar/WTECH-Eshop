@@ -50,8 +50,10 @@ class OrderController extends Controller
         // Store the order products
         if (auth()->user()) {
             $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
+            Cart::where('user_id', auth()->user()->id)->delete();
         } else {
             $cartProducts = session('cart');
+            session()->forget('cart');
         }
         foreach ($cartProducts as $cartProduct) {
             $order->variants()->attach($cartProduct['variant_id'], ['amount' => $cartProduct['amount']]);
