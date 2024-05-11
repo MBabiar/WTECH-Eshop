@@ -136,10 +136,8 @@
     </div>
 
     {{-- Scripts --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            window.productId = @json($product->id);
-            window.productShowScripts();
-        });
+    <script type="text/javascript">
+        window.productId = @json($product->id);
     </script>
+    @vite(['resources/js/product/show.js']);
 </x-app-layout>

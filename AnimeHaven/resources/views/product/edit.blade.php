@@ -118,9 +118,5 @@
     </div>
 
     {{-- Scripts --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            window.productEditScripts();
-        });
-    </script>
+    @vite(['resources/js/product/admin.js']);
 </x-app-layout>
