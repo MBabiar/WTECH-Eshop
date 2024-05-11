@@ -77,6 +77,9 @@ Route::get('/products/{product}/variants', [ProductController::class, 'variants'
 //Cart
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::post('/cart/{variant_id}/increment', [CartController::class, 'incrementAmount'])->name('cart.incrementAmount');
+Route::post('/cart/{variant_id}/decrement', [CartController::class, 'decrementAmount'])->name('cart.decrementAmount');
+Route::delete('/cart/{variant_id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 // Order
 Route::get('/delivery-payment', [OrderController::class, 'showDeliveryPayment'])->name('delivery-payment');

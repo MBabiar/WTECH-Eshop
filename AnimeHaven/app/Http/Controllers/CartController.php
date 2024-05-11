@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Variant;
-use App\Models\Cart;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use App\Models\Cart;
+use App\Models\Variant;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -75,13 +77,28 @@ class CartController extends Controller
     public function show(Cart $cart)
     {
         if (auth()->user()) {
-            $cartProducts = Cart::where('user_id', auth()->user()->id)->all();
+            $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
         } else {
             $cartProducts = session('cart');
         }
 
-        return view('order.cart', compact('cartProducts'));
+        $products = [];
+        foreach ($cartProducts as $cartProduct) {
+            $variant = Variant::find($cartProduct['variant_id']);
+            $product = $variant->product;
+            $products[] = (object) [
+                'variant_id' => $variant->id,
+                'name' => Str::limit($product->name, 30),
+                'price' => $product->price,
+                'size' => $variant->size,
+                'amount' => $cartProduct['amount'],
+                'image' => $product->images()->first()->image
+            ];
+        }
+
+        return view('order.cart', compact('products'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -102,8 +119,81 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cart $cart)
+    public function destroy($variant_id)
     {
-        //
+        if (auth()->user()) {
+            Cart::where('variant_id', $variant_id)->where('user_id', auth()->id())->delete();
+        } else {
+            $cart = session('cart');
+            foreach ($cart as $key => $item) {
+                if ($item['variant_id'] == $variant_id) {
+                    unset($cart[$key]);
+                }
+            }
+            session()->put('cart', $cart);
+        }
+
+        return back();
+    }
+
+    /**
+     * Increment the amount of the product in the cart.
+     */
+    public function incrementAmount($variant_id)
+    {
+        if (auth()->user()) {
+            $cart = Cart::query()->where('variant_id', $variant_id)->where('user_id', auth()->id())->first();
+            if ($cart->amount < Variant::find($variant_id)->stock) {
+                $cart->amount += 1;
+                $cart->save();
+            } else {
+                return back()->withErrors('Vybrali ste viac kusov ako je skladom.');
+            }
+        } else {
+            $cart = session('cart');
+            foreach ($cart as $key => $item) {
+                Log::info($item['variant_id']);
+                if ($item['variant_id'] == $variant_id) {
+                    if ($item['amount'] < Variant::find($variant_id)->stock) {
+                        $cart[$key]['amount'] += 1;
+                    } else {
+                        return back()->withErrors('Vybrali ste viac kusov ako je skladom.');
+                    }
+                }
+            }
+            session()->put('cart', $cart);
+        }
+
+        return back();
+    }
+
+    /**
+     * Decrement the amount of the product in the cart.
+     */
+    public function decrementAmount($variant_id)
+    {
+        if (auth()->user()) {
+            $cart = Cart::query()->where('variant_id', $variant_id)->where('user_id', auth()->id())->first();
+            if ($cart->amount > 1) {
+                $cart->amount -= 1;
+                $cart->save();
+            } else {
+                $cart->delete();
+            }
+        } else {
+            $cart = session('cart');
+            foreach ($cart as $key => $item) {
+                if ($item['variant_id'] == $variant_id) {
+                    if ($item['amount'] > 1) {
+                        $cart[$key]['amount'] -= 1;
+                    } else {
+                        unset($cart[$key]);
+                    }
+                }
+            }
+            session()->put('cart', $cart);
+        }
+
+        return back();
     }
 }
