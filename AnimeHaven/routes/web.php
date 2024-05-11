@@ -80,7 +80,7 @@ Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
 // Order
 Route::get('/delivery-payment', [OrderController::class, 'showDeliveryPayment'])->name('delivery-payment');
-Route::post('/delivery-payment', [OrderController::class, 'processDeliveryPayment'])->name('process-delivery-payment');
+Route::post('/delivery-payment', [OrderController::class, 'storeDeliveryPayment'])->name('store-delivery-payment');
 Route::get('/order-info', [OrderController::class, 'showOrderInfo'])->name('order-info');
 Route::post('/order-info', [OrderController::class, 'processOrderInfo'])->name('process-order-info');
 
