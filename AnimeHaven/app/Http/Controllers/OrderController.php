@@ -9,26 +9,6 @@ use App\Http\Requests\UpdateOrderRequest;
 
 class OrderController extends Controller
 {
-
-    public function processDeliveryPayment(Request $request)
-    {
-        // Skontrolujte, či boli odoslané údaje z formulára
-        if ($request->isMethod('post')) {
-            // Získajte hodnoty z formulára
-            $doprava = $request->input('doprava');
-            $platba = $request->input('platba');
-
-            // Uložte hodnoty do session premenných
-            session(['doprava' => $doprava]);
-            session(['platba' => $platba]);
-
-            // Presmerujte používateľa na ďalší krok objednávky alebo kamkoľvek inam
-            return redirect()->route('order-info');
-        }
-
-        // Ak nie je požiadavka typu POST, môžete urobiť inú akciu, napr. presmerovať späť
-        return redirect()->back();
-    }
     /**
      * Display a listing of the resource.
      */
@@ -81,6 +61,52 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
+    {
+        //
+    }
+    /**
+     * Show the delivery and payment method.
+     */
+    public function showDeliveryPayment()
+    {
+        return view('order.delivery-payment');
+    }
+
+    /**
+     * Process the delivery and payment method.
+     */
+    public function storeDeliveryPayment(Request $request)
+    {
+        // Skontrolujte, či boli odoslané údaje z formulára
+        if ($request->isMethod('post')) {
+            // Získajte hodnoty z formulára
+            $transportation = $request->input('transportation');
+            $payment_method = $request->input('payment_method');
+
+            // Uložte hodnoty do session premenných
+            session(['transportation' => $transportation]);
+            session(['payment_method' => $payment_method]);
+
+            // Presmerujte používateľa na ďalší krok objednávky alebo kamkoľvek inam
+            return redirect()->route('order-info');
+        }
+
+        // Ak nie je požiadavka typu POST, môžete urobiť inú akciu, napr. presmerovať späť
+        return redirect()->back();
+    }
+
+    /**
+     * Show the order information.
+     */
+    public function showOrderInfo()
+    {
+        return view('order.order-info');
+    }
+
+    /**
+     * Process the order.
+     */
+    public function processOrder()
     {
         //
     }

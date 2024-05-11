@@ -75,11 +75,14 @@ Route::get('/product/{product_id}', [ProductController::class, 'show'])->name('p
 Route::get('/products/{product}/variants', [ProductController::class, 'variants']);
 
 //Cart
-Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 
 // Order
+Route::get('/delivery-payment', [OrderController::class, 'showDeliveryPayment'])->name('delivery-payment');
 Route::post('/delivery-payment', [OrderController::class, 'processDeliveryPayment'])->name('process-delivery-payment');
+Route::get('/order-info', [OrderController::class, 'showOrderInfo'])->name('order-info');
+Route::post('/order-info', [OrderController::class, 'processOrderInfo'])->name('process-order-info');
 
 Route::get('/delivery-payment', function () {
     return view('order.delivery-payment');

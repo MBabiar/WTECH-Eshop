@@ -80,7 +80,7 @@ class CartController extends Controller
             $cartProducts = session('cart');
         }
 
-        return view('cart.show', compact('cartProducts'));
+        return view('order.cart', compact('cartProducts'));
     }
 
     /**
