@@ -67,9 +67,22 @@ class OrderController extends Controller
     /**
      * Show the delivery and payment method.
      */
-    public function showDeliveryPayment()
+    public function showDeliveryPaymentForm()
     {
-        return view('order.delivery-payment');
+        // Predvolené hodnoty
+        $transportation = null;
+        $payment_method = null;
+
+        // Ak existujú údaje v session, použijeme ich
+        if (session()->has('transportation')) {
+            $transportation = session('transportation');
+        }
+        if (session()->has('payment_method')) {
+            $payment_method = session('payment_method');
+        }
+
+        // Vrátiť zobrazenie formulára s predvyplnenými údajmi
+        return view('order.delivery-payment', compact('transportation', 'payment_method'));
     }
 
     /**
@@ -77,22 +90,20 @@ class OrderController extends Controller
      */
     public function storeDeliveryPayment(Request $request)
     {
-        // Skontrolujte, či boli odoslané údaje z formulára
-        if ($request->isMethod('post')) {
-            // Získajte hodnoty z formulára
-            $transportation = $request->input('transportation');
-            $payment_method = $request->input('payment_method');
+        // Validácia údajov
+        $request->validate([
+            'transportation' => 'required',
+            'payment_method' => 'required',
+        ]);
 
-            // Uložte hodnoty do session premenných
-            session(['transportation' => $transportation]);
-            session(['payment_method' => $payment_method]);
+        // Uloženie údajov do session
+        session([
+            'transportation' => $request->transportation,
+            'payment_method' => $request->payment_method,
+        ]);
 
-            // Presmerujte používateľa na ďalší krok objednávky alebo kamkoľvek inam
-            return redirect()->route('order-info');
-        }
-
-        // Ak nie je požiadavka typu POST, môžete urobiť inú akciu, napr. presmerovať späť
-        return redirect()->back();
+        // Presmerovanie na ďalší krok
+        return redirect()->route('order-info');
     }
 
     /**

@@ -6,14 +6,16 @@
                 <div class="container-flex">
                     <h1>Doprava</h1>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="transportation" value="" id=""
-                            checked />
-                        <label class="form-check-label" for=""> Doručenie Domov - Packeta Home </label>
+                        <input class="form-check-input" type="radio" name="transportation" value="packeta_home"
+                            id="packeta_home"
+                            {{ old('transportation', session('transportation')) == 'packeta_home' ? 'checked' : '' }} />
+                        <label class="form-check-label" for="packeta_home"> Doručenie Domov - Packeta Home </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="transportation" value=""
-                            id="" />
-                        <label class="form-check-label" for="">
+                        <input class="form-check-input" type="radio" name="transportation" value="sps"
+                            id="sps"
+                            {{ old('transportation', session('transportation')) == 'sps' ? 'checked' : '' }} />
+                        <label class="form-check-label" for="sps">
                             Doručenie Domov - SPS Slovak Parcel Service
                         </label>
                     </div>
@@ -21,19 +23,22 @@
                 <div class="container-flex mt-4">
                     <h1>Platba</h1>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="payment_method" value=""
-                            id="" checked />
-                        <label class="form-check-label" for=""> Online Platba Kartou </label>
+                        <input class="form-check-input" type="radio" name="payment_method" value="card_payment"
+                            id="card_payment"
+                            {{ old('payment_method', session('payment_method')) == 'card_payment' ? 'checked' : '' }} />
+                        <label class="form-check-label" for="card_payment"> Online Platba Kartou </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="payment_method" value=""
-                            id="" />
-                        <label class="form-check-label" for=""> Google Pay </label>
+                        <input class="form-check-input" type="radio" name="payment_method" value="google_pay"
+                            id="google_pay"
+                            {{ old('payment_method', session('payment_method')) == 'google_pay' ? 'checked' : '' }} />
+                        <label class="form-check-label" for="google_pay"> Google Pay </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="payment_method" value=""
-                            id="" />
-                        <label class="form-check-label" for=""> Dobierkou na mieste </label>
+                        <input class="form-check-input" type="radio" name="payment_method" value="cash_on_delivery"
+                            id="cash_on_delivery"
+                            {{ old('payment_method', session('payment_method')) == 'cash_on_delivery' ? 'checked' : '' }} />
+                        <label class="form-check-label" for="cash_on_delivery"> Dobierkou na mieste </label>
                     </div>
                 </div>
             </div>
