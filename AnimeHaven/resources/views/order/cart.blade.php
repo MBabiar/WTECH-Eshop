@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-price">{{ $product->price }}€</div>
+                <div class="col-price">{{ $product->price * $product->amount }}€</div>
                 <div class="col-delete">
                     <form action="{{ route('cart.destroy', $product->variant_id) }}" method="POST" class="p-0">
                         @csrf
