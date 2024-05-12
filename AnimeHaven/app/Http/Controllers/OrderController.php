@@ -3,13 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Variant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -33,15 +31,6 @@ class OrderController extends Controller
         }
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -63,6 +52,9 @@ class OrderController extends Controller
         $order->user_house_number = $request->validated('user_house_number');
         $order->price = 0;
         $order->save();
+
+        session()->forget('transportation');
+        session()->forget('payment_method');
 
         // Store the order products
         if (auth()->user()) {
@@ -91,41 +83,6 @@ class OrderController extends Controller
         return redirect()->route('homepage')->with('success', 'Objednávka bola úspešne dokončená. Ďakujeme za nákup!');
     }
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
-    {
-        // 
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
-    /**
-     * Show the delivery and payment method.
-     */
     /**
      * Show the delivery and payment method.
      */
@@ -180,6 +137,10 @@ class OrderController extends Controller
      */
     public function showOrderInfo()
     {
+        if (!session()->has('transportation') || !session()->has('payment_method')) {
+            return redirect()->back()->withErrors('Najprv vyplňte spôsob dopravy a platby');
+        }
+
         return view('order.order-info');
     }
 }

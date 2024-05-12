@@ -9,7 +9,7 @@
                         <label for="user_name" class="col-label">Meno a Priezvisko</label>
                         <div class="col-input">
                             <input type="text" class="form-control" id="user_name" name="user_name"
-                                value="{{ old('user_name', session('user_name')) }}" required />
+                                value="{{ old('user_name', session('user_name')) }}" required pattern="^[a-zA-Z\s]*$" />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -23,7 +23,7 @@
                             @else
                                 <input type="email" class="form-control" id="user_email" name="user_email"
                                     placeholder="example@gmail.com" value="{{ old('user_email', session('user_email')) }}"
-                                    required />
+                                    required pattern="^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,}$" />
                                 <div class="valid-feedback">Looks good!</div>
                                 <div class="invalid-feedback">Vyplň údaje. example@gmail.com</div>
                             @endauth
@@ -34,9 +34,10 @@
                         <label for="user_phone" class="col-label">Telefón</label>
                         <div class="col-input">
                             <input type="tel" class="form-control" id="user_phone" name="user_phone"
-                                value="{{ old('user_phone', session('user_phone')) }}" required />
+                                value="{{ old('user_phone', session('user_phone')) }}" required
+                                pattern="^[0-9]{3}\s[0-9]{3}\s[0-9]{3}$" />
                             <div class="valid-feedback">Looks good!</div>
-                            <div class="invalid-feedback">Vyplň údaje. 0xxx xxx xxx</div>
+                            <div class="invalid-feedback">Vyplň údaje.xxx xxx xxx</div>
                         </div>
                     </div>
                     <hr />
@@ -47,10 +48,10 @@
                         <label for="user_country" class="col-label">Krajina</label>
                         <div class="col-input">
                             <select class="form-select" id="user_country" name="user_country" required>
-                                <option value="1"
+                                <option value="Slovakia"
                                     {{ old('user_country', session('user_country')) == '1' ? 'selected' : '' }}>
                                     Slovensko</option>
-                                <option value="2"
+                                <option value="Czech Republic"
                                     {{ old('user_country', session('user_country')) == '2' ? 'selected' : '' }}>Česká
                                     republika</option>
                             </select>
@@ -60,7 +61,7 @@
                         <label for="user_city" class="col-label">Mesto</label>
                         <div class="col-input">
                             <input type="text" class="form-control" id="user_city" name="user_city"
-                                value="{{ old('user_city', session('user_city')) }}" required />
+                                value="{{ old('user_city', session('user_city')) }}" required pattern="^[a-zA-Z\s]*$" />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -69,7 +70,8 @@
                         <label for="user_zip" class="col-label">PSČ</label>
                         <div class="col-input">
                             <input type="number" class="form-control" id="user_zip" name="user_zip"
-                                value="{{ old('user_zip', session('user_zip')) }}" required />
+                                value="{{ old('user_zip', session('user_zip')) }}" required
+                                pattern="^[0-9]{2}-[0-9]{3}$" />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>
@@ -78,7 +80,8 @@
                         <label for="user_street" class="col-label">Ulica</label>
                         <div class="col-input">
                             <input type="text" class="form-control" id="user_street" name="user_street"
-                                value="{{ old('user_street', session('user_street')) }}" required />
+                                value="{{ old('user_street', session('user_street')) }}" required
+                                pattern="^[a-zA-Z\s]*$" />
                             <div class="valid-feedback">Looks good!</div>
                             <div class="invalid-feedback">Vyplň údaje.</div>
                         </div>

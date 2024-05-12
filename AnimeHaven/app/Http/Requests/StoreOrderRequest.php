@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\EmailRegex;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreOrderRequest extends FormRequest
@@ -22,14 +23,14 @@ class StoreOrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_name' => ['required', 'string', 'max:255'],
-            'user_email' => ['required', 'string', 'email', 'max:255'],
-            'user_phone' => ['required', 'string', 'max:255'],
-            'user_country' => ['required', 'string', 'max:255'],
-            'user_city' => ['required', 'string', 'max:255'],
-            'user_zip' => ['required', 'string', 'max:255'],
-            'user_street' => ['required', 'string', 'max:255'],
-            'user_house_number' => ['required', 'integer'],
+            'user_name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]*$/', 'min:2'],
+            'user_email' => ['required', 'string', 'email', 'max:255', new EmailRegex],
+            'user_phone' => ['required', 'string', 'max:255', 'regex:/^[0-9]{3}\s[0-9]{3}\s[0-9]{3}$/'],
+            'user_country' => ['required', 'string', 'max:255', 'in:Slovakia,Czech Republic'],
+            'user_city' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]*$/', 'min:2'],
+            'user_zip' => ['required', 'string', 'max:255', 'regex:/^[0-9]{2}-[0-9]{3}$/'],
+            'user_street' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]*$/', 'min:2'],
+            'user_house_number' => ['required', 'integer', 'min:1'],
         ];
     }
 }
