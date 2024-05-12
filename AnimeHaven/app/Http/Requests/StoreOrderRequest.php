@@ -28,7 +28,7 @@ class StoreOrderRequest extends FormRequest
             'user_phone' => ['required', 'string', 'max:255', 'regex:/^[0-9]{3}\s[0-9]{3}\s[0-9]{3}$/'],
             'user_country' => ['required', 'string', 'max:255', 'in:Slovakia,Czech Republic'],
             'user_city' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]*$/', 'min:2'],
-            'user_zip' => ['required', 'string', 'max:255', 'regex:/^[0-9]{2}-[0-9]{3}$/'],
+            'user_zip' => ['required', 'string', 'max:255', 'regex:/^[0-9]{5}$/'],
             'user_street' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]*$/', 'min:2'],
             'user_house_number' => ['required', 'integer', 'min:1'],
         ];

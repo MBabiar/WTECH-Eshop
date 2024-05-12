@@ -17,6 +17,7 @@ class Product extends Model
         'category',
         'anime',
         'color',
+        'popularity',
     ];
 
     /**

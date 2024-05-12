@@ -75,8 +75,9 @@ class OrderController extends Controller
 
         foreach ($cartProducts as $cartProduct) {
             $variant = Variant::find($cartProduct['variant_id']);
-            $productId = $variant->product()->first()->id;
-            Cache::forget('product-' . $productId);
+            $product = $variant->product()->first();
+            Cache::forget('product-' . $product->id);
+            $product->update(['popularity' => $product->popularity + $cartProduct['amount']]);
             $variant->update(['stock' => $variant->stock - $cartProduct['amount']]);
         }
 

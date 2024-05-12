@@ -1,0 +1,87 @@
+@startuml DBS - Zadanie 4
+
+left to right direction
+skinparam class {
+    FontStyle bold
+}
+
+!define primary_key(x) <b><color:#b8861b><&key></color> <color:#b8861b>x:</color></b>
+!define foreign_key(x) <b><color:#464600><&key></color> <color:#464600>x</color>:</b>
+!define column(x) <b><color:#efefef></color>x:</b>
+!define value(x) <b><color:#7e2798>x</color></b>
+!define table(x) entity x << (T, white) >>
+
+table(users) {
+    primary_key(id) value(INT)
+    --
+    column(email) value(VARCHAR)
+    column(password) value(VARCHAR)
+    column(remember_token) value(VARCHAR)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
+}
+
+table(role) {
+    primary_key(id) value(INT)
+    --
+    column(name) value(VARCHAR)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
+}
+
+table(role_user) {
+    primary_key(id) value(INT)
+    --
+    foreign_key(user_id) value(INT)
+    foreign_key(role_id) value(INT)
+}
+
+table(products) {
+    primary_key(id) value(INT)
+    --
+    column(name) value(VARCHAR)
+    column(description) value(TEXT)
+    column(category) value(VARCHAR)
+    column(anime) value(VARCHAR)
+    column(color) value(VARCHAR)
+    column(price) value(NUMERIC(8,2))
+    column(popularity) value(INT)
+
+
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
+}
+
+table(images) {
+    primary_key(id) value(INT)
+    --
+    foreign_key(product_id) value(INT)
+    column(image) value(VARCHAR)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
+}
+
+table(varinats) {
+    primary_key(id) value(INT)
+    --
+}
+
+table(orders) {
+    primary_key(id) value(INT)
+    --
+}
+
+table(order_varinat) {
+    primary_key(id) value(INT)
+    --
+}
+
+table(cart) {
+    primary_key(id) value(INT)
+    --
+}
+
+role ||--o{ role_user
+role_user }o--|| users
+
+@enduml
