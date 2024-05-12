@@ -36,6 +36,46 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
+
+        // Check for variant amounts
+        if (auth()->user()) {
+            $cartProducts = Cart::where('user_id', auth()->user()->id)->get();
+        } else {
+            $cartProducts = session('cart');
+        }
+
+        // Check if the product is still in stock
+        foreach ($cartProducts as $cartProduct) {
+            $variant = Variant::find($cartProduct['variant_id']);
+            if ($variant->stock < $cartProduct['amount']) {
+                // If the product is out of stock, delete it from the cart
+                // Else update the amount to the maximum available
+                if ($variant->stock == 0) {
+                    if (auth()->user()) {
+                        Cart::where('user_id', auth()->user()->id)->where('variant_id', $cartProduct['variant_id'])->delete();
+                    } else {
+                        foreach (session('cart') as $key => $cart) {
+                            if ($cart['variant_id'] == $cartProduct['variant_id']) {
+                                session()->forget('cart.' . $key);
+                            }
+                        }
+                    }
+                    return redirect()->route('homepage')->withErrors('Produkt ' . $variant->product->name . ' s veľkosťou ' . $variant->size . ' nie je dostupný. Bol odstránený z košíka.');
+                } else {
+                    if (auth()->user()) {
+                        Cart::where('user_id', auth()->user()->id)->where('variant_id', $cartProduct['variant_id'])->update(['amount' => $variant->stock]);
+                    } else {
+                        foreach (session('cart') as $key => $cart) {
+                            if ($cart['variant_id'] == $cartProduct['variant_id']) {
+                                session()->put('cart.' . $key . '.amount', $variant->stock);
+                            }
+                        }
+                    }
+                    return redirect()->route('homepage')->withErrors('Produkt ' . $variant->product->name . ' s veľkosťou ' . $variant->size . ' je momentálne skladom len v počte ' . $variant->stock . ' kusov. Zmenili sme počet na.' . $variant->stock);
+                }
+            }
+        }
+
         $order = new Order();
         if (auth()->user()) {
             $order->user_id = auth()->user()->id;
