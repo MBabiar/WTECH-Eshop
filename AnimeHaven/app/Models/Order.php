@@ -37,6 +37,6 @@ class Order extends Model
      */
     public function variants(): BelongsToMany
     {
-        return $this->belongsToMany(Variant::class);
+        return $this->belongsToMany(Variant::class)->withPivot('amount');
     }
 }

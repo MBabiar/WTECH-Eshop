@@ -18,7 +18,15 @@ class OrderController extends Controller
     public function index()
     {
         if (auth()->user()) {
-            $orders = Order::where('user_id', auth()->user()->id)->get();
+            $orders = Order::with('variants')->where('user_id', auth()->user()->id)->get();
+
+            foreach ($orders as $order) {
+                foreach ($order->variants as $variant) {
+                    $pivotData = $variant->pivot;
+                    Log::info($pivotData);
+                }
+            }
+
             return view('profile.orders', compact('orders'));
         } else {
             return redirect()->route('login');
@@ -64,10 +72,10 @@ class OrderController extends Controller
             $cartProducts = session('cart');
             session()->forget('cart');
         }
+
         $priceSum = 0;
         foreach ($cartProducts as $cartProduct) {
             $price = Variant::find($cartProduct['variant_id'])->product->price;
-            Log::info($price);
             $priceSum += $price * $cartProduct['amount'];
             $order->variants()->attach($cartProduct['variant_id'], ['amount' => $cartProduct['amount']]);
         }

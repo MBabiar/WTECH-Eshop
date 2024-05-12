@@ -15,7 +15,7 @@
                             @foreach ($order->variants as $variant)
                                 <p class="card-text">{{ $variant->product->name }} - {{ $variant->product->price }}€ -
                                     Počet kusov:
-                                    {{ $variant->orders()->where('order_id', $order->id)->first()->pivot->amount }}
+                                    {{ $variant->pivot->amount }}
                                 </p>
                             @endforeach
                             <h5 class="card-title">Cena</h5>
