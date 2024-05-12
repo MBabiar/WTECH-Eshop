@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Variant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
@@ -23,7 +24,6 @@ class OrderController extends Controller
             foreach ($orders as $order) {
                 foreach ($order->variants as $variant) {
                     $pivotData = $variant->pivot;
-                    Log::info($pivotData);
                 }
             }
 
@@ -83,6 +83,8 @@ class OrderController extends Controller
 
         foreach ($cartProducts as $cartProduct) {
             $variant = Variant::find($cartProduct['variant_id']);
+            $productId = $variant->product()->first()->id;
+            Cache::forget('product-' . $productId);
             $variant->update(['stock' => $variant->stock - $cartProduct['amount']]);
         }
 

@@ -243,8 +243,6 @@ class ProductController extends Controller
 
             // Create new variants based on the category
             if ($newCategory === 'hat') {
-                Log::info('Creating hat variant');
-                Log::info('Stock: ' . $variants['A']);
                 $product->variants()->create([
                     'product_id' => $product->id,
                     'size' => 'A',
@@ -253,8 +251,6 @@ class ProductController extends Controller
             } else {
                 $sizes = ['S', 'M', 'L', 'XL'];
                 foreach ($sizes as $size) {
-                    Log::info('Creating size ' . $size . ' variant');
-                    Log::info('Stock: ' . $variants[$size]);
                     $product->variants()->create([
                         'product_id' => $product->id,
                         'size' => $size,

@@ -168,7 +168,6 @@ class CartController extends Controller
         } else {
             $cart = session('cart');
             foreach ($cart as $key => $item) {
-                Log::info($item['variant_id']);
                 if ($item['variant_id'] == $variant_id) {
                     if ($item['amount'] < Variant::find($variant_id)->stock) {
                         $cart[$key]['amount'] += 1;

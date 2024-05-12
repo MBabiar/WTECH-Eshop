@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Objednané produkty</h5>
                             @foreach ($order->variants as $variant)
-                                <p class="card-text">{{ $variant->product->name }} - {{ $variant->product->price }}€ -
+                                <p class="card-text">{{ $variant->product->name }} - {{ $variant->product->price }}€/ks -
                                     Počet kusov:
                                     {{ $variant->pivot->amount }}
                                 </p>
