@@ -19,26 +19,23 @@
                     </a>
                 </div>
                 <div class="col-piece-amount">
+                    <label for="amount{{ $product->variant_id }}" class="amount-label">Počet kusov:</label>
                     <input type="number" id="amount{{ $product->variant_id }}"
-                        name="amounts[{{ $product->variant_id }}]" class="input-piece-amount"
-                        value="{{ $product->amount }}" min="1" data-min="1" required />
-                    <div class="container">
-                        <div class="row">
-                            <form action="{{ route('cart.incrementAmount', $product->variant_id) }}" method="POST"
-                                class="p-0">
-                                @csrf
-                                <button type="submit" id="inc-button{{ $product->variant_id }}"
-                                    class="inc-dec-button">↑</button>
-                            </form>
-                        </div>
-                        <div class="row">
-                            <form action="{{ route('cart.decrementAmount', $product->variant_id) }}" method="POST"
-                                class="p-0">
-                                @csrf
-                                <button type="submit" id="dec-button{{ $product->variant_id }}"
-                                    class="inc-dec-button">↓</button>
-                            </form>
-                        </div>
+                        name="amounts[{{ $product->variant_id }}]" class="show-piece-amount"
+                        value="{{ $product->amount }}" min="1" data-min="1" required readonly />
+                    <div>
+                        <form action="{{ route('cart.incrementAmount', $product->variant_id) }}" method="POST"
+                            class="form-cart-row">
+                            @csrf
+                            <button type="submit" id="inc-button{{ $product->variant_id }}"
+                                class="inc-dec-button-show">↑</button>
+                        </form>
+                        <form action="{{ route('cart.decrementAmount', $product->variant_id) }}" method="POST"
+                            class="form-cart-row">
+                            @csrf
+                            <button type="submit" id="dec-button{{ $product->variant_id }}"
+                                class="inc-dec-button-show">↓</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-price">{{ $product->price * $product->amount }}€</div>
