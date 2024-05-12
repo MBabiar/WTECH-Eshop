@@ -8,7 +8,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <form action="{{ route('product.index', ['category' => request('category')]) }}" method="GET"
-            class="navbar-collapse collapse row" id="navbarSupportedContent">
+            class="navbar-collapse collapse row m-0" id="navbarSupportedContent">
             @csrf
             @if (request('sort'))
                 <input type="hidden" name="sort" value="{{ request('sort') }}">
