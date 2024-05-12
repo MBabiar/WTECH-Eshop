@@ -21,7 +21,7 @@ table(users) {
     column(updated_at) value(TIMESTAMP)
 }
 
-table(role) {
+table(roles) {
     primary_key(id) value(INT)
     --
     column(name) value(VARCHAR)
@@ -46,8 +46,6 @@ table(products) {
     column(color) value(VARCHAR)
     column(price) value(NUMERIC(8,2))
     column(popularity) value(INT)
-
-
     column(created_at) value(TIMESTAMP)
     column(updated_at) value(TIMESTAMP)
 }
@@ -64,24 +62,64 @@ table(images) {
 table(varinats) {
     primary_key(id) value(INT)
     --
+    foreign_key(product_id) value(INT)
+    column(size) value(VARCHAR)
+    column(stock) value(INT)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
 }
 
 table(orders) {
     primary_key(id) value(INT)
     --
+    foreign_key(user_id) value(INT)
+    column(user_name) value(VARCHAR)
+    column(user_email) value(VARCHAR)
+    column(user_phone) value(VARCHAR)
+    column(transportation) value(VARCHAR)
+    column(payment_method) value(VARCHAR)
+    column(user_country) value(VARCHAR)
+    column(user_city) value(VARCHAR)
+    column(user_zip) value(VARCHAR)
+    column(user_street) value(VARCHAR)
+    column(user_house_number) value(INT)
+    column(price) value(FLOAT)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
 }
 
 table(order_varinat) {
     primary_key(id) value(INT)
     --
+    foreign_key(order_id) value(INT)
+    foreign_key(varinat_id) value(INT)
+    column(amount) value(INT)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
 }
 
-table(cart) {
+table(carts) {
     primary_key(id) value(INT)
     --
+    foreign_key(user_id) value(INT)
+    foreign_key(varinat_id) value(INT)
+    column(amount) value(INT)
+    column(created_at) value(TIMESTAMP)
+    column(updated_at) value(TIMESTAMP)
 }
 
-role ||--o{ role_user
-role_user }o--|| users
+users::id ||--o{ role_user::user_id
+role_user::role_id }o--|| roles::id
+
+images::product_id }o--|| products::id
+products::id ||--|{ varinats::product_id
+
+orders::user_id }o--|| users::id
+users::id ||--o{ carts::user_id
+
+order_varinat::order_id }o--||orders::id
+order_varinat::varinat_id }o--|| varinats::id
+
+varinats::id ||--o{ carts::varinat_id
 
 @enduml

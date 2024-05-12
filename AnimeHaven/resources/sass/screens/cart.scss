@@ -9,9 +9,16 @@
     border: 1px solid $secondary;
 }
 
-.product-link {
-    @extend .col, .row;
+.product-link-col {
+    @extend .col-xl, .col-lg, .col-md-12, .col-12;
     justify-content: center;
+}
+
+.product-link {
+    @extend .row;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
 }
 
 .col-image {
@@ -44,6 +51,40 @@
     background-color: black;
     border-color: black;
     width: 30px;
+    &:hover {
+        background-color: $danger;
+        border-color: $danger;
+    }
+}
+
+.show-piece-amount {
+    width: 40px;
+    height: 50px;
+    text-align: center;
+    -webkit-appearance: none;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    -moz-appearance: textfield;
+    appearance: none;
+}
+
+.form-cart-row {
+    @extend .row;
+    padding: 0;
+    margin: 0;
+}
+
+.inc-dec-button-show {
+    @extend .btn, .btn-primary, .btn-sm, .rounded-0;
+    background-color: black;
+    border-color: black;
+    margin: 0;
+    padding: 0;
+    width: 25px;
+    height: 25px;
     &:hover {
         background-color: $danger;
         border-color: $danger;
